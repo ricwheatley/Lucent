@@ -1,0 +1,9 @@
+<Project>
+  <ItemGroup>
+    <PackageVersion Include="System.Text.Json"                   Version="8.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Logging"       Version="8.0.5" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.5" />
+  </ItemGroup>
+</Project>
