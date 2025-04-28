@@ -1,4 +1,5 @@
 ﻿using Lucent.Core;
+using Lucent.Client;
 using Lucent.Core.Loaders;
 using Lucent.Auth.TokenCache;
 using Lucent.Scheduler;
@@ -24,6 +25,7 @@ var schedPath = Path.Combine(
                 Path.GetDirectoryName(sharedCfg)!,
                 "tenant-schedule.json");
 
+builder.Services.AddScoped<ILucentClient, XeroApiClient>();
 builder.Services.AddSingleton<IPolicyRegistry<string>>(sp =>
 {
     var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
@@ -47,10 +49,13 @@ builder.Logging.AddSimpleConsole(o =>
 builder.Services
     .AddHttpClient("LucentHttp")
     .AddPolicyHandlerFromRegistry(RetryPolicies.StandardHttpPolicy);
-builder.Services.AddSingleton<IRestClient>(_ =>
+
+builder.Services.AddSingleton<IRestClient>(sp =>
 {
-    var rc = new RestClient("https://identity.xero.com/connect/token");
-    return rc;
+    var http = sp.GetRequiredService<IHttpClientFactory>()
+                 .CreateClient("LucentHttp");
+    http.BaseAddress = new Uri("https://identity.xero.com/connect/token");
+    return new RestClient(http);
 });
 
 /* ───── services ──────────────────────────────────────────── */
