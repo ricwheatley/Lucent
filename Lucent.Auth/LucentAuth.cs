@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RestSharp;
+using RestSharp.Serializers.Json;   // for the stub response helper
 
 namespace Lucent.Auth;
 
@@ -21,15 +22,18 @@ public sealed class LucentAuth : ILucentAuth
 
     private string? _cachedToken;
     private DateTime _expiresUtc;
+    private readonly IRestClient _rest;
 
     public LucentAuth(
         IConfiguration cfg,
         ILogger<LucentAuth> log,
-        IOptions<TokenCacheOptions> opts)        // <-- new options injection
+        IOptions<TokenCacheOptions> opts,
+        IRestClient restClient)
     {
         _cfg = cfg;
         _log = log;
         _earlyExpiry = TimeSpan.FromSeconds(opts.Value.EarlyExpirySeconds);
+        _rest = restClient;
     }
 
     public async Task<string> GetAccessTokenAsync(CancellationToken ct)
@@ -47,12 +51,11 @@ public sealed class LucentAuth : ILucentAuth
             ["client_secret"] = _cfg["Lucent:ClientSecret"]
         };
 
-        var req = new RestRequest();
+        var req = new RestRequest { Method = Method.Post };
         foreach (var kv in form)
             req.AddParameter(kv.Key, kv.Value ?? string.Empty, ParameterType.GetOrPost);
 
-        var resp = await new RestClient("https://identity.xero.com/connect/token")
-                            .ExecutePostAsync(req, ct);
+        var resp = await _rest.ExecuteAsync(req, ct);
 
         if (!resp.IsSuccessful)
         {
