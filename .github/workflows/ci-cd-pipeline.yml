@@ -50,10 +50,7 @@ jobs:
         run: dotnet restore Lucent.Api/Lucent.Api.csproj
       - name: 🚧 Publish Lucent.Api explicitly
         run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish/Lucent.Api
-      - name: 📋 Explicitly Copy Shared Config
-        run: |
-          cp ./config/appsettings.json ./publish/Lucent.Api/
-          cp ./config/appsettings.Development.json ./publish/Lucent.Api/
+
       - name: 🚚 Upload Lucent.Api Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -77,10 +74,7 @@ jobs:
         run: dotnet restore Lucent.Scheduler/Lucent.Scheduler.csproj
       - name: 🚧 Publish Lucent.Scheduler explicitly
         run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish/Lucent.Scheduler
-      - name: 📋 Explicitly Copy Shared Config
-        run: |
-          cp ./config/appsettings.json ./publish/Lucent.Scheduler/
-          cp ./config/appsettings.Development.json ./publish/Lucent.Scheduler/
+
       - name: 🚚 Upload Lucent.Scheduler Artifact
         uses: actions/upload-artifact@v4
         with:

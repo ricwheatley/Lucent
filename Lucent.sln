@@ -14,6 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		config\appsettings.json = config\appsettings.json
+		.github\workflows\ci-cd-pipeline.yml = .github\workflows\ci-cd-pipeline.yml
 		Directory.Packages.props = Directory.Packages.props
 		gitignore = gitignore
 		global.json = global.json
