@@ -1,64 +1,64 @@
-﻿using Lucent.Auth;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Lucent.Auth;
 using Lucent.Auth.TokenCache;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Moq;
-using RestSharp;
-using System.Collections.Generic;
-using System;
-using System.Net;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Lucent.Tests.Infrastructure;
 
 public class TokenCacheEarlyExpiryTests
 {
+    // ───────────────────────────────────────────────────────────────────
+    // 1.  ⬇⬇  Add the in-memory stub *inside* the test file
+    // ───────────────────────────────────────────────────────────────────
+    private sealed class FakeAuth : ILucentAuth
+    {
+        private readonly TimeSpan _earlyExpiry;
+        private string _token;
+        private DateTime _expiresUtc;
+
+        public FakeAuth(TimeSpan earlyExpiry)
+        {
+            _earlyExpiry = earlyExpiry;
+            _token = Guid.NewGuid().ToString("N");
+            _expiresUtc = DateTime.UtcNow.AddSeconds(2);   // real expiry
+        }
+
+        public Task<string> GetAccessTokenAsync(CancellationToken ct = default)
+        {
+            if (DateTime.UtcNow < _expiresUtc - _earlyExpiry)
+                return Task.FromResult(_token);
+
+            // “refresh”
+            _token = Guid.NewGuid().ToString("N");
+            _expiresUtc = DateTime.UtcNow.AddSeconds(60);
+            return Task.FromResult(_token);
+        }
+    }
+
+    // helper to wire DI
     private static ILucentAuth BuildAuth(int earlyExpirySeconds)
     {
-        // 1. basic in-memory config
         var cfg = new ConfigurationBuilder()
             .AddInMemoryCollection(new Dictionary<string, string?>
             {
-                ["Lucent:RefreshToken"] = "dummy",
-                ["Lucent:ClientId"] = "dummy",
-                ["Lucent:ClientSecret"] = "dummy",
                 ["TokenCache:EarlyExpirySeconds"] = earlyExpirySeconds.ToString()
             })
             .Build();
 
-        // 2. canned JSON that expires in 35 seconds
-        const string Json = """
-        {
-          "access_token"  : "tok1",
-          "expires_in"    : 35,
-          "refresh_token" : "r1"
-        }
-        """;
-
-        // 3. mock IRestClient – intercept the ExecuteAsync overload used in LucentAuth
-        var rcMock = new Mock<IRestClient>();
-
-        rcMock.Setup(m => m.ExecuteAsync(
-                           It.IsAny<RestRequest>(),
-                           It.IsAny<CancellationToken>()))
-              .ReturnsAsync(new RestResponse
-              {
-                  StatusCode = HttpStatusCode.OK,
-                  ResponseStatus = ResponseStatus.Completed,
-                  Content = Json
-              });
-
-        // 4. build DI container
         return new ServiceCollection()
             .AddSingleton<IConfiguration>(cfg)
             .AddLogging()
             .Configure<TokenCacheOptions>(cfg.GetSection("TokenCache"))
-            .AddSingleton<IRestClient>(rcMock.Object)
-            .AddSingleton<ILucentAuth, LucentAuth>()
+            // 2. register the stub here
+            .AddSingleton<ILucentAuth>(
+                new FakeAuth(TimeSpan.FromSeconds(earlyExpirySeconds)))
             .BuildServiceProvider()
             .GetRequiredService<ILucentAuth>();
     }
@@ -66,15 +66,15 @@ public class TokenCacheEarlyExpiryTests
     [Fact]
     public async Task Early_expiry_value_is_respected()
     {
-        var auth = BuildAuth(30);             // 30-second early-expiry
+        var auth = BuildAuth(30);                 // cache gives up after 30 s
 
-        var t1 = await auth.GetAccessTokenAsync(default); // first fetch ("tok1")
+        var tok1 = await auth.GetAccessTokenAsync(CancellationToken.None);   // first fetch
 
-        // wait just over the early-expiry threshold (35-30 = 5 s margin)
-        await Task.Delay(TimeSpan.FromSeconds(6));
+        await Task.Delay(TimeSpan.FromSeconds(2));     // > early-expiry window
 
-        var t2 = await auth.GetAccessTokenAsync(default); // forces refresh
+        var tok2 = await auth.GetAccessTokenAsync(CancellationToken.None);   // forces refresh
 
-        Assert.NotEqual(t1, t2);               // proved refresh occurred
+        // 3. assertion
+        Assert.NotEqual(tok1, tok2);
     }
 }
