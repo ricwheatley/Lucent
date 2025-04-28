@@ -54,7 +54,7 @@ public class TokenCacheEarlyExpiryTests
 
         // 4. build DI container
         return new ServiceCollection()
-            .AddSingleton(cfg)
+            .AddSingleton<IConfiguration>(cfg)
             .AddLogging()
             .Configure<TokenCacheOptions>(cfg.GetSection("TokenCache"))
             .AddSingleton<IRestClient>(rcMock.Object)
