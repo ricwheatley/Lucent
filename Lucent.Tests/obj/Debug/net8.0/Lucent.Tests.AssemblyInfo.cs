@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lucent.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+77c26ae6f4c3ae1b6972a52a1725691c1904c3b3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9039f82369798b49ee9faf8bf043fe5b826265d7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lucent.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lucent.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
