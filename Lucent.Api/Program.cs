@@ -3,12 +3,16 @@ using Lucent.Core.Loaders;
 using Lucent.Auth.TokenCache;
 using Lucent.Scheduler;
 using Lucent.Api;                 // RunRequest / RunStatus
+using Lucent.Auth;
+using Lucent.Resilience;
+using Polly.Registry;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Quartz;
 using Lucent.Core.Scheduling;
+using RestSharp;
 using System.Text.Json;         // for validation, optional
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +24,14 @@ var schedPath = Path.Combine(
                 Path.GetDirectoryName(sharedCfg)!,
                 "tenant-schedule.json");
 
+builder.Services.AddSingleton<IPolicyRegistry<string>>(sp =>
+{
+    var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
+    return RetryPolicies.BuildRegistry(loggerFactory);
+});
+
 builder.Configuration.AddJsonFile(sharedCfg, optional: false, reloadOnChange: true);
+
 builder.Services
        .AddOptions<TokenCacheOptions>()
        .Bind(builder.Configuration.GetSection("TokenCache"))
@@ -33,11 +44,20 @@ builder.Logging.AddSimpleConsole(o =>
     o.IncludeScopes = true;   // shows “=> CorrelationId: ab12cd34”
 });
 
+builder.Services
+    .AddHttpClient("LucentHttp")
+    .AddPolicyHandlerFromRegistry(RetryPolicies.StandardHttpPolicy);
+builder.Services.AddSingleton<IRestClient>(_ =>
+{
+    var rc = new RestClient("https://identity.xero.com/connect/token");
+    return rc;
+});
+
 /* ───── services ──────────────────────────────────────────── */
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ILucentLoader, NoOpLucentLoader>();
-
+builder.Services.AddScoped<ILucentAuth, LucentAuth>();
 builder.Services.AddLucentScheduler();          // extension in Lucent.Scheduler
 builder.Services.AddSingleton<RunRegistry>();   // shared run-state
 builder.Services.AddSingleton<ITenantScheduleStore>(
