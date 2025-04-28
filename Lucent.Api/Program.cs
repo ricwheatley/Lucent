@@ -1,5 +1,6 @@
 ﻿using Lucent.Core;
 using Lucent.Core.Loaders;
+using Lucent.Auth.TokenCache;
 using Lucent.Scheduler;
 using Lucent.Api;                 // RunRequest / RunStatus
 using Microsoft.AspNetCore.Builder;
@@ -20,7 +21,10 @@ var schedPath = Path.Combine(
                 "tenant-schedule.json");
 
 builder.Configuration.AddJsonFile(sharedCfg, optional: false, reloadOnChange: true);
-
+builder.Services
+       .AddOptions<TokenCacheOptions>()
+       .Bind(builder.Configuration.GetSection("TokenCache"))
+       .ValidateDataAnnotations();
 builder.Logging.ClearProviders();
 builder.Logging.AddSimpleConsole(o =>
 {
