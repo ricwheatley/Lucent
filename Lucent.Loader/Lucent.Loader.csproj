@@ -25,8 +25,17 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<!-- Stop implicit copy of config, CI pipeline adds config explicitly -->
-		<None Update="appsettings.json"               CopyToPublishDirectory="Never" />
-		<None Update="appsettings.Development.json"   CopyToPublishDirectory="Never" />
+		<!-- Remove the default copy -->
+		<None Remove="appsettings.json" />
+		<None Remove="appsettings.Development.json" />
+
+		<!-- Add back a namespaced copy so the file name is unique -->
+		<None Include="appsettings.json"
+			  Link="config/loader/appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+
+		<None Include="appsettings.Development.json"
+			  Link="config/loader/appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest" />
 	</ItemGroup>
 </Project>
