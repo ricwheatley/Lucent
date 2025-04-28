@@ -35,36 +35,35 @@ jobs:
         run: dotnet test Lucent.sln --configuration Release --no-build
 
   publish-lucent-api:
-   name: 🚀 Publish Lucent.Api
-   needs: build-and-test
-   runs-on: ubuntu-latest
+    name: 🚀 Publish Lucent.Api
+    needs: build-and-test
+    runs-on: ubuntu-latest
 
-   steps:
-    - name: 📥 Checkout Repository
-      uses: actions/checkout@v4
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
 
-    - name: ⚙️ Setup .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: ⚙️ Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
 
-    - name: 📦 Restore Dependencies
-      run: dotnet restore Lucent.Api/Lucent.Api.csproj
+      - name: 📦 Restore Dependencies
+        run: dotnet restore Lucent.Api/Lucent.Api.csproj
 
-    - name: 🚧 Publish Lucent.Api explicitly
-      run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./Lucent-Api-Publish --no-restore
+      - name: 🚧 Publish Lucent.Api explicitly
+        run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish/Lucent.Api
 
-    - name: 📋 Explicitly Copy Shared Config
-      run: |
-        cp ./config/appsettings.json ./Lucent-Api-Publish/
-        cp ./config/appsettings.Development.json ./Lucent-Api-Publish/
+      - name: 📋 Explicitly Copy Shared Config
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Api/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Api/
 
-    - name: 🚚 Upload Lucent.Api Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: Lucent-Api-App
-        path: ./Lucent-Api-Publish
-
+      - name: 🚚 Upload Lucent.Api Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucent-Api-App
+          path: ./publish/Lucent.Api
 
   publish-lucent-loader:
     name: 🚀 Publish Lucent.Loader
@@ -84,18 +83,18 @@ jobs:
         run: dotnet restore Lucent.Loader/Lucent.Loader.csproj
 
       - name: 🚧 Publish Lucent.Loader explicitly
-        run: dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./Lucent-Loader-Publish --no-restore
+        run: dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./publish/Lucent.Loader
 
       - name: 📋 Explicitly Copy Shared Config
         run: |
-          cp ./config/appsettings.json ./Lucent-Loader-Publish/
-          cp ./config/appsettings.Development.json ./Lucent-Loader-Publish/
+          cp ./config/appsettings.json ./publish/Lucent.Loader/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Loader/
 
       - name: 🚚 Upload Lucent.Loader Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Lucent-Loader-App
-          path: ./Lucent-Loader-Publish
+          path: ./publish/Lucent.Loader
 
   publish-lucent-scheduler:
     name: 🚀 Publish Lucent.Scheduler
@@ -115,15 +114,15 @@ jobs:
         run: dotnet restore Lucent.Scheduler/Lucent.Scheduler.csproj
 
       - name: 🚧 Publish Lucent.Scheduler explicitly
-        run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./Lucent-Scheduler-Publish --no-restore
+        run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish/Lucent.Scheduler
 
       - name: 📋 Explicitly Copy Shared Config
         run: |
-          cp ./config/appsettings.json ./Lucent-Scheduler-Publish/
-          cp ./config/appsettings.Development.json ./Lucent-Scheduler-Publish/
+          cp ./config/appsettings.json ./publish/Lucent.Scheduler/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Scheduler/
 
       - name: 🚚 Upload Lucent.Scheduler Artifact
         uses: actions/upload-artifact@v4
         with:
           name: Lucent-Scheduler-App
-          path: ./Lucent-Scheduler-Publish
+          path: ./publish/Lucent.Scheduler
