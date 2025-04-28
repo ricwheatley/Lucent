@@ -1,21 +1,23 @@
-﻿namespace Lucent.Core.Models
+﻿namespace Lucent.Core.Models;
+
+/// <summary>
+/// Example domain entity for Lucent.
+/// </summary>
+public class ExampleModel
 {
-    /// <summary>
-    /// Example domain model for Lucent.
-    /// </summary>
-    public class ExampleModel
+    /// <summary>Primary key.</summary>
+    public required int Id { get; init; }
+
+    /// <summary>Human-readable name.</summary>
+    public required string Name { get; init; }
+
+    // parameter-less ctor so object-initialiser syntax works
+    public ExampleModel() { }
+
+    // convenience ctor for terse builds in tests
+    public ExampleModel(int id, string name)
     {
-        // Callers are obliged to set this, so it's never left null.
-        public required string Name { get; init; }
-
-        // You can still include an optional constructor for convenience,
-        // but the object-initialiser syntax will work too.
-        public ExampleModel() { }
-
-        // Optional convenience constructor
-        public ExampleModel(string name)
-        {
-            Name = name;
-        }
+        Id = id;
+        Name = name;
     }
 }
