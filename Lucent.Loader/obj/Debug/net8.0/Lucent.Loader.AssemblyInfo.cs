@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lucent.Loader")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ca5c166372ee29e1974089c9541b564cfe0cc2d6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d45c6803712c2847c3ffed72291a0493c4a2dfa")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lucent.Loader")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lucent.Loader")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

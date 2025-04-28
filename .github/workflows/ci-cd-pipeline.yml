@@ -8,9 +8,8 @@ on:
     branches:
       - master
 
-env:
+env: 
   DOTNET_VERSION: '8.0.x'
-  SOLUTION_FILE: 'Lucent.sln'
 
 jobs:
   build-and-test:
@@ -21,47 +20,69 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
+      - name: ⚙️ Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: 📦 Restore Dependencies
-        run: dotnet restore ${{ env.SOLUTION_FILE }}
+      - name: 📦 Restore Solution
+        run: dotnet restore Lucent.sln
 
       - name: 🚧 Build Solution
-        run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore
+        run: dotnet build Lucent.sln --configuration Release --no-restore
 
       - name: 🧪 Run Unit Tests
-        run: dotnet test ${{ env.SOLUTION_FILE }} --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
+        run: dotnet test Lucent.sln --configuration Release --no-build
 
-      - name: 📊 Publish Test Results
-        uses: actions/upload-artifact@v4
-        with:
-          name: Test Results
-          path: '**/TestResults/*.xml'
-
-      - name: 📈 Publish Coverage Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: Coverage Report
-          path: '**/coverage.cobertura.xml'
-
-  deploy-dev:
-    name: 🚀 Deploy to Development (Manual Approval)
+  publish-lucent-api:
+    name: 🚀 Publish Lucent.Api
     needs: build-and-test
     runs-on: ubuntu-latest
-    environment:
-      name: Development
-      url: https://your-development-environment-url.com
 
     steps:
-    - name: 📥 Checkout Repository
-      uses: actions/checkout@v4
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      - name: ⚙️ Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: 📦 Restore Dependencies
+        run: dotnet restore Lucent.Api/Lucent.Api.csproj
+      - name: 🚧 Publish Lucent.Api explicitly
+        run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish/Lucent.Api
+      - name: 📋 Explicitly Copy Shared Config
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Api/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Api/
+      - name: 🚚 Upload Lucent.Api Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucent-Api-App
+          path: ./publish/Lucent.Api
 
-    - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }}
+  publish-lucent-loader:
+    name: 🚀 Publish Lucent.Loader
+    needs: build-and-test
+    runs-on: ubuntu-latest
 
 
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+      - name: ⚙️ Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      - name: 📦 Restore Dependencies
+        run: dotnet restore Lucent.Scheduler/Lucent.Scheduler.csproj
+      - name: 🚧 Publish Lucent.Scheduler explicitly
+        run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish/Lucent.Scheduler
+      - name: 📋 Explicitly Copy Shared Config
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Scheduler/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Scheduler/
+      - name: 🚚 Upload Lucent.Scheduler Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucent-Scheduler-App
+          path: ./publish/Lucent.Scheduler

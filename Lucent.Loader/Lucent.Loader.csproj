@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -14,9 +14,8 @@
 	  <PackageReference Include="Microsoft.Extensions.Logging.Console" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
 	  <PackageReference Include="Microsoft.Extensions.Hosting"  />
-    <None Include="..\config\appsettings.json" Link="config\appsettings.json">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</None>
+	  <None Include="..\config\appsettings.json" Link="config\appsettings.json" />
+	  <None Include="..\config\appsettings.Development.json" Link="config\appsettings.Development.json" />
   </ItemGroup>
 
   <ItemGroup>

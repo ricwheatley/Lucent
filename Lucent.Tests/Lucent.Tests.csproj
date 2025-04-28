@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.runner.visualstudio" />
+		<PackageReference Include="coverlet.collector" />
+		<PackageReference Include="Moq" />
+		<PackageReference Include="FluentAssertions" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+		<ProjectReference Include="..\Lucent.Runner\Lucent.Runner.csproj" />
+		<ProjectReference Include="..\Lucent.Scheduler\Lucent.Scheduler.csproj" />
+		<ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
+	</ItemGroup>
+</Project>

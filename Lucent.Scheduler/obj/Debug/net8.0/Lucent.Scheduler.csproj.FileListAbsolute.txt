@@ -1,6 +1,5 @@
 C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\Lucent.Loader.deps.json
 C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\Lucent.Loader.runtimeconfig.json
-C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\config\appsettings.json
 C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\Lucent.Loader.exe
 C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\appsettings.Development.json
 C:\Dev\Lucent\Lucent.Scheduler\bin\Debug\net8.0\appsettings.json

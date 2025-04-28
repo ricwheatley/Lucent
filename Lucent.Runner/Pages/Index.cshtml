@@ -6,174 +6,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title>Lucent — Tenant schedules</title>
-    <!-- Linking Tailwind CSS from CDN -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xero Data Collection</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <style>
-        /* Freeze header & first column */
-        thead th {
-            position: sticky;
-            top: 0;
-            z-index: 40;
-            background: white;
+        /* General styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
         }
 
-        .endpoint-col {
-            position: sticky;
-            left: 0;
-            background: white;
-            z-index: 30;
-            text-align: left; /* left-align endpoint names */
+        .container {
+            width: 80%;
+            margin: 0 auto;
         }
 
-        tbody td:first-child {
-            position: sticky;
-            left: 0;
-            background: white;
+        /* Header styles */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
-        /* Crisp borders on every cell */
-        table, th, td {
-            border: 1px solid #9ca3af;
+            .header h1 {
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
+            .button.grey {
+                background-color: #d3d3d3;
+            }
+
+        /* Table layout */
         table {
+            width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+
+        /* Datepicker style */
+        .datepicker {
+            width: 150px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .checkbox-row {
+            text-align: left;
+        }
+
+            .checkbox-row td {
+                padding-left: 20px;
+            }
+
+        /* Spans */
+        .span-all {
+            text-align: center;
+            background-color: #f4f4f4;
+            font-weight: bold;
+            border: none;
         }
     </style>
-
-    <script>
-        /* ------------------------------------------------------------------
-           Client-side only – no Razor loops (avoids build errors)
-        ------------------------------------------------------------------*/
-        const api = 'http://localhost:5214';  // API base URL
-        const allEndpoints = [
-            'Accounts', 'Account', 'BankTransaction', 'BankTransfer', 'BatchPayment', 'BrandingTheme', 'Contact', 'ContactGroup', 'CreditNote', 'Currency',
-            'Employee', 'ExpenseClaim', 'Invoice', 'Item', 'Journal', 'LinkedTransaction', 'ManualJournal', 'Organisation', 'Overpayment', 'Payment',
-            'Prepayment', 'PurchaseOrder', 'Quote', 'Receipt', 'RepeatingInvoice', 'TaxRate', 'TrackingCategory', 'User'
-        ];
-
-        const $ = sel => document.querySelector(sel);
-        const toast = msg => { const t = $('#toast'); t.textContent = msg; setTimeout(() => t.textContent = '', 4000); };
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            const res = await fetch(`${api}/schedule`);
-            const sched = await res.json();
-            renderGrid(sched);
-        });
-
-        /* ------------------------------------------------------------- */
-        function renderGrid(schedules) {
-            const grid = $('#grid'); grid.innerHTML = '';
-            /* 0 ─ helpers */
-            const th = (txt, extra = '') => `<th class="p-2 text-center font-semibold ${extra}">${txt}</th>`;
-            const td = (inner, extra = '') => `<td class="p-2 text-center ${extra}">${inner}</td>`;
-
-            /* 1 ─ Build THEAD (two header rows + run-now row) */
-            let html = '<thead>';
-            /* Row 0 – RUN NOW */
-            html += '<tr>' + th('RUN NOW', 'endpoint-col');
-            schedules.forEach(t => {
-                html += td(`<button class='px-4 py-1 bg-emerald-600 hover:bg-emerald-700 rounded text-white w-28' onclick="runNow('${t.tenantId}')">Run Now</button>`);
-            });
-            html += '</tr>';
-            /* Row 1 – Company header */
-            html += '<tr>' + th('', 'endpoint-col');
-            schedules.forEach(t => {
-                const name = t.tenantName ?? t.friendlyName ?? t.companyName ?? t.tenantAlias ?? t.tenantId.substring(0, 8);
-                html += th(name);
-            });
-            html += '</tr>';
-            /* Row 2 – start date */
-            html += '<tr>' + th('Reporting Start Date', 'endpoint-col');
-            schedules.forEach(t => {
-                html += td(`<input id='sd-${t.tenantId}' type='date' value='${t.startDate}' class='border rounded px-1' />`);
-            });
-            html += '</tr>';
-            /* Row 3 – end date */
-            html += '<tr>' + th('Reporting End Date', 'endpoint-col');
-            schedules.forEach(t => {
-                html += td(`<input id='ed-${t.tenantId}' type='date' value='${t.endDate}' class='border rounded px-1' />`);
-            });
-            html += '</tr>';
-            /* Row 4 – run time + save */
-            html += '<tr>' + th('Run Schedule Time', 'endpoint-col');
-            schedules.forEach(t => {
-                html += td(`<input id='rt-${t.tenantId}' type='time' value='${t.runTime.slice(0, 5)}' class='border rounded w-24' /><br/><button class='mt-1 px-3 py-0.5 bg-gray-300 hover:bg-gray-400 rounded text-xs' onclick="saveSchedule()">save</button>`);
-            });
-            html += '</tr>';
-            /* Divider row */
-            html += `<tr><th class='endpoint-col border-t-4 border-b-2 p-2 text-center' colspan='${schedules.length + 1}'>Data points to collect from Xero</th></tr>`;
-            html += '</thead><tbody>';
-
-            /* 2 ─ endpoints rows */
-            allEndpoints.forEach(ep => {
-                html += `<tr>${td(ep, 'endpoint-col')}`;
-                schedules.forEach(t => {
-                    const checked = t.enabledEndpoints?.includes(ep);
-                    html += td(`<input type='checkbox' data-tenant='${t.tenantId}' data-ep='${ep}' ${checked ? 'checked' : ''} />`);
-                });
-                html += '</tr>';
-            });
-            html += '</tbody>';
-            grid.innerHTML = html;
-        }
-
-        /* ------------------------------------------------------------- */
-        function buildSchedule() {
-            const tenants = [...document.querySelectorAll('input[data-tenant]')].map(el => el.dataset.tenant).filter((v, i, a) => v && a.indexOf(v) === i);
-            return tenants.map(id => ({
-                tenantId: id,
-                runTime: $('#rt-' + id).value + ':00',
-                startDate: $('#sd-' + id).value,
-                endDate: $('#ed-' + id).value,
-                enabledEndpoints: [...document.querySelectorAll(`input[data-tenant='${id}'][type='checkbox']:checked`)].map(cb => cb.dataset.ep)
-            }));
-        }
-
-        async function saveSchedule() {
-            const model = buildSchedule();
-            const r = await fetch(`${api}/schedule`, {
-                method: 'PUT', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(model)
-            });
-            toast(r.ok ? 'Saved ✔' : 'Error ❌');
-        }
-
-        async function runNow(tenantId) {
-            const checked = [...document.querySelectorAll(`input[data-tenant='${tenantId}'][type='checkbox']:checked`)].map(cb => cb.dataset.ep);
-            if (!checked.length) { toast('No endpoints checked'); return; }
-            const body = {
-                tenantId,
-                odsTables: true,
-                startDate: $('#sd-' + tenantId).value,
-                endDate: $('#ed-' + tenantId).value,
-                endpoints: checked
-            };
-            const r = await fetch(`${api}/runs`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-            if (!r.ok) { toast('Run failed'); return; }
-            const { runId } = await r.json(); toast(`Run queued (${runId})`);
-            poll(runId);
-        }
-
-        function poll(id) {
-            const span = $('#toast');
-            const h = setInterval(async () => {
-                const r = await fetch(`${api}/runs/${id}`);
-                if (r.status === 404) return;
-                const { status } = await r.json();
-                span.textContent = `Status: ${status}`;
-                if (status !== 'Running' && status !== 'Queued') clearInterval(h);
-            }, 2000);
-        }
-    </script>
 </head>
-<body class="p-6 text-sm">
-    <h1 class="text-2xl font-semibold mb-4">Lucent — Tenant schedules</h1>
-    <div class="overflow-auto max-h-[80vh] rounded-lg shadow">
-        <table id="grid" class="w-full text-xs"></table>
+<body>
+
+    <div class="container">
+        <!-- Tenant Headers -->
+        <div class="header">
+            <h1>Demo Company (UK) <button class="button">Run Now</button></h1>
+            <h1>Brighter Accounting Ltd <button class="button">Run Now</button></h1>
+        </div>
+
+        <!-- Background data collection schedule -->
+        <table>
+            <thead>
+                <tr class="span-all">
+                    <th colspan="2">Background Data Collection Schedule</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2">
+                        <label>Run Schedule Time</label>
+                        <input type="time" class="datepicker" value="01:00">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="button grey">Save</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Reports to collect from Xero -->
+        <table>
+            <thead>
+                <tr class="span-all">
+                    <th colspan="3">Reports to Collect from Xero</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Reporting Start Date</td>
+                    <td colspan="2">
+                        <input type="date" class="datepicker">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reporting End Date</td>
+                    <td colspan="2">
+                        <input type="date" class="datepicker">
+                    </td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Balance Sheet</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Profit and Loss</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Trial Balance</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Data points to collect from Xero -->
+        <table>
+            <thead>
+                <tr class="span-all">
+                    <th colspan="3">Data Points to Collect from Xero</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="checkbox-row">
+                    <td>Accounts</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Bank Transactions</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Bank Transfers</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Batch Payments</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Branding Themes</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Contacts</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Contact Groups</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Credit Notes</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Currencies</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Employees</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Expense Claims</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Invoices</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Items</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <tr class="checkbox-row">
+                    <td>Journals</td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                    <td><input type="checkbox" class="checkbox"></td>
+                </tr>
+                <!-- Add other rows similarly -->
+            </tbody>
+        </table>
     </div>
-    <div class="mt-4 text-emerald-700 font-semibold" id="toast"></div>
+
 </body>
 </html>

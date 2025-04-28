@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Worker">
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -25,6 +25,12 @@
     <Reference Include="Lucent.Loader">
       <HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
     </Reference>
+	  <None Include="..\config\appsettings.json"              Link="config\scheduler\appsettings.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
+	  <None Include="..\config\appsettings.Development.json"  Link="config\scheduler\appsettings.Development.json">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </None>
   </ItemGroup>
 
   <ItemGroup>
