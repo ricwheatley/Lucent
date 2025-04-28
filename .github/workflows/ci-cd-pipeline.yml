@@ -48,30 +48,48 @@ jobs:
           path: '**/coverage.cobertura.xml'
 
   deploy-dev:
-    name: 🚀 Deploy to Development (Manual Approval)
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    environment:
-      name: Development
-      url: https://your-development-environment-url.com
+   name: 🚀 Deploy to Development (Manual Approval)
+   needs: build-and-test
+   runs-on: ubuntu-latest
+   environment:
+    name: Development
+    url: https://your-development-environment-url.com
 
-    steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+   steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: 📦 Restore Dependencies
-        run: dotnet restore Lucent.Api/Lucent.Api.csproj
+    - name: 📦 Restore Dependencies
+      run: dotnet restore ${{ env.SOLUTION_FILE }}
 
-      - name: 🚧 Publish Lucent.Api explicitly
-        run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish-output --no-restore
+    - name: 🚧 Publish Lucent.Api explicitly to isolated directory
+      run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish-output/Lucent.Api --no-restore
 
-      - name: 🚚 Upload Deployment Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Lucent-Api-App
-          path: ./publish-output
+    - name: 🚚 Upload Lucent.Api Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Lucent-Api-App
+        path: ./publish-output/Lucent.Api
+
+    - name: 🚧 Publish Lucent.Loader explicitly to isolated directory
+      run: dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./publish-output/Lucent.Loader --no-restore
+
+    - name: 🚚 Upload Lucent.Loader Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Lucent-Loader-App
+        path: ./publish-output/Lucent.Loader
+
+    - name: 🚧 Publish Lucent.Scheduler explicitly to isolated directory
+      run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish-output/Lucent.Scheduler --no-restore
+
+    - name: 🚚 Upload Lucent.Scheduler Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Lucent-Scheduler-App
+        path: ./publish-output/Lucent.Scheduler
