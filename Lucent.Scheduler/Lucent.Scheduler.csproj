@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Lucent.Scheduler-f817705d-0f97-44b0-b46f-3a1ad9a1fbd4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	<PackageReference Include="Microsoft.Data.SqlClient" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"  />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json"  />
+    <PackageReference Include="Microsoft.Extensions.Hosting" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"  />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console"  />
+    <PackageReference Include="Quartz"  />
+    <PackageReference Include="Quartz.Extensions.Hosting"  />
+    <ProjectReference Include="..\Lucent.Auth\Lucent.Auth.csproj" />
+    <ProjectReference Include="..\Lucent.Client\Lucent.Client.csproj" />
+    <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Lucent.Loader">
+      <HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
+    </Reference>
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
+    <ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<!-- stop the SDK’s implicit items -->
+		<None Remove="appsettings.json" />
+		<None Remove="appsettings.Development.json" />
+
+		<!-- point at the shared files one level up -->
+		<None Include="..\config\appsettings.json"
+			  Link="config/scheduler/appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+
+		<None Include="..\config\appsettings.Development.json"
+			  Link="config/scheduler/appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Lucent.Runner.props" />
+</Project>

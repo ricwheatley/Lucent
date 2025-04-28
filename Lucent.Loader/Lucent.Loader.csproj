@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-Lucent.Loader-8499cd9b-63ae-45a8-a7df-12d6211f75a8</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.Data.SqlClient" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"  />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"  />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+	  <PackageReference Include="Microsoft.Extensions.Hosting"  />
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Lucent.Auth\Lucent.Auth.csproj" />
+    <ProjectReference Include="..\Lucent.Client\Lucent.Client.csproj" />
+    <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+    <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<!-- stop the implicit items the SDK adds -->
+		<None Remove="appsettings.json" />
+		<None Remove="appsettings.Development.json" />
+
+		<!-- reference the shared files one folder up -->
+		<None Include="..\config\appsettings.json"
+			  Link="config/loader/appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+
+		<None Include="..\config\appsettings.Development.json"
+			  Link="config/loader/appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
+</Project>

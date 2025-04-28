@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Dev\\Lucent\\Lucent.Core\\Lucent.Core.csproj": {}
+  },
+  "projects": {
+    "C:\\Dev\\Lucent\\Lucent.Core\\Lucent.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Dev\\Lucent\\Lucent.Core\\Lucent.Core.csproj",
+        "projectName": "Lucent.Core",
+        "projectPath": "C:\\Dev\\Lucent\\Lucent.Core\\Lucent.Core.csproj",
+        "packagesPath": "C:\\Users\\RicWheatley\\.nuget\\packages\\",
+        "outputPath": "C:\\Dev\\Lucent\\Lucent.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "centralPackageVersionsManagementEnabled": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\RicWheatley\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[6.0.2, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Logging.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            },
+            "Microsoft.Extensions.Logging.Console": {
+              "target": "Package",
+              "version": "[9.0.0, )",
+              "versionCentrallyManaged": true
+            }
+          },
+          "centralPackageVersions": {
+            "coverlet.collector": "6.0.2",
+            "FluentAssertions": "6.12.0",
+            "Microsoft.AspNetCore.OpenApi": "8.0.3",
+            "Microsoft.Data.SqlClient": "6.0.2",
+            "Microsoft.Extensions.Configuration": "9.0.0",
+            "Microsoft.Extensions.Configuration.Abstractions": "9.0.0",
+            "Microsoft.Extensions.Configuration.Json": "9.0.0",
+            "Microsoft.Extensions.DependencyInjection": "9.0.0",
+            "Microsoft.Extensions.Hosting": "9.0.0",
+            "Microsoft.Extensions.Http": "9.0.0",
+            "Microsoft.Extensions.Http.Polly": "9.0.0",
+            "Microsoft.Extensions.Logging": "9.0.0",
+            "Microsoft.Extensions.Logging.Abstractions": "9.0.0",
+            "Microsoft.Extensions.Logging.Configuration": "9.0.0",
+            "Microsoft.Extensions.Logging.Console": "9.0.0",
+            "Microsoft.Extensions.Logging.EventSource": "9.0.0",
+            "Microsoft.Extensions.Primitives": "9.0.0",
+            "Microsoft.NET.Test.Sdk": "17.9.0",
+            "Moq": "4.20.70",
+            "Polly": "8.5.2",
+            "Polly.Contrib.WaitAndRetry": "1.1.1",
+            "Quartz": "3.14.0",
+            "Quartz.Extensions.Hosting": "3.14.0",
+            "RestSharp": "112.1.0",
+            "RestSharp.Serializers.SystemTextJson": "108.0.0",
+            "Swashbuckle.AspNetCore": "6.5.0",
+            "System.Text.Json": "9.0.0",
+            "xunit": "2.6.4",
+            "xunit.runner.visualstudio": "2.8.0"
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

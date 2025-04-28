@@ -1,0 +1,13 @@
+C:\Dev\Lucent\Lucent.Core\bin\Debug\net8.0\Lucent.Core.deps.json
+C:\Dev\Lucent\Lucent.Core\bin\Debug\net8.0\Lucent.Core.dll
+C:\Dev\Lucent\Lucent.Core\bin\Debug\net8.0\Lucent.Core.pdb
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.csproj.AssemblyReference.cache
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.AssemblyInfoInputs.cache
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.AssemblyInfo.cs
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.csproj.CoreCompileInputs.cache
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.sourcelink.json
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.dll
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\refint\Lucent.Core.dll
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\Lucent.Core.pdb
+C:\Dev\Lucent\Lucent.Core\obj\Debug\net8.0\ref\Lucent.Core.dll
