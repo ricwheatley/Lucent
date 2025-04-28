@@ -1,81 +1,131 @@
-name: CI/CD Pipeline for Lucent
+name: CI/CD pipeline for Lucent
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
   pull_request:
-    branches:
-      - master 
+    branches: [ master ]
 
-env: 
+env:
   DOTNET_VERSION: '8.0.x'
+
+# ---------- 1. Build & Test --------------------------------------------------
 
 jobs:
   build-and-test:
-    name: 🛠️ Build & Test
+    name: "🛠️ Build & Test"
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: "📥 Checkout"
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup .NET
+      - name: "⚙️ Set up .NET"
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
+          cache: true
 
-      - name: 📦 Restore Solution
+      - name: "📦 Restore"
         run: dotnet restore Lucent.sln
 
-      - name: 🚧 Build Solution
-        run: dotnet build Lucent.sln --configuration Release --no-restore
+      - name: "🚧 Build"
+        run: dotnet build Lucent.sln -c Release --no-restore
 
-      - name: 🧪 Run Unit Tests
-        run: dotnet test Lucent.sln --configuration Release --no-build
+      - name: "🧪 Test"
+        run: dotnet test Lucent.sln -c Release --no-build
+
+# ---------- 2. Publish Lucent.Api -------------------------------------------
 
   publish-lucent-api:
-    name: 🚀 Publish Lucent.Api
+    name: "🚀 Publish Lucent.Api"
     needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
-      - name: ⚙️ Setup .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: 📦 Restore Dependencies
+          cache: true
+
+      - name: "📦 Restore"
         run: dotnet restore Lucent.Api/Lucent.Api.csproj
-      - name: 🚧 Publish Lucent.Api explicitly
+
+      - name: "🚧 Publish"
         run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish/Lucent.Api
 
-      - name: 🚚 Upload Lucent.Api Artifact
+      - name: "📋 Copy shared config"
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Api/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Api/
+
+      - name: "📤 Upload artefact"
         uses: actions/upload-artifact@v4
         with:
           name: Lucent-Api-App
           path: ./publish/Lucent.Api
 
+# ---------- 3. Publish Lucent.Loader ----------------------------------------
+
   publish-lucent-loader:
-    name: 🚀 Publish Lucent.Loader
+    name: "🚀 Publish Lucent.Loader"
     needs: build-and-test
     runs-on: ubuntu-latest
 
-
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
-      - name: ⚙️ Setup .NET
-        uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
-      - name: 📦 Restore Dependencies
+          cache: true
+
+      - name: "📦 Restore"
+        run: dotnet restore Lucent.Loader/Lucent.Loader.csproj
+
+      - name: "🚧 Publish"
+        run: dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./publish/Lucent.Loader
+
+      - name: "📋 Copy shared config"
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Loader/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Loader/
+
+      - name: "📤 Upload artefact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucent-Loader-App
+          path: ./publish/Lucent.Loader
+
+# ---------- 4. Publish Lucent.Scheduler -------------------------------------
+
+  publish-lucent-scheduler:
+    name: "🚀 Publish Lucent.Scheduler"
+    needs: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+          cache: true
+
+      - name: "📦 Restore"
         run: dotnet restore Lucent.Scheduler/Lucent.Scheduler.csproj
-      - name: 🚧 Publish Lucent.Scheduler explicitly
+
+      - name: "🚧 Publish"
         run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish/Lucent.Scheduler
 
-      - name: 🚚 Upload Lucent.Scheduler Artifact
+      - name: "📋 Copy shared config"
+        run: |
+          cp ./config/appsettings.json ./publish/Lucent.Scheduler/
+          cp ./config/appsettings.Development.json ./publish/Lucent.Scheduler/
+
+      - name: "📤 Upload artefact"
         uses: actions/upload-artifact@v4
         with:
           name: Lucent-Scheduler-App

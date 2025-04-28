@@ -14,10 +14,7 @@
 	  <PackageReference Include="Microsoft.Extensions.Logging.Console" />
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
 	  <PackageReference Include="Microsoft.Extensions.Hosting"  />
-	  <None Include="..\config\appsettings.json" Link="config\appsettings.json" />
-	  <None Include="..\config\appsettings.Development.json"
-			CopyToOutputDirectory="PreserveNewest"
-			Condition="Exists('..\config\appsettings.Development.json')" />
+
   </ItemGroup>
 
   <ItemGroup>

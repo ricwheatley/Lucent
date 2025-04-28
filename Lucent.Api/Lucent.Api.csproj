@@ -12,14 +12,6 @@
 	<ProjectReference Include="..\Lucent.Scheduler\Lucent.Scheduler.csproj" />
 	<ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
 
-	  <None Include="..\config\appsettings.json"              Link="config\api\appsettings.json">
-		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	  <None Include="..\config\appsettings.Development.json"
-			CopyToOutputDirectory="PreserveNewest"
-			Condition="Exists('..\config\appsettings.Development.json')" />
-
-
   </ItemGroup>
 
 </Project>
