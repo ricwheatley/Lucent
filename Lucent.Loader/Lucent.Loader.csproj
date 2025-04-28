@@ -15,7 +15,9 @@
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
 	  <PackageReference Include="Microsoft.Extensions.Hosting"  />
 	  <None Include="..\config\appsettings.json" Link="config\appsettings.json" />
-	  <None Include="..\config\appsettings.Development.json" Link="config\appsettings.Development.json" />
+	  <None Include="..\config\appsettings.Development.json"
+			CopyToOutputDirectory="PreserveNewest"
+			Condition="Exists('..\config\appsettings.Development.json')" />
   </ItemGroup>
 
   <ItemGroup>
