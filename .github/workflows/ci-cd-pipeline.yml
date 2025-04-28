@@ -56,25 +56,25 @@ jobs:
       url: https://your-development-environment-url.com
 
     steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: ${{ env.DOTNET_VERSION }}
+    - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
-      - name: 📦 Restore Dependencies
-        run: dotnet restore ${{ env.SOLUTION_FILE }}
+    - name: 📦 Restore Dependencies
+      run: dotnet restore Lucent.Api/Lucent.Api.csproj
 
-      - name: 🚧 Publish Solution
-        run: dotnet publish ${{ env.SOLUTION_FILE }} -c Release -o ./publish-output
+    - name: 🚧 Publish Lucent.Api
+      run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish-output
 
-      - name: 🚚 Upload Deployment Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Lucent-App
-          path: ./publish-output
+    - name: 🚚 Upload Deployment Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Lucent-Api-App
+        path: ./publish-output
 
       # Here you would add specific deployment steps, e.g., Azure Web App deploy or Docker container push.
       # For now, we'll include clear comments so you can extend later:
