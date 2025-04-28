@@ -23,4 +23,15 @@
     <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<!-- copy into ./config/loader/ -->
+		<None Update="appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\loader\appsettings.json" />
+
+		<None Update="appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\loader\appsettings.Development.json" />
+	</ItemGroup>
 </Project>

@@ -13,5 +13,14 @@
 	<ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
 
   </ItemGroup>
+	<ItemGroup>
+		<!-- copy into ./config/api/ -->
+		<None Update="appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\api\appsettings.json" />
 
+		<None Update="appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\api\appsettings.Development.json" />
+	</ItemGroup>
 </Project>

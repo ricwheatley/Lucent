@@ -32,4 +32,15 @@
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
     <ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<!-- copy into ./config/scheduler/ -->
+		<None Update="appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\scheduler\appsettings.json" />
+
+		<None Update="appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest"
+			  Link="config\scheduler\appsettings.Development.json" />
+	</ItemGroup>
 </Project>
