@@ -1,0 +1,88 @@
+name: CI/CD Pipeline for Lucent
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  DOTNET_VERSION: '8.0.x'
+  SOLUTION_FILE: 'Lucent.sln'
+
+jobs:
+  build-and-test:
+    name: 🛠️ Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: 📦 Restore Dependencies
+        run: dotnet restore ${{ env.SOLUTION_FILE }}
+
+      - name: 🚧 Build Solution
+        run: dotnet build ${{ env.SOLUTION_FILE }} --configuration Release --no-restore
+
+      - name: 🧪 Run Unit Tests
+        run: dotnet test ${{ env.SOLUTION_FILE }} --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
+
+      - name: 📊 Publish Test Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Results
+          path: '**/TestResults/*.xml'
+
+      - name: 📈 Publish Coverage Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: Coverage Report
+          path: '**/coverage.cobertura.xml'
+
+  deploy-dev:
+    name: 🚀 Deploy to Development (Manual Approval)
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    environment:
+      name: Development
+      url: https://your-development-environment-url.com
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup .NET ${{ env.DOTNET_VERSION }}
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: 📦 Restore Dependencies
+        run: dotnet restore ${{ env.SOLUTION_FILE }}
+
+      - name: 🚧 Publish Solution
+        run: dotnet publish ${{ env.SOLUTION_FILE }} -c Release -o ./publish-output
+
+      - name: 🚚 Upload Deployment Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Lucent-App
+          path: ./publish-output
+
+      # Here you would add specific deployment steps, e.g., Azure Web App deploy or Docker container push.
+      # For now, we'll include clear comments so you can extend later:
+
+      #- name: 🚀 Deploy to Azure (example)
+      #  uses: azure/webapps-deploy@v3
+      #  with:
+      #    app-name: 'your-azure-app-name'
+      #    publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+      #    package: ./publish-output
+
