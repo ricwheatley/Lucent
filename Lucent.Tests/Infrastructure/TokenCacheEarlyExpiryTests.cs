@@ -27,7 +27,9 @@ public class TokenCacheEarlyExpiryTests
         {
             _earlyExpiry = earlyExpiry;
             _token = Guid.NewGuid().ToString("N");
-            _expiresUtc = DateTime.UtcNow.AddSeconds(2);   // real expiry
+            _expiresUtc = DateTime.UtcNow                       // expiry = window + 1 s
+                            .Add(_earlyExpiry)
+                            .AddSeconds(1);
         }
 
         public Task<string> GetAccessTokenAsync(CancellationToken ct = default)
@@ -66,11 +68,11 @@ public class TokenCacheEarlyExpiryTests
     [Fact]
     public async Task Early_expiry_value_is_respected()
     {
-        var auth = BuildAuth(30);                 // cache gives up after 30 s
+        var auth = BuildAuth(1);                 // cache gives up after 1 s
 
         var tok1 = await auth.GetAccessTokenAsync(CancellationToken.None);   // first fetch
 
-        await Task.Delay(TimeSpan.FromSeconds(2));     // > early-expiry window
+        await Task.Delay(TimeSpan.FromSeconds(2));     // now beyond window+1 s
 
         var tok2 = await auth.GetAccessTokenAsync(CancellationToken.None);   // forces refresh
 
