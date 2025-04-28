@@ -3,10 +3,10 @@ name: CI/CD Pipeline for Lucent
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 env:
   DOTNET_VERSION: '8.0.x'
