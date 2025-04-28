@@ -8,17 +8,14 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Hosting;
 using RestSharp;
 using Microsoft.Extensions.DependencyInjection;
+using Lucent.Core;
 
 
-static string GetSharedConfigPath() =>
-    Path.GetFullPath(Path.Combine(
-        AppContext.BaseDirectory, "..", "..", "..", "..",   // up from bin/
-        "config", "appsettings.json"));
 
 var builder = Host.CreateApplicationBuilder(args);
 
 /* 1 ─ load shared config ------------------------------------------------ */
-var cfgPath = GetSharedConfigPath();   // identical logic in all three projects
+var cfgPath = ConfigPathHelper.GetSharedConfigPath();   // identical logic in all three projects
 builder.Configuration
        .AddJsonFile(cfgPath, optional: false, reloadOnChange: true);
 

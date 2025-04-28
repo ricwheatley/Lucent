@@ -1,10 +1,11 @@
-﻿// Lucent.Loader / Program.cs  – FULL FILE
+﻿// Lucent.Loader / Program.cs  – FULL FILE (patched with resilience layer)
 using System.Data;
 using System.Globalization;
 using System.Text.Json;
 using Lucent.Auth;
 using Lucent.Client;
 using Lucent.Core;
+using Lucent.Resilience;                  
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,21 +13,42 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RestSharp;
 
-static string GetSharedConfigPath() =>
-    Path.GetFullPath(Path.Combine(
-        AppContext.BaseDirectory, "..", "..", "..", "..",
-        "config", "appsettings.json"));
+
 
 /* -----------------------------------------------------------------
    0. Build host so we can DI LucentAuth + XeroApiClient + logging
 ------------------------------------------------------------------ */
 var builder = Host.CreateApplicationBuilder(args);
-var cfgPath = GetSharedConfigPath();
+var cfgPath = ConfigPathHelper.GetSharedConfigPath();
 
 builder.Configuration.AddJsonFile(cfgPath, optional: false, reloadOnChange: true);
 builder.Services.AddLogging(c => c.AddConsole());
 builder.Services.AddSingleton<ILucentAuth, LucentAuth>();
 builder.Services.AddSingleton<ILucentClient, XeroApiClient>();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddSimpleConsole(o =>
+{
+    o.SingleLine = true;
+    o.TimestampFormat = "HH:mm:ss ";
+    o.IncludeScopes = true;           // ★ shows “=> CorrelationId: ab12cd34”
+});
+
+// ──────────────────────────────────────────────────────────────────
+// NEW  - resilience wiring (HTTP + SQL retries + 30 s timeout)
+// ──────────────────────────────────────────────────────────────────
+builder.Services.AddResilientHttpClient<ILucentClient, XeroApiClient>("xero");
+
+builder.Services.AddSingleton<SqlRetryProvider>(sp =>
+{
+    var cs = sp.GetRequiredService<IConfiguration>()
+               .GetConnectionString("Sql")
+               ?? throw new InvalidOperationException("Connection string 'Sql' missing");
+    return new SqlRetryProvider(
+        cs,
+        sp.GetRequiredService<ILogger<SqlRetryProvider>>());
+});
+// ──────────────────────────────────────────────────────────────────
 
 var host = builder.Build();
 var sp = host.Services;

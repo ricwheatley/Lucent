@@ -1,0 +1,56 @@
+{
+    "Id": "efb13665-8ba7-4b54-b99d-cf405e5cb781",
+    "Status": "OK",
+    "ProviderName": "Power BI Connect",
+    "DateTimeUTC": "\/Date(1745769645950)\/",
+    "Organisations": [
+        {
+            "Name": "Demo Company (UK)",
+            "LegalName": "Demo Company (UK)",
+            "PaysTax": true,
+            "Version": "UK",
+            "OrganisationType": "COMPANY",
+            "BaseCurrency": "GBP",
+            "CountryCode": "GB",
+            "IsDemoCompany": true,
+            "OrganisationStatus": "ACTIVE",
+            "RegistrationNumber": "02181833",
+            "TaxNumber": "GB 123456789",
+            "FinancialYearEndDay": 31,
+            "FinancialYearEndMonth": 3,
+            "SalesTaxBasis": "CASH",
+            "SalesTaxPeriod": "MONTHLY",
+            "DefaultSalesTax": "Remember previous",
+            "DefaultPurchasesTax": "Remember previous",
+            "PeriodLockDate": "\/Date(1269993600000+0000)\/",
+            "CreatedDateUTC": "\/Date(1744647815833)\/",
+            "OrganisationEntityType": "COMPANY",
+            "Timezone": "GMTSTANDARDTIME",
+            "ShortCode": "!-F8NN",
+            "OrganisationID": "9b0dbba8-87cd-4ade-bbc4-c0a3d5adbc2e",
+            "Edition": "BUSINESS",
+            "Class": "DEMO",
+            "Addresses": [
+                {
+                    "AddressType": "POBOX",
+                    "AddressLine1": "23 Main Street",
+                    "AddressLine2": "Central City",
+                    "City": "Marineville",
+                    "Region": "",
+                    "PostalCode": "MV12 3CC",
+                    "Country": "",
+                    "AttentionTo": ""
+                }
+            ],
+            "Phones": [
+                {
+                    "PhoneType": "OFFICE",
+                    "PhoneNumber": "1234 5678",
+                    "PhoneAreaCode": "010"
+                }
+            ],
+            "ExternalLinks": [],
+            "PaymentTerms": {}
+        }
+    ]
+}

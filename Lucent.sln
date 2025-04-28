@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Packages.props = Directory.Packages.props
 		gitignore = gitignore
 		global.json = global.json
+		config\tenant-schedule.json = config\tenant-schedule.json
+		test.json = test.json
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucent.Onboard", "Lucent.Onboard\Lucent.Onboard.csproj", "{A09F34B7-CCE4-4127-AC3A-8003926B2AA1}"
@@ -24,6 +26,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Playground", "Playground\Playground.csproj", "{E98363C2-35B5-4E5C-865C-69CC59A405A7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucent.Scheduler", "Lucent.Scheduler\Lucent.Scheduler.csproj", "{0928168B-7930-468C-B7F9-784D795106BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucent.Resilience", "Lucent.Resilience\Lucent.Resilience.csproj", "{5B6102D6-A0CC-38E4-0808-CFFD5EB728E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucent.Api", "Lucent.Api\Lucent.Api.csproj", "{F8B2117C-EB1E-FFE5-E53F-8AF4BA3082E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucent.Runner", "Lucent.Runner\Lucent.Runner.csproj", "{706D719A-B931-58F1-7EC1-8BD6CD9E653F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +67,18 @@ Global
 		{0928168B-7930-468C-B7F9-784D795106BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0928168B-7930-468C-B7F9-784D795106BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0928168B-7930-468C-B7F9-784D795106BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B6102D6-A0CC-38E4-0808-CFFD5EB728E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B6102D6-A0CC-38E4-0808-CFFD5EB728E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B6102D6-A0CC-38E4-0808-CFFD5EB728E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B6102D6-A0CC-38E4-0808-CFFD5EB728E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B2117C-EB1E-FFE5-E53F-8AF4BA3082E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B2117C-EB1E-FFE5-E53F-8AF4BA3082E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B2117C-EB1E-FFE5-E53F-8AF4BA3082E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B2117C-EB1E-FFE5-E53F-8AF4BA3082E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{706D719A-B931-58F1-7EC1-8BD6CD9E653F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{706D719A-B931-58F1-7EC1-8BD6CD9E653F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{706D719A-B931-58F1-7EC1-8BD6CD9E653F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{706D719A-B931-58F1-7EC1-8BD6CD9E653F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

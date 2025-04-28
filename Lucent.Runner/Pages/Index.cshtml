@@ -1,0 +1,179 @@
+﻿@page
+@{
+    Layout = null;  // Optional if you don't want to use a shared layout page
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Lucent — Tenant schedules</title>
+    <!-- Linking Tailwind CSS from CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css" />
+    <style>
+        /* Freeze header & first column */
+        thead th {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            background: white;
+        }
+
+        .endpoint-col {
+            position: sticky;
+            left: 0;
+            background: white;
+            z-index: 30;
+            text-align: left; /* left-align endpoint names */
+        }
+
+        tbody td:first-child {
+            position: sticky;
+            left: 0;
+            background: white;
+        }
+
+        /* Crisp borders on every cell */
+        table, th, td {
+            border: 1px solid #9ca3af;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+
+    <script>
+        /* ------------------------------------------------------------------
+           Client-side only – no Razor loops (avoids build errors)
+        ------------------------------------------------------------------*/
+        const api = 'http://localhost:5214';  // API base URL
+        const allEndpoints = [
+            'Accounts', 'Account', 'BankTransaction', 'BankTransfer', 'BatchPayment', 'BrandingTheme', 'Contact', 'ContactGroup', 'CreditNote', 'Currency',
+            'Employee', 'ExpenseClaim', 'Invoice', 'Item', 'Journal', 'LinkedTransaction', 'ManualJournal', 'Organisation', 'Overpayment', 'Payment',
+            'Prepayment', 'PurchaseOrder', 'Quote', 'Receipt', 'RepeatingInvoice', 'TaxRate', 'TrackingCategory', 'User'
+        ];
+
+        const $ = sel => document.querySelector(sel);
+        const toast = msg => { const t = $('#toast'); t.textContent = msg; setTimeout(() => t.textContent = '', 4000); };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const res = await fetch(`${api}/schedule`);
+            const sched = await res.json();
+            renderGrid(sched);
+        });
+
+        /* ------------------------------------------------------------- */
+        function renderGrid(schedules) {
+            const grid = $('#grid'); grid.innerHTML = '';
+            /* 0 ─ helpers */
+            const th = (txt, extra = '') => `<th class="p-2 text-center font-semibold ${extra}">${txt}</th>`;
+            const td = (inner, extra = '') => `<td class="p-2 text-center ${extra}">${inner}</td>`;
+
+            /* 1 ─ Build THEAD (two header rows + run-now row) */
+            let html = '<thead>';
+            /* Row 0 – RUN NOW */
+            html += '<tr>' + th('RUN NOW', 'endpoint-col');
+            schedules.forEach(t => {
+                html += td(`<button class='px-4 py-1 bg-emerald-600 hover:bg-emerald-700 rounded text-white w-28' onclick="runNow('${t.tenantId}')">Run Now</button>`);
+            });
+            html += '</tr>';
+            /* Row 1 – Company header */
+            html += '<tr>' + th('', 'endpoint-col');
+            schedules.forEach(t => {
+                const name = t.tenantName ?? t.friendlyName ?? t.companyName ?? t.tenantAlias ?? t.tenantId.substring(0, 8);
+                html += th(name);
+            });
+            html += '</tr>';
+            /* Row 2 – start date */
+            html += '<tr>' + th('Reporting Start Date', 'endpoint-col');
+            schedules.forEach(t => {
+                html += td(`<input id='sd-${t.tenantId}' type='date' value='${t.startDate}' class='border rounded px-1' />`);
+            });
+            html += '</tr>';
+            /* Row 3 – end date */
+            html += '<tr>' + th('Reporting End Date', 'endpoint-col');
+            schedules.forEach(t => {
+                html += td(`<input id='ed-${t.tenantId}' type='date' value='${t.endDate}' class='border rounded px-1' />`);
+            });
+            html += '</tr>';
+            /* Row 4 – run time + save */
+            html += '<tr>' + th('Run Schedule Time', 'endpoint-col');
+            schedules.forEach(t => {
+                html += td(`<input id='rt-${t.tenantId}' type='time' value='${t.runTime.slice(0, 5)}' class='border rounded w-24' /><br/><button class='mt-1 px-3 py-0.5 bg-gray-300 hover:bg-gray-400 rounded text-xs' onclick="saveSchedule()">save</button>`);
+            });
+            html += '</tr>';
+            /* Divider row */
+            html += `<tr><th class='endpoint-col border-t-4 border-b-2 p-2 text-center' colspan='${schedules.length + 1}'>Data points to collect from Xero</th></tr>`;
+            html += '</thead><tbody>';
+
+            /* 2 ─ endpoints rows */
+            allEndpoints.forEach(ep => {
+                html += `<tr>${td(ep, 'endpoint-col')}`;
+                schedules.forEach(t => {
+                    const checked = t.enabledEndpoints?.includes(ep);
+                    html += td(`<input type='checkbox' data-tenant='${t.tenantId}' data-ep='${ep}' ${checked ? 'checked' : ''} />`);
+                });
+                html += '</tr>';
+            });
+            html += '</tbody>';
+            grid.innerHTML = html;
+        }
+
+        /* ------------------------------------------------------------- */
+        function buildSchedule() {
+            const tenants = [...document.querySelectorAll('input[data-tenant]')].map(el => el.dataset.tenant).filter((v, i, a) => v && a.indexOf(v) === i);
+            return tenants.map(id => ({
+                tenantId: id,
+                runTime: $('#rt-' + id).value + ':00',
+                startDate: $('#sd-' + id).value,
+                endDate: $('#ed-' + id).value,
+                enabledEndpoints: [...document.querySelectorAll(`input[data-tenant='${id}'][type='checkbox']:checked`)].map(cb => cb.dataset.ep)
+            }));
+        }
+
+        async function saveSchedule() {
+            const model = buildSchedule();
+            const r = await fetch(`${api}/schedule`, {
+                method: 'PUT', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(model)
+            });
+            toast(r.ok ? 'Saved ✔' : 'Error ❌');
+        }
+
+        async function runNow(tenantId) {
+            const checked = [...document.querySelectorAll(`input[data-tenant='${tenantId}'][type='checkbox']:checked`)].map(cb => cb.dataset.ep);
+            if (!checked.length) { toast('No endpoints checked'); return; }
+            const body = {
+                tenantId,
+                odsTables: true,
+                startDate: $('#sd-' + tenantId).value,
+                endDate: $('#ed-' + tenantId).value,
+                endpoints: checked
+            };
+            const r = await fetch(`${api}/runs`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+            if (!r.ok) { toast('Run failed'); return; }
+            const { runId } = await r.json(); toast(`Run queued (${runId})`);
+            poll(runId);
+        }
+
+        function poll(id) {
+            const span = $('#toast');
+            const h = setInterval(async () => {
+                const r = await fetch(`${api}/runs/${id}`);
+                if (r.status === 404) return;
+                const { status } = await r.json();
+                span.textContent = `Status: ${status}`;
+                if (status !== 'Running' && status !== 'Queued') clearInterval(h);
+            }, 2000);
+        }
+    </script>
+</head>
+<body class="p-6 text-sm">
+    <h1 class="text-2xl font-semibold mb-4">Lucent — Tenant schedules</h1>
+    <div class="overflow-auto max-h-[80vh] rounded-lg shadow">
+        <table id="grid" class="w-full text-xs"></table>
+    </div>
+    <div class="mt-4 text-emerald-700 font-semibold" id="toast"></div>
+</body>
+</html>
