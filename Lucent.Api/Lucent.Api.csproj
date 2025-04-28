@@ -15,17 +15,17 @@
   </ItemGroup>	  
 	
 	  <ItemGroup>
-		  
+
 		  <!-- stop the implicit items -->
 		  <None Remove="appsettings.json" />
 		  <None Remove="appsettings.Development.json" />
 
-		  <!-- reference the shared files located in the repo-level config folder -->
-		  <None Include="..\config\appsettings.json"
+		  <!-- copy local files to a namespaced folder in publish -->
+		  <None Include="appsettings.json"
 				Link="config/api/appsettings.json"
 				CopyToPublishDirectory="PreserveNewest" />
 
-		  <None Include="..\config\appsettings.Development.json"
+		  <None Include="appsettings.Development.json"
 				Link="config/api/appsettings.Development.json"
 				CopyToPublishDirectory="PreserveNewest" />
 	  </ItemGroup>

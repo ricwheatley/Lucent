@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -15,18 +15,18 @@
 	  <PackageReference Include="Microsoft.Extensions.Configuration.Json"  />
 	  <PackageReference Include="Microsoft.Extensions.Hosting" />
     <PackageReference Include="RestSharp"  />
-	  <!-- Remove the default copies -->
-	  <None Remove="appsettings.json" />
-	  <None Remove="appsettings.Development.json" />
+  <!-- Remove default copies that look in /config -->
+  <None Remove="appsettings.json" />
+  <None Remove="appsettings.Development.json" />
 
-	  <!-- Copy to a namespaced folder in publish output -->
-	  <None Include="appsettings.json"
-			Link="config/onboard/appsettings.json"
-			CopyToPublishDirectory="PreserveNewest" />
+  <!-- Copy local files to a unique folder in publish -->
+  <None Include="appsettings.json"
+        Link="config/Onboard/appsettings.json"
+        CopyToPublishDirectory="PreserveNewest" />
 
-	  <None Include="appsettings.Development.json"
-			Link="config/onboard/appsettings.Development.json"
-			CopyToPublishDirectory="PreserveNewest" />
+  <None Include="appsettings.Development.json"
+        Link="config/Onboard/appsettings.Development.json"
+        CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>

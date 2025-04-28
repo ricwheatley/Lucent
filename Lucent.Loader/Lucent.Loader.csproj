@@ -24,18 +24,18 @@
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-		<!-- stop the implicit items the SDK adds -->
-		<None Remove="appsettings.json" />
-		<None Remove="appsettings.Development.json" />
+<ItemGroup>
+  <!-- Remove default copies that look in /config -->
+  <None Remove="appsettings.json" />
+  <None Remove="appsettings.Development.json" />
 
-		<!-- reference the shared files one folder up -->
-		<None Include="..\config\appsettings.json"
-			  Link="config/loader/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
+  <!-- Copy local files to a unique folder in publish -->
+  <None Include="appsettings.json"
+        Link="config/Loader/appsettings.json"
+        CopyToPublishDirectory="PreserveNewest" />
 
-		<None Include="..\config\appsettings.Development.json"
-			  Link="config/loader/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
+  <None Include="appsettings.Development.json"
+        Link="config/Loader/appsettings.Development.json"
+        CopyToPublishDirectory="PreserveNewest" />
+</ItemGroup>
 </Project>
