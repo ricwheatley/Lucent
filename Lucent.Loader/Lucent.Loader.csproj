@@ -25,16 +25,16 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<!-- Remove the default copy -->
+		<!-- stop the implicit items the SDK adds -->
 		<None Remove="appsettings.json" />
 		<None Remove="appsettings.Development.json" />
 
-		<!-- Add back a namespaced copy so the file name is unique -->
-		<None Include="appsettings.json"
+		<!-- reference the shared files one folder up -->
+		<None Include="..\config\appsettings.json"
 			  Link="config/loader/appsettings.json"
 			  CopyToPublishDirectory="PreserveNewest" />
 
-		<None Include="appsettings.Development.json"
+		<None Include="..\config\appsettings.Development.json"
 			  Link="config/loader/appsettings.Development.json"
 			  CopyToPublishDirectory="PreserveNewest" />
 	</ItemGroup>

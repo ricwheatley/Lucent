@@ -12,17 +12,20 @@
 	<ProjectReference Include="..\Lucent.Scheduler\Lucent.Scheduler.csproj" />
 	<ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
 
-  </ItemGroup>
-	<ItemGroup>
-		<None Remove="appsettings.json" />
-		<None Remove="appsettings.Development.json" />
+  </ItemGroup>	  
+	
+	  <ItemGroup>
+		  <!-- stop the implicit items -->
+		  <None Remove="appsettings.json" />
+		  <None Remove="appsettings.Development.json" />
 
-		<None Include="appsettings.json"
-			  Link="config/api/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
+		  <!-- reference the shared files located in the repo-level config folder -->
+		  <None Include="..\config\appsettings.json"
+				Link="config/api/appsettings.json"
+				CopyToPublishDirectory="PreserveNewest" />
 
-		<None Include="appsettings.Development.json"
-			  Link="config/api/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
+		  <None Include="..\config\appsettings.Development.json"
+				Link="config/api/appsettings.Development.json"
+				CopyToPublishDirectory="PreserveNewest" />
+	  </ItemGroup>
 </Project>

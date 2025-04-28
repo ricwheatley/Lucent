@@ -34,14 +34,16 @@
   </ItemGroup>
 
 	<ItemGroup>
+		<!-- stop the SDK’s implicit items -->
 		<None Remove="appsettings.json" />
 		<None Remove="appsettings.Development.json" />
 
-		<None Include="appsettings.json"
+		<!-- point at the shared files one level up -->
+		<None Include="..\config\appsettings.json"
 			  Link="config/scheduler/appsettings.json"
 			  CopyToPublishDirectory="PreserveNewest" />
 
-		<None Include="appsettings.Development.json"
+		<None Include="..\config\appsettings.Development.json"
 			  Link="config/scheduler/appsettings.Development.json"
 			  CopyToPublishDirectory="PreserveNewest" />
 	</ItemGroup>
