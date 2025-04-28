@@ -4,6 +4,7 @@ using System.Net.Http;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Contrib.WaitAndRetry;
+using Polly.Registry;
 using Polly.Timeout;
 
 namespace Lucent.Resilience;
@@ -15,6 +16,8 @@ namespace Lucent.Resilience;
 public static class RetryPolicies
 {
     /// <summary>Retry + exponential back-off for idempotent HTTP verbs.</summary>
+   
+    public const string StandardHttpPolicy = "standard-http";
     public static IAsyncPolicy<HttpResponseMessage> CreateHttpRetry(ILogger logger)
     {
         var delay = Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromSeconds(2), retryCount: 3, fastFirst: true);
@@ -56,5 +59,12 @@ public static class RetryPolicies
             { Source: "Core .Net SqlClient Data Provider" } when ex.Message.Contains("error number 4060") => true,
             { Message: var m } when m.Contains("deadlocked") => true,
             _ => false
+        };
+
+    /// <summary>Builds a Polly registry pre-populated with Lucent’s standard policies.</summary>
+    public static IPolicyRegistry<string> BuildRegistry(ILoggerFactory loggerFactory)
+        => new PolicyRegistry
+        {
+            [StandardHttpPolicy] = CreateHttpRetry(loggerFactory.CreateLogger("HttpRetry"))
         };
 }
