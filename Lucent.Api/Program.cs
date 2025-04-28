@@ -1,4 +1,5 @@
 ﻿using Lucent.Core;
+using Lucent.Core.Loaders;
 using Lucent.Scheduler;
 using Lucent.Api;                 // RunRequest / RunStatus
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,7 @@ builder.Logging.AddSimpleConsole(o =>
 /* ───── services ──────────────────────────────────────────── */
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ILucentLoader, NoOpLucentLoader>();
 
 builder.Services.AddLucentScheduler();          // extension in Lucent.Scheduler
 builder.Services.AddSingleton<RunRegistry>();   // shared run-state
