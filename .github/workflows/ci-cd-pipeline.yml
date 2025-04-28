@@ -67,8 +67,9 @@ jobs:
     - name: 📦 Restore Dependencies
       run: dotnet restore ${{ env.SOLUTION_FILE }}
 
-    - name: 🚧 Publish Lucent.Api explicitly to isolated directory
-      run: dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish-output/Lucent.Api --no-restore
+    - name: 🚧 Publish Lucent.Api (self-contained publish)
+      run: |
+        dotnet publish Lucent.Api/Lucent.Api.csproj -c Release -o ./publish-output/Lucent.Api --no-restore
 
     - name: 🚚 Upload Lucent.Api Artifact
       uses: actions/upload-artifact@v4
@@ -76,8 +77,9 @@ jobs:
         name: Lucent-Api-App
         path: ./publish-output/Lucent.Api
 
-    - name: 🚧 Publish Lucent.Loader explicitly to isolated directory
-      run: dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./publish-output/Lucent.Loader --no-restore
+    - name: 🚧 Publish Lucent.Loader (self-contained publish)
+      run: |
+        dotnet publish Lucent.Loader/Lucent.Loader.csproj -c Release -o ./publish-output/Lucent.Loader --no-restore
 
     - name: 🚚 Upload Lucent.Loader Artifact
       uses: actions/upload-artifact@v4
@@ -85,8 +87,9 @@ jobs:
         name: Lucent-Loader-App
         path: ./publish-output/Lucent.Loader
 
-    - name: 🚧 Publish Lucent.Scheduler explicitly to isolated directory
-      run: dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish-output/Lucent.Scheduler --no-restore
+    - name: 🚧 Publish Lucent.Scheduler (self-contained publish)
+      run: |
+        dotnet publish Lucent.Scheduler/Lucent.Scheduler.csproj -c Release -o ./publish-output/Lucent.Scheduler --no-restore
 
     - name: 🚚 Upload Lucent.Scheduler Artifact
       uses: actions/upload-artifact@v4
