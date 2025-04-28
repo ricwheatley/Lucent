@@ -25,13 +25,8 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<!-- copy into ./config/loader/ -->
-		<None Update="appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest"
-			  Link="config\loader\appsettings.json" />
-
-		<None Update="appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest"
-			  Link="config\loader\appsettings.Development.json" />
+		<!-- Stop implicit copy of config, CI pipeline adds config explicitly -->
+		<None Update="appsettings.json"               CopyToPublishDirectory="Never" />
+		<None Update="appsettings.Development.json"   CopyToPublishDirectory="Never" />
 	</ItemGroup>
 </Project>
