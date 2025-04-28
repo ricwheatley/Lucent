@@ -12,21 +12,23 @@
 	<ProjectReference Include="..\Lucent.Scheduler\Lucent.Scheduler.csproj" />
 	<ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
 
-  </ItemGroup>	  
-	
-	  <ItemGroup>
+  </ItemGroup>
 
-		  <!-- stop the implicit items -->
-		  <None Remove="appsettings.json" />
-		  <None Remove="appsettings.Development.json" />
+	<ItemGroup>
+		<!-- Disable the SDK’s default copy -->
+		<None Update="appsettings.json"
+			  CopyToOutputDirectory="Never"
+			  CopyToPublishDirectory="Never" />
+		<None Update="appsettings.Development.json"
+			  CopyToOutputDirectory="Never"
+			  CopyToPublishDirectory="Never" />
 
-		  <!-- copy local files to a namespaced folder in publish -->
-		  <None Include="appsettings.json"
-				Link="config/api/appsettings.json"
-				CopyToPublishDirectory="PreserveNewest" />
-
-		  <None Include="appsettings.Development.json"
-				Link="config/api/appsettings.Development.json"
-				CopyToPublishDirectory="PreserveNewest" />
-	  </ItemGroup>
+		<!-- Our explicit, namespaced copy -->
+		<None Include="appsettings.json"
+			  Link="config/Api/appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+		<None Include="appsettings.Development.json"
+			  Link="config/Api/appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
 </Project>

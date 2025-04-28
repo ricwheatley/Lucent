@@ -33,18 +33,21 @@
     <ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-		<!-- stop the SDK’s implicit items -->
-		<None Remove="appsettings.json" />
-		<None Remove="appsettings.Development.json" />
+<ItemGroup>
+  <!-- Disable the SDK’s default copy -->
+  <None Update="appsettings.json"
+        CopyToOutputDirectory="Never"
+        CopyToPublishDirectory="Never" />
+  <None Update="appsettings.Development.json"
+        CopyToOutputDirectory="Never"
+        CopyToPublishDirectory="Never" />
 
-		<!-- point at the shared files one level up -->
-		<None Include="..\config\appsettings.json"
-			  Link="config/scheduler/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-
-		<None Include="..\config\appsettings.Development.json"
-			  Link="config/scheduler/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
+  <!-- Our explicit, namespaced copy -->
+  <None Include="appsettings.json"
+        Link="config/Scheduler/appsettings.json"
+        CopyToPublishDirectory="PreserveNewest" />
+  <None Include="appsettings.Development.json"
+        Link="config/Scheduler/appsettings.Development.json"
+        CopyToPublishDirectory="PreserveNewest" />
+</ItemGroup>
 </Project>

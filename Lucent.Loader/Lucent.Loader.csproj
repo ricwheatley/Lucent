@@ -24,18 +24,21 @@
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
   </ItemGroup>
 
-<ItemGroup>
-  <!-- Remove default copies that look in /config -->
-  <None Remove="appsettings.json" />
-  <None Remove="appsettings.Development.json" />
+	<ItemGroup>
+		<!-- Disable the SDK’s default copy -->
+		<None Update="appsettings.json"
+			  CopyToOutputDirectory="Never"
+			  CopyToPublishDirectory="Never" />
+		<None Update="appsettings.Development.json"
+			  CopyToOutputDirectory="Never"
+			  CopyToPublishDirectory="Never" />
 
-  <!-- Copy local files to a unique folder in publish -->
-  <None Include="appsettings.json"
-        Link="config/Loader/appsettings.json"
-        CopyToPublishDirectory="PreserveNewest" />
-
-  <None Include="appsettings.Development.json"
-        Link="config/Loader/appsettings.Development.json"
-        CopyToPublishDirectory="PreserveNewest" />
-</ItemGroup>
+		<!-- Our explicit, namespaced copy -->
+		<None Include="appsettings.json"
+			  Link="config/Loader/appsettings.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+		<None Include="appsettings.Development.json"
+			  Link="config/Loader/appsettings.Development.json"
+			  CopyToPublishDirectory="PreserveNewest" />
+	</ItemGroup>
 </Project>
