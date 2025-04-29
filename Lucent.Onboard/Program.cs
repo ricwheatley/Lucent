@@ -1,4 +1,4 @@
-﻿// Lucent.Onboard / Program.cs  – secret-first refactor, zero JSON writes
+﻿// Lucent.Onboard / Program.cs  – secret-first, zero JSON writes
 using System.Diagnostics;
 using System.Net;
 using System.Text;
@@ -20,6 +20,7 @@ builder.Configuration
        .AddUserSecrets<Program>(optional: true)
        .AddEnvironmentVariables();
 
+builder.Logging.SetMinimumLevel(LogLevel.Information);   // ← new
 builder.Services.AddLogging(c => c.AddSimpleConsole(o =>
 {
     o.SingleLine = true;
@@ -122,6 +123,8 @@ logger.LogInformation("───────────────────
 logger.LogInformation("Next step (local dev):");
 logger.LogInformation("  dotnet user-secrets set Lucent:RefreshToken \"<paste>\"");
 logger.LogInformation("  dotnet user-secrets set Lucent:TenantId    \"{0}\"", tenantId);
+logger.LogInformation("  dotnet user-secrets set Lucent:ClientId    \"{1}\"", clientId);   // ← new
+logger.LogInformation("  dotnet user-secrets set Lucent:ClientSecret \"<paste>\"");         // ← new
 logger.LogInformation("");
-logger.LogInformation("For CI/prod, add the same values to GitHub Actions secrets.");
+logger.LogInformation("For CI/prod, add the same four values to GitHub Actions secrets.");
 logger.LogInformation("Done ✅");
