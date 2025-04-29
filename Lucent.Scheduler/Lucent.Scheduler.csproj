@@ -19,14 +19,15 @@
     <ProjectReference Include="..\Lucent.Auth\Lucent.Auth.csproj" />
     <ProjectReference Include="..\Lucent.Client\Lucent.Client.csproj" />
     <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+	
   </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Lucent.Loader">
+			<HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
+		</Reference>
 
-  <ItemGroup>
-    <Reference Include="Lucent.Loader">
-      <HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
-    </Reference>
+	</ItemGroup>
 
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />

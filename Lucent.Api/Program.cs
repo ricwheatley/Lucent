@@ -67,7 +67,7 @@ builder.Services.AddScoped<ILucentClient, XeroApiClient>();
 builder.Services.AddScoped<ILucentAuth, LucentAuth>();
 builder.Services.AddScoped<ILucentLoader, NoOpLucentLoader>();
 
-builder.Services.AddLucentScheduler();          // Quartz + jobs
+builder.Services.AddLucentScheduler(builder.Configuration);
 builder.Services.AddSingleton<RunRegistry>();   // shared run-state
 builder.Services.AddSingleton<ITenantScheduleStore>(
         sp => new SqlTenantScheduleStore(sp.GetRequiredService<IConfiguration>()));

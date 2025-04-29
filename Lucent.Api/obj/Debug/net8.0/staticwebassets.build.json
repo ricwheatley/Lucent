@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "QPlOWEikT62OcVpv7hMfPc/S+8F08tbOvSNtf197ueQ=",
+  "Hash": "JqsGRmyYNfJmZPfUa4A0GX9UDQUZIkLcssIYwmD0ix8=",
   "Source": "Lucent.Api",
   "BasePath": "_content/Lucent.Api",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

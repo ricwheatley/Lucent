@@ -4,6 +4,7 @@ C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Loader.deps.json
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Loader.runtimeconfig.json
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Loader.exe
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Scheduler.exe
+C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Api.staticwebassets.endpoints.json
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Api.exe
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Api.deps.json
 C:\Dev\Lucent\Lucent.Api\bin\Debug\net8.0\Lucent.Api.runtimeconfig.json
@@ -119,14 +120,16 @@ C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.csproj.CoreCompileInputs.ca
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.sourcelink.json
+C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\scopedcss\bundle\Lucent.Api.styles.css
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets.development.json
+C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets.build.endpoints.json
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets\msbuild.Lucent.Api.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets\msbuild.Lucent.Api.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets\msbuild.build.Lucent.Api.props
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Lucent.Api.props
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Lucent.Api.props
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\scopedcss\bundle\Lucent.Api.styles.css
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.csproj.Up2Date
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\Lucent.Api.dll
 C:\Dev\Lucent\Lucent.Api\obj\Debug\net8.0\refint\Lucent.Api.dll

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lucent.Auth")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d45c6803712c2847c3ffed72291a0493c4a2dfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9959a0cb8ede6980abab1f7b0b9ac84855fc6bfe")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lucent.Auth")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lucent.Auth")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
