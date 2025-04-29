@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lucent.Runner")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+90bb24b20880652db03473e088e13d45e10059b1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ce39ae2485402a6c0cf57be3f65c691939abe6a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lucent.Runner")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lucent.Runner")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
