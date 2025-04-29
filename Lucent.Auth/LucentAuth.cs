@@ -1,11 +1,11 @@
-﻿using System.Text.Json.Nodes;
+﻿// Lucent.Auth / LucentAuth.cs  – refactored
+using System.Text.Json.Nodes;
 using Lucent.Auth.TokenCache;
 using Lucent.Core;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RestSharp;
-using RestSharp.Serializers.Json;   // for the stub response helper
 
 namespace Lucent.Auth;
 
@@ -19,10 +19,10 @@ public sealed class LucentAuth : ILucentAuth
     private readonly IConfiguration _cfg;
     private readonly ILogger<LucentAuth> _log;
     private readonly TimeSpan _earlyExpiry;
+    private readonly IRestClient _rest;
 
     private string? _cachedToken;
     private DateTime _expiresUtc;
-    private readonly IRestClient _rest;
 
     public LucentAuth(
         IConfiguration cfg,
@@ -32,28 +32,25 @@ public sealed class LucentAuth : ILucentAuth
     {
         _cfg = cfg;
         _log = log;
-        _earlyExpiry = TimeSpan.FromSeconds(opts.Value.EarlyExpirySeconds);
         _rest = rest;
+        _earlyExpiry = TimeSpan.FromSeconds(
+                           opts.Value.EarlyExpirySeconds > 0
+                               ? opts.Value.EarlyExpirySeconds
+                               : LucentDefaults.TokenEarlyExpirySeconds);
     }
 
     public async Task<string> GetAccessTokenAsync(CancellationToken ct)
     {
-        // Re-use the cached token if it has more than EarlyExpirySeconds left
+        // return cached token if still outside early-expiry window
         if (_cachedToken is not null && DateTime.UtcNow < _expiresUtc - _earlyExpiry)
             return _cachedToken;
 
-        // Assemble the token-refresh form from configuration
-        var form = new Dictionary<string, string?>
-        {
-            ["grant_type"] = "refresh_token",
-            ["refresh_token"] = _cfg["Lucent:RefreshToken"],
-            ["client_id"] = _cfg["Lucent:ClientId"],
-            ["client_secret"] = _cfg["Lucent:ClientSecret"]
-        };
-
-        var req = new RestRequest { Method = Method.Post };
-        foreach (var kv in form)
-            req.AddParameter(kv.Key, kv.Value ?? string.Empty, ParameterType.GetOrPost);
+        /* ───── build token-refresh form ─────────────────────────── */
+        var req = new RestRequest("", Method.Post)
+                      .AddParameter("grant_type", "refresh_token")
+                      .AddParameter("refresh_token", _cfg["Lucent:RefreshToken"])
+                      .AddParameter("client_id", _cfg["Lucent:ClientId"])
+                      .AddParameter("client_secret", _cfg["Lucent:ClientSecret"]);
 
         var resp = await _rest.ExecuteAsync(req, ct);
 
@@ -65,22 +62,19 @@ public sealed class LucentAuth : ILucentAuth
                 $"Token refresh failed: {(int)resp.StatusCode} {resp.Content}");
         }
 
-        // Parse and cache the response
+        /* ───── parse response & cache ───────────────────────────── */
         JsonNode json = JsonNode.Parse(resp.Content!)!;
         _cachedToken = json["access_token"]!.GetValue<string>();
-        _expiresUtc = DateTime.UtcNow
-                        .AddSeconds(json["expires_in"]!.GetValue<int>());
-
+        _expiresUtc = DateTime.UtcNow.AddSeconds(json["expires_in"]!.GetValue<int>());
         string newRefresh = json["refresh_token"]!.GetValue<string>();
-        _log.LogInformation("Access token refreshed, expires {Expiry}", _expiresUtc);
 
-        // Persist the new refresh token
-        var cfgPath = ConfigPathHelper.GetSharedConfigPath();
-        var root = JsonNode.Parse(await File.ReadAllTextAsync(cfgPath, ct))!;
-        root["Lucent"]!["RefreshToken"] = newRefresh;
-        await File.WriteAllTextAsync(cfgPath,
-                                     root.ToJsonString(new() { WriteIndented = true }),
-                                     ct);
+        _log.LogInformation("Access token refreshed; expires {Expiry:c} from now", _expiresUtc - DateTime.UtcNow);
+
+        /* ───── optional: persist new refresh token ────────────────
+           Here we just log – persisting securely depends on environment
+           (Key Vault, AWS Secrets Manager, etc.). */
+        if (newRefresh != _cfg["Lucent:RefreshToken"])
+            _log.LogInformation("New refresh_token received – remember to update your secret store.");
 
         return _cachedToken;
     }

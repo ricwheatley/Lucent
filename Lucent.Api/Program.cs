@@ -1,49 +1,49 @@
-﻿using Lucent.Core;
-using Lucent.Client;
-using Lucent.Core.Loaders;
-using Lucent.Auth.TokenCache;
-using Lucent.Scheduler;
-using Lucent.Api;                 // RunRequest / RunStatus
+﻿// Lucent.Api / Program.cs
+using Lucent.Api;
 using Lucent.Auth;
+using Lucent.Auth.TokenCache;
+using Lucent.Client;
+using Lucent.Core;
+using Lucent.Core.Loaders;
+using Lucent.Core.Scheduling;
 using Lucent.Resilience;
-using Polly.Registry;
+using Lucent.Scheduler;                // AddLucentScheduler, RunRegistry
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Polly.Registry;
 using Quartz;
-using Lucent.Core.Scheduling;
 using RestSharp;
-using System.Text.Json;         // for validation, optional
 
 var builder = WebApplication.CreateBuilder(args);
 
 /* ───── configuration & logging ───────────────────────────── */
-var sharedCfg = ConfigPathHelper.GetSharedConfigPath();
 
-var schedPath = Path.Combine(
-                Path.GetDirectoryName(sharedCfg)!,
-                "tenant-schedule.json");
-
-builder.Services.AddScoped<ILucentClient, XeroApiClient>();
-builder.Services.AddSingleton<IPolicyRegistry<string>>(sp =>
-{
-    var loggerFactory = sp.GetRequiredService<ILoggerFactory>();
-    return RetryPolicies.BuildRegistry(loggerFactory);
-});
-
-builder.Configuration.AddJsonFile(sharedCfg, optional: false, reloadOnChange: true);
+builder.Configuration
+       .AddJsonFile("config/appsettings.Development.json", optional: true, reloadOnChange: true)
+       .AddUserSecrets<Program>(optional: true)
+       .AddEnvironmentVariables();
 
 builder.Services
        .AddOptions<TokenCacheOptions>()
        .Bind(builder.Configuration.GetSection("TokenCache"))
        .ValidateDataAnnotations();
+
 builder.Logging.ClearProviders();
 builder.Logging.AddSimpleConsole(o =>
 {
     o.SingleLine = true;
     o.TimestampFormat = "HH:mm:ss ";
     o.IncludeScopes = true;   // shows “=> CorrelationId: ab12cd34”
+});
+
+/* ───── resilience: Polly registry + retry-enabled client ─── */
+
+builder.Services.AddSingleton<IPolicyRegistry<string>>(sp =>
+{
+    var lf = sp.GetRequiredService<ILoggerFactory>();
+    return RetryPolicies.BuildRegistry(lf);
 });
 
 builder.Services
@@ -59,11 +59,15 @@ builder.Services.AddSingleton<IRestClient>(sp =>
 });
 
 /* ───── services ──────────────────────────────────────────── */
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<ILucentLoader, NoOpLucentLoader>();
+
+builder.Services.AddScoped<ILucentClient, XeroApiClient>();
 builder.Services.AddScoped<ILucentAuth, LucentAuth>();
-builder.Services.AddLucentScheduler();          // extension in Lucent.Scheduler
+builder.Services.AddScoped<ILucentLoader, NoOpLucentLoader>();
+
+builder.Services.AddLucentScheduler(builder.Configuration);
 builder.Services.AddSingleton<RunRegistry>();   // shared run-state
 builder.Services.AddSingleton<ITenantScheduleStore>(
         sp => new SqlTenantScheduleStore(sp.GetRequiredService<IConfiguration>()));
@@ -92,11 +96,9 @@ app.UseCors("runner");
 
 /* ───── endpoints ─────────────────────────────────────────── */
 
-/* minimal “old” run-now (kept for backward compatibility) */
 app.MapPost("/run-now", async (IRunNow runner, ILoggerFactory lf, CancellationToken ct) =>
 {
-    var log = lf.CreateLogger("Api");
-    log.LogInformation("POST /run-now received");
+    lf.CreateLogger("Api").LogInformation("POST /run-now received");
     await runner.RunAsync(ct);
     return Results.Ok(new { ok = true });
 })
@@ -104,7 +106,6 @@ app.MapPost("/run-now", async (IRunNow runner, ILoggerFactory lf, CancellationTo
 .Produces(200)
 .WithOpenApi();
 
-/* POST /runs  – queue a parameterised run */
 app.MapPost("/runs", async (
         RunRequest req,
         RunRegistry reg,
@@ -135,7 +136,6 @@ app.MapPost("/runs", async (
 .Produces(202)
 .WithOpenApi();
 
-/* GET /runs/{id}  – polling endpoint for the UI */
 app.MapGet("/runs/{id}", (string id, RunRegistry reg) =>
 {
     return reg.TryGet(id, out var s)
@@ -147,22 +147,18 @@ app.MapGet("/runs/{id}", (string id, RunRegistry reg) =>
 .Produces(404)
 .WithOpenApi();
 
-
-/* GET  /schedule  – return the whole grid */
 app.MapGet("/schedule", async (ITenantScheduleStore store, CancellationToken ct)
     => Results.Ok(await store.LoadAsync(ct)))
    .WithName("GetSchedule")
    .Produces<IReadOnlyList<TenantSchedule>>(200)
    .WithOpenApi();
 
-/* PUT /schedule  – replace everything */
 app.MapPut("/schedule", async (
         List<TenantSchedule> schedules,
         ITenantScheduleStore store,
         ILogger<Program> log,
         CancellationToken ct) =>
 {
-    /* quick sanity-check: duplicate tenant IDs? */
     if (schedules.GroupBy(s => s.TenantId).Any(g => g.Count() > 1))
         return Results.BadRequest("Duplicate TenantId rows.");
 
@@ -174,7 +170,6 @@ app.MapPut("/schedule", async (
 .Produces(204)
 .Produces(400)
 .WithOpenApi();
-
 
 /* ───── run app ───────────────────────────────────────────── */
 app.Run();

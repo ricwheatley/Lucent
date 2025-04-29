@@ -1,5 +1,7 @@
-﻿using Lucent.Auth;
+﻿using System;
+using Lucent.Auth;
 using Lucent.Client;
+using Lucent.Core.Loaders;
 using Lucent.Loader;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,43 +9,54 @@ using Quartz;
 
 namespace Lucent.Scheduler;
 
+/// <summary>
+/// Registers Quartz and the nightly loader job.  
+/// Call from Program.cs with:
+/// <code>services.AddLucentScheduler(builder.Configuration);</code>
+/// </summary>
 public static class SchedulerServiceCollectionExtensions
 {
-    public static IServiceCollection AddLucentScheduler(this IServiceCollection services)
-    {
-        /* 1 ─ core Lucent deps ------------------------------------------ */
-        services.AddOptions();                              // IConfiguration in DI
-        services.AddSingleton<ILucentAuth, LucentAuth>();
-        services.AddSingleton<ILucentClient, XeroApiClient>();
-        services.AddSingleton<ILucentLoader, LucentWorker>();
+    private const string JobName = "NightlyLoad";
+    private const string JobGroup = "Loader";
+    private static readonly TimeZoneInfo London =
+        TimeZoneInfo.FindSystemTimeZoneById("Europe/London");
 
-        /* 2 ─ read RunTime once and build cron -------------------------- */
-        var cfg = services.BuildServiceProvider()
-                            .GetRequiredService<IConfiguration>();
-        var runAt = cfg["Schedule:RunTime"] ?? "01:00";     // HH:mm
+    public static IServiceCollection AddLucentScheduler(
+        this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        ArgumentNullException.ThrowIfNull(services);
+        ArgumentNullException.ThrowIfNull(configuration);
+
+        /* 1 ── core Lucent dependencies ─────────────────────────────── */
+        services.AddOptions();
+        services.AddSingleton<ILucentAuth, LucentAuth>();
+        services.AddHttpClient<ILucentClient, XeroApiClient>();
+        services.AddScoped<ILucentLoader, LucentWorker>();
+
+        /* 2 ── work out the cron expression once ───────────────────── */
+        var runAt = configuration["Schedule:RunTime"] ?? "01:00";         // HH:mm
 
         if (!TimeSpan.TryParse(runAt, out var t))
-            throw new FormatException($"Schedule:RunTime '{runAt}' is not HH:mm");
+            throw new FormatException($"Schedule:RunTime '{runAt}' is not a valid HH:mm");
 
-        var cron = $"0 {t.Minutes} {t.Hours} ? * *";       // sec min hour dom mon dow
+        var cron = $"0 {t.Minutes} {t.Hours} ? * *";                       // sec min hour dom mon dow
+        var jobKey = new JobKey(JobName, JobGroup);
 
-        /* 3 ─ Quartz job + trigger ------------------------------------- */
+        /* 3 ── Quartz registration ─────────────────────────────────── */
         services.AddQuartz(q =>
         {
-            var jobKey = new JobKey("NightlyLoad");
+            q.AddJob<LoadJob>(opts => opts.WithIdentity(jobKey));
 
-            q.AddJob<LoadJob>(o => o.WithIdentity(jobKey));
-
-            q.AddTrigger(tg => tg.ForJob(jobKey)
-                                 .WithCronSchedule(
-                                     cron,
-                                     x => x.InTimeZone(
-                                         TimeZoneInfo.FindSystemTimeZoneById("Europe/London"))));
+            q.AddTrigger(trigger => trigger
+                .ForJob(jobKey)
+                .WithIdentity($"{JobName}Trigger", JobGroup)
+                .WithCronSchedule(cron, x => x.InTimeZone(London)));
         });
 
-        services.AddQuartzHostedService();
+        services.AddQuartzHostedService(o => o.WaitForJobsToComplete = true);
 
-        /* 4 ─ Run-now helper ------------------------------------------- */
+        /* 4 ── run-now helper ───────────────────────────────────────── */
         services.AddSingleton<IRunNow, RunNow>();
 
         return services;

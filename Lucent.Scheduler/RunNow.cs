@@ -1,38 +1,54 @@
 ﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Quartz;
 
 namespace Lucent.Scheduler;
 
+/// <summary>
+/// Manually fires the nightly loader job via Quartz, pushing a correlation
+/// identifier into the <see cref="JobDataMap"/> so downstream log entries
+/// can be stitched together.
+/// </summary>
 public sealed class RunNow : IRunNow
 {
-    private readonly ISchedulerFactory _factory;
-    private readonly ILogger<RunNow> _log;
-    private static readonly JobKey LoadJobKey = new("NightlyLoad");
+    // Keep the job key in one place so it cannot drift from the registration
+    // in Program.cs.  If your registration uses the default group, drop the
+    // second parameter here.
+    private static readonly JobKey NightlyLoadKey = new("NightlyLoad", "Loader");
 
-    public RunNow(ISchedulerFactory factory, ILogger<RunNow> log)
+    private readonly ISchedulerFactory _schedulerFactory;
+    private readonly ILogger<RunNow> _logger;
+
+    public RunNow(
+        ISchedulerFactory schedulerFactory,
+        ILogger<RunNow> logger)
     {
-        _factory = factory;
-        _log = log;
+        _schedulerFactory = schedulerFactory ?? throw new ArgumentNullException(nameof(schedulerFactory));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
-    public async Task RunAsync(CancellationToken ct)
+    /// <inheritdoc />
+    public async Task RunAsync(CancellationToken cancellationToken = default)
     {
-        var scheduler = await _factory.GetScheduler(ct);
+        var scheduler = await _schedulerFactory.GetScheduler(cancellationToken);
 
-        // ── correlation-id for this manual run ───────────────
-        var corrId = Guid.NewGuid().ToString("N")[..8];
-        var data = new JobDataMap
+        // Short GUID keeps log lines readable while remaining unique.
+        var correlationId = Guid.NewGuid().ToString("N")[..8];
+
+        var dataMap = new JobDataMap
         {
-            ["TriggeredBy"] = "RunNow",
-            ["CorrelationId"] = corrId
+            ["TriggeredBy"] = nameof(RunNow),
+            ["CorrelationId"] = correlationId
         };
 
-        _log.LogInformation("Run-Now: triggering {Job}. CorrelationId={C}",
-                            LoadJobKey, corrId);
+        using var _ = _logger.BeginScope(new { CorrelationId = correlationId });
 
-        await scheduler.TriggerJob(LoadJobKey, data, ct);    // ← pass the map
+        _logger.LogInformation("Run-Now: en-queuing job {JobKey}.", NightlyLoadKey);
 
-        _log.LogInformation("Run-Now: job en-queued. CorrelationId={C}", corrId);
+        await scheduler.TriggerJob(NightlyLoadKey, dataMap, cancellationToken);
+
+        _logger.LogInformation("Run-Now: job {JobKey} successfully en-queued.", NightlyLoadKey);
     }
 }

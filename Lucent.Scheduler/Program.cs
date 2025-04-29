@@ -1,34 +1,36 @@
-﻿// Lucent.Scheduler / Program.cs  – FIXED
-using Lucent.Core;
-using Lucent.Scheduler;
+﻿// Lucent.Scheduler / Program.cs  – secret-first, JSON-free
+using Lucent.Auth;
+using Lucent.Client;
+using Lucent.Core.Loaders;
+using Lucent.Core.Scheduling;
 using Lucent.Loader;
+using Lucent.Resilience;
+using Lucent.Scheduler;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Quartz;
-using Lucent.Auth;
-using Lucent.Client;
-using Lucent.Resilience;          // RetryPolicies
+using Microsoft.Extensions.Logging;
 using Polly.Registry;
+using Quartz;
 using RestSharp;
-using System.Net.Http;            // IHttpClientFactory
-
 
 var builder = Host.CreateApplicationBuilder(args);
 
-builder.Logging.ClearProviders();
-builder.Logging.AddSimpleConsole(o =>
+/* ── configuration & logging ────────────────────────────────────────── */
+builder.Configuration
+       .AddJsonFile("config/appsettings.Development.json", optional: true, reloadOnChange: true)
+       .AddUserSecrets<Program>(optional: true)
+       .AddEnvironmentVariables();
+
+builder.Logging.SetMinimumLevel(LogLevel.Information);
+builder.Services.AddLogging(c => c.AddSimpleConsole(o =>
 {
     o.SingleLine = true;
     o.TimestampFormat = "HH:mm:ss ";
-    o.IncludeScopes = true;           // ★ shows “=> CorrelationId: ab12cd34”
-});
+    o.IncludeScopes = true;     // shows “=> CorrelationId: ab12cd34”
+}));
 
-/* 1 ─ shared configuration -------------------------------------------- */
-builder.Configuration.AddJsonFile(
-    ConfigPathHelper.GetSharedConfigPath(), optional: false, reloadOnChange: true);
-
-/* 1a ─ resilience: Polly registry + retry-enabled client */
+/* ── resilience: Polly registry + retry-enabled client ─────────────── */
 builder.Services.AddSingleton<IPolicyRegistry<string>>(sp =>
 {
     var lf = sp.GetRequiredService<ILoggerFactory>();
@@ -47,28 +49,24 @@ builder.Services.AddSingleton<IRestClient>(sp =>
     return new RestClient(http);
 });
 
-builder.Services.AddScoped<ILucentLoader, LucentWorker>();  // Register the interface and implementation
-builder.Services.AddScoped<ILucentAuth, LucentAuth>();         //  Register the Auth
+/* ── DI for Loader & dependencies ───────────────────────────────────── */
+builder.Services.AddScoped<ILucentAuth, LucentAuth>();
 builder.Services.AddScoped<ILucentClient, XeroApiClient>();
+builder.Services.AddScoped<ILucentLoader, LucentWorker>();
+builder.Services.AddSingleton<ITenantScheduleStore, SqlTenantScheduleStore>();
 
-/* 2 ─ read run-time BEFORE host is built ------------------------------ */
-var runAt = TimeOnly.Parse(builder.Configuration["Schedule:RunTime"] ?? "01:00");
-string cron = $"0 {runAt.Minute} {runAt.Hour} * * ?";   // daily hh:mm
-//string cron = "0/15 * * * * ?"; << -- every 15 seconds for testing
-/* 3 ─ logging + Quartz ------------------------------------------------ */
-builder.Services.AddLogging(c => c.AddConsole());
+/* ── Quartz scheduling (same cron logic) ───────────────────────────── */
+var runAt = TimeOnly.Parse(
+                builder.Configuration["Schedule:RunTime"] ?? "01:00");
+var cron = $"0 {runAt.Minute} {runAt.Hour} * * ?";  // daily hh:mm
 
 builder.Services.AddQuartz(q =>
 {
     var jobKey = new JobKey("NightlyLoad");
     q.AddJob<LoadJob>(o => o.WithIdentity(jobKey));
-
-    q.AddTrigger(t => t.ForJob(jobKey)
-                       .WithCronSchedule(cron));
+    q.AddTrigger(t => t.ForJob(jobKey).WithCronSchedule(cron));
 });
 builder.Services.AddQuartzHostedService();
 
-builder.Services.AddSingleton<IRunNow, RunNow>();
-
-/* 4 ─ run -------------------------------------------------------------- */
+/* ── run host ───────────────────────────────────────────────────────── */
 await builder.Build().RunAsync();

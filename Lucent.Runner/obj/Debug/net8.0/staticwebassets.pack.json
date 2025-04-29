@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\Dev\\Lucent\\Lucent.Runner\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Lucent.Runner.bundle.scp.css",
-      "PackagePath": "staticwebassets\\Lucent.Runner.bundle.scp.css"
+      "PackagePath": "staticwebassets\\Lucent.Runner.ew57d0w27u.bundle.scp.css"
     },
     {
       "Id": "C:\\Dev\\Lucent\\Lucent.Runner\\wwwroot\\css\\site.css",
@@ -247,6 +247,10 @@
     {
       "Id": "C:\\Dev\\Lucent\\Lucent.Runner\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Lucent.Runner.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Lucent.Runner.Microsoft.AspNetCore.StaticWebAssets.props",

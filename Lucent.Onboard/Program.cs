@@ -1,42 +1,51 @@
-﻿// Program.cs  ── Lucent.Onboard
+﻿// Lucent.Onboard / Program.cs  – secret-first, zero JSON writes
 using System.Diagnostics;
 using System.Net;
+using System.Text;
 using System.Text.Json.Nodes;
 using System.Web;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Hosting;
-using RestSharp;
 using Microsoft.Extensions.DependencyInjection;
-using Lucent.Core;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using RestSharp;
 
-
-
+/* ─────────────────────────────────────────────────────────────
+   0. Build minimal host for config & logging
+   ──────────────────────────────────────────────────────────── */
 var builder = Host.CreateApplicationBuilder(args);
 
-/* 1 ─ load shared config ------------------------------------------------ */
-var cfgPath = ConfigPathHelper.GetSharedConfigPath();   // identical logic in all three projects
 builder.Configuration
-       .AddJsonFile(cfgPath, optional: false, reloadOnChange: true);
+       .AddJsonFile("config/appsettings.Development.json", optional: true, reloadOnChange: true)
+       .AddUserSecrets<Program>(optional: true)
+       .AddEnvironmentVariables();
 
-/* 2 ─ logging ----------------------------------------------------------- */
-builder.Services.AddLogging(c => c.AddConsole());
+builder.Logging.SetMinimumLevel(LogLevel.Information);   // ← new
+builder.Services.AddLogging(c => c.AddSimpleConsole(o =>
+{
+    o.SingleLine = true;
+    o.TimestampFormat = "HH:mm:ss ";
+}));
 
 var host = builder.Build();
 var cfg = host.Services.GetRequiredService<IConfiguration>();
 var logger = host.Services.GetRequiredService<ILoggerFactory>()
-                          .CreateLogger("Lucent.Onboard");
+                         .CreateLogger("Lucent.Onboard");
 
-/* 3 ─ pull secrets & settings ------------------------------------------ */
+/* ─────────────────────────────────────────────────────────────
+   1. Secrets & settings
+   ──────────────────────────────────────────────────────────── */
 var lucent = cfg.GetRequiredSection("Lucent");
 string clientId = lucent["ClientId"] ?? throw new InvalidOperationException("ClientId missing");
 string clientSecret = lucent["ClientSecret"] ?? throw new InvalidOperationException("ClientSecret missing");
 string scopes = lucent["Scopes"] ?? "accounting.settings accounting.transactions";
 int listenPort = int.TryParse(lucent["RedirectPort"], out var p) ? p : 5123;
 
-/* 4 ─ build consent URL and open browser -------------------------------- */
+/* ─────────────────────────────────────────────────────────────
+   2. Build consent URL and open browser
+   ──────────────────────────────────────────────────────────── */
 var state = Guid.NewGuid().ToString("N");
-string consentUrl =
+var consentUrl =
     "https://login.xero.com/identity/connect/authorize" +
     "?response_type=code" +
     $"&client_id={clientId}" +
@@ -47,12 +56,14 @@ string consentUrl =
 logger.LogInformation("Opening browser for Xero consent…");
 Process.Start(new ProcessStartInfo { FileName = consentUrl, UseShellExecute = true });
 
-/* 5 ─ mini HTTP listener to capture redirect ---------------------------- */
+/* ─────────────────────────────────────────────────────────────
+   3. Mini HTTP listener to capture redirect
+   ──────────────────────────────────────────────────────────── */
 using var listener = new HttpListener();
 listener.Prefixes.Add($"http://localhost:{listenPort}/callback/");
 listener.Start();
 
-var ctx = await listener.GetContextAsync();        // waits for browser hit
+var ctx = await listener.GetContextAsync(); // waits for browser hit
 var query = HttpUtility.ParseQueryString(ctx.Request.Url!.Query);
 
 if (query["state"] != state)
@@ -66,28 +77,28 @@ if (query["state"] != state)
 string code = query["code"]!;
 ctx.Response.StatusCode = 200;
 ctx.Response.ContentType = "text/html; charset=utf-8";
-const string html = "<!doctype html><html><body style=\"font-family:sans-serif\">" +
-                    "<h3>Authorised – you may close this window.</h3></body></html>";
-await ctx.Response.OutputStream.WriteAsync(System.Text.Encoding.UTF8.GetBytes(html));
+const string html = """
+    <!doctype html>
+    <html><body style="font-family:sans-serif">
+      <h3>Authorised – you may close this window.</h3>
+    </body></html>
+    """;
+await ctx.Response.OutputStream.WriteAsync(Encoding.UTF8.GetBytes(html));
 ctx.Response.Close();
 logger.LogInformation("Authorisation code received.");
 
-/* 6 ─ exchange code → tokens ------------------------------------------- */
-var form = new Dictionary<string, string?>
-{
-    ["grant_type"] = "authorization_code",
-    ["code"] = code,
-    ["redirect_uri"] = $"http://localhost:{listenPort}/callback",
-    ["client_id"] = clientId,
-    ["client_secret"] = clientSecret
-};
-
-var req = new RestRequest();
-foreach (var kv in form)
-    req.AddParameter(kv.Key, kv.Value ?? string.Empty, ParameterType.GetOrPost);
+/* ─────────────────────────────────────────────────────────────
+   4. Exchange code → tokens
+   ──────────────────────────────────────────────────────────── */
+var tokenReq = new RestRequest()
+                  .AddParameter("grant_type", "authorization_code")
+                  .AddParameter("code", code)
+                  .AddParameter("redirect_uri", $"http://localhost:{listenPort}/callback")
+                  .AddParameter("client_id", clientId)
+                  .AddParameter("client_secret", clientSecret);
 
 var tokenResp = await new RestClient("https://identity.xero.com/connect/token")
-                 .ExecutePostAsync(req, CancellationToken.None);
+                     .ExecutePostAsync(tokenReq, CancellationToken.None);
 
 if (!tokenResp.IsSuccessful)
 {
@@ -96,17 +107,24 @@ if (!tokenResp.IsSuccessful)
     return;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   5. Show refresh token + tenantId, prompt to save as secret
+   ──────────────────────────────────────────────────────────── */
 JsonNode json = JsonNode.Parse(tokenResp.Content!)!;
 string refresh = json["refresh_token"]!.GetValue<string>();
-string tenantId = json["tenants"]?[0]?["id"]?.GetValue<string>() ?? "REPLACE_ME";
-logger.LogInformation("Refresh token obtained (first 30 chars): {Tok}…", refresh[..30]);
+string tenantId = json["tenants"]?[0]?["id"]?.GetValue<string>() ?? "UNKNOWN";
 
-/* 7 ─ persist refresh token back into config --------------------------- */
-JsonNode root = JsonNode.Parse(await File.ReadAllTextAsync(cfgPath))!;
-root["Lucent"]!["RefreshToken"] = refresh;
-root["Lucent"]!["TenantId"] = tenantId;
-
-await File.WriteAllTextAsync(
-    cfgPath, root.ToJsonString(new() { WriteIndented = true }));
-
-logger.LogInformation("Saved refresh token to {File}.  Lucent.Loader is now ready.", cfgPath);
+logger.LogInformation("────────────────────────────────────────────────────────");
+logger.LogInformation("Refresh token (copy & store as a secret):");
+logger.LogInformation(refresh);
+logger.LogInformation("");
+logger.LogInformation("TenantId: {Tenant}", tenantId);
+logger.LogInformation("────────────────────────────────────────────────────────");
+logger.LogInformation("Next step (local dev):");
+logger.LogInformation("  dotnet user-secrets set Lucent:RefreshToken \"<paste>\"");
+logger.LogInformation("  dotnet user-secrets set Lucent:TenantId    \"{0}\"", tenantId);
+logger.LogInformation("  dotnet user-secrets set Lucent:ClientId    \"{1}\"", clientId);   // ← new
+logger.LogInformation("  dotnet user-secrets set Lucent:ClientSecret \"<paste>\"");         // ← new
+logger.LogInformation("");
+logger.LogInformation("For CI/prod, add the same four values to GitHub Actions secrets.");
+logger.LogInformation("Done ✅");

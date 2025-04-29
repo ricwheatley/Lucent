@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Lucent.Onboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3d45c6803712c2847c3ffed72291a0493c4a2dfa")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+252c46e238c2e2e0d64bfc36cadc98be6e5c4c79")]
 [assembly: System.Reflection.AssemblyProductAttribute("Lucent.Onboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Lucent.Onboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

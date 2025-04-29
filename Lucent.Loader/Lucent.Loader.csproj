@@ -24,21 +24,5 @@
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
   </ItemGroup>
 
-	<ItemGroup>
-		<!-- Disable the SDK’s default copy -->
-		<None Update="appsettings.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
-		<None Update="appsettings.Development.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
 
-		<!-- Our explicit, namespaced copy -->
-		<None Include="appsettings.json"
-			  Link="config/Loader/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-		<None Include="appsettings.Development.json"
-			  Link="config/Loader/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
 </Project>

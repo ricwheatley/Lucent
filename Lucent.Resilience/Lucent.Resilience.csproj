@@ -13,4 +13,8 @@
     <PackageReference Include="Polly.Contrib.WaitAndRetry" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+  </ItemGroup>
+
 </Project>

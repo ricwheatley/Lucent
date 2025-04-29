@@ -19,35 +19,20 @@
     <ProjectReference Include="..\Lucent.Auth\Lucent.Auth.csproj" />
     <ProjectReference Include="..\Lucent.Client\Lucent.Client.csproj" />
     <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
+	
   </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Lucent.Loader">
+			<HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
+		</Reference>
 
-  <ItemGroup>
-    <Reference Include="Lucent.Loader">
-      <HintPath>..\Lucent.Loader\bin\Debug\net8.0\Lucent.Loader.dll</HintPath>
-    </Reference>
+	</ItemGroup>
 
-  </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />
     <ProjectReference Include="..\Lucent.Loader\Lucent.Loader.csproj" />
   </ItemGroup>
 
-<ItemGroup>
-  <!-- Disable the SDK’s default copy -->
-  <None Update="appsettings.json"
-        CopyToOutputDirectory="Never"
-        CopyToPublishDirectory="Never" />
-  <None Update="appsettings.Development.json"
-        CopyToOutputDirectory="Never"
-        CopyToPublishDirectory="Never" />
 
-  <!-- Our explicit, namespaced copy -->
-  <None Include="appsettings.json"
-        Link="config/Scheduler/appsettings.json"
-        CopyToPublishDirectory="PreserveNewest" />
-  <None Include="appsettings.Development.json"
-        Link="config/Scheduler/appsettings.Development.json"
-        CopyToPublishDirectory="PreserveNewest" />
-</ItemGroup>
 </Project>

@@ -1,10 +1,10 @@
-﻿using System.Net;
+﻿// Lucent.Client / XeroApiClient.cs
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Nodes;
 using Lucent.Auth;
 using Microsoft.Extensions.Logging;
 using RestSharp;
-using System.Net.Http;
 
 namespace Lucent.Client;
 
@@ -72,16 +72,18 @@ public sealed class XeroApiClient : ILucentClient
         _auth = auth;
         _log = log;
 
-        var http = factory.CreateClient("LucentHttp");    // carries Polly retry policy
+        var http = factory.CreateClient("LucentHttp");     // Polly retry policy attached
         http.BaseAddress = new Uri("https://api.xero.com/");
 
         _client = new RestClient(http);
     }
 
-    /*  Discover first ORGANISATION tenant  */
+    /* ------------------------------------------------------------------
+       Discover first ORGANISATION tenant
+    ------------------------------------------------------------------- */
     public async Task<Guid> DiscoverFirstTenantIdAsync(CancellationToken ct)
     {
-        string token = await _auth.GetAccessTokenAsync(ct);
+        var token = await _auth.GetAccessTokenAsync(ct);
 
         var resp = await _client.ExecuteGetAsync(
             new RestRequest("connections")
@@ -96,24 +98,27 @@ public sealed class XeroApiClient : ILucentClient
                           .FirstOrDefault(n => n!["tenantType"]!.GetValue<string>() == "ORGANISATION")
                   ?? throw new InvalidOperationException("No ORGANISATION tenant found.");
 
-        Guid id = Guid.Parse(org["id"]!.GetValue<string>());
+        var id = Guid.Parse(org["id"]!.GetValue<string>());
         _log.LogInformation("Discovered tenant id {Tenant}", id);
         return id;
     }
 
-    /*  Fetch paged endpoint  */
+    /* ------------------------------------------------------------------
+       Fetch paged endpoint
+    ------------------------------------------------------------------- */
     public async IAsyncEnumerable<(int pageNo, string json)> FetchAllPagesAsync(
         string endpoint, DateTime? modifiedSinceUtc, Guid tenantId,
         [EnumeratorCancellation] CancellationToken ct)
     {
         if (!_endpointPath.TryGetValue(endpoint, out var path))
         {
-            _log.LogWarning("Endpoint {Endpoint} not mapped – skipping.", endpoint);
+            _log.LogWarning("Endpoint {Endpoint} not mapped — skipping.", endpoint);
             yield break;
         }
 
-        string token = await _auth.GetAccessTokenAsync(ct);
-        int page = 1, totalPages = 1;
+        var token = await _auth.GetAccessTokenAsync(ct);
+        int page = 1;
+        int totalPages = 1;
 
         while (page <= totalPages)
         {
@@ -131,7 +136,7 @@ public sealed class XeroApiClient : ILucentClient
             /* 429 throttling ------------------------------------------------ */
             if ((int)resp.StatusCode == 429)
             {
-                int seconds = 60;
+                var seconds = 60;
                 if (resp.Headers?.FirstOrDefault(h => h.Name == "Retry-After")?.Value is string s &&
                     int.TryParse(s, out var parsed))
                     seconds = parsed;
@@ -143,13 +148,13 @@ public sealed class XeroApiClient : ILucentClient
             if (resp.StatusCode == HttpStatusCode.Unauthorized &&
                 resp.Content?.Contains("AuthorizationUnsuccessful") == true)
             {
-                _log.LogWarning("{Endpoint}: 401 AuthorizationUnsuccessful – skipping.", endpoint);
+                _log.LogWarning("{Endpoint}: 401 AuthorizationUnsuccessful — skipping.", endpoint);
                 yield break;
             }
 
             if (resp.StatusCode == HttpStatusCode.NotFound)
             {
-                _log.LogWarning("{Endpoint}: 404 Not Found – skipping.", endpoint);
+                _log.LogWarning("{Endpoint}: 404 Not Found — skipping.", endpoint);
                 yield break;
             }
 

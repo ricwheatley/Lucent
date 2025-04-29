@@ -1,4 +1,6 @@
 ﻿// Lucent.Auth/TokenCache/TokenCacheOptions.cs
+using Lucent.Core;
+
 namespace Lucent.Auth.TokenCache;
 
 public sealed class TokenCacheOptions
@@ -7,5 +9,5 @@ public sealed class TokenCacheOptions
     /// Seconds before the real expiry we stop re-using the cached token.
     /// Defaults to 300 (5 min).
     /// </summary>
-    public int EarlyExpirySeconds { get; init; } = 300;
+    public int EarlyExpirySeconds { get; init; } = LucentDefaults.TokenEarlyExpirySeconds;
 }

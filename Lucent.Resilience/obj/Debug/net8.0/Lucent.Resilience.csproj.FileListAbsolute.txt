@@ -1,12 +1,15 @@
 C:\Dev\Lucent\Lucent.Resilience\bin\Debug\net8.0\Lucent.Resilience.deps.json
 C:\Dev\Lucent\Lucent.Resilience\bin\Debug\net8.0\Lucent.Resilience.dll
 C:\Dev\Lucent\Lucent.Resilience\bin\Debug\net8.0\Lucent.Resilience.pdb
+C:\Dev\Lucent\Lucent.Resilience\bin\Debug\net8.0\Lucent.Core.dll
+C:\Dev\Lucent\Lucent.Resilience\bin\Debug\net8.0\Lucent.Core.pdb
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.csproj.AssemblyReference.cache
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.GeneratedMSBuildEditorConfig.editorconfig
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.AssemblyInfoInputs.cache
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.AssemblyInfo.cs
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.csproj.CoreCompileInputs.cache
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.sourcelink.json
+C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.R.D6B18C97.Up2Date
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.dll
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\refint\Lucent.Resilience.dll
 C:\Dev\Lucent\Lucent.Resilience\obj\Debug\net8.0\Lucent.Resilience.pdb

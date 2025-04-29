@@ -1,29 +1,12 @@
-﻿using System;
+﻿#nullable enable
+using System;
 
 namespace Lucent.Core.Models;
 
 /// <summary>
-/// Core domain entity for examples and demos.
+/// Minimal domain entity used in demos and unit-tests.
+/// Declared as a <c>record</c> so value-equality Just Works™.
 /// </summary>
-public class ExampleModel
-{
-    /// <summary>
-    /// Primary key – callers must supply it.
-    /// </summary>
-    public required Guid Id { get; init; }
-
-    /// <summary>
-    /// Human-readable name – also required.
-    /// </summary>
-    public required string Name { get; init; }
-
-    // Convenience ctor for terse object builds in tests
-    public ExampleModel(Guid id, string name)
-    {
-        Id = id;
-        Name = name;
-    }
-
-    // Parameter-less ctor keeps object-initialiser syntax working
-    public ExampleModel() { }
-}
+/// <param name="Id">The unique identifier supplied by the caller.</param>
+/// <param name="Name">A human-readable display name (required).</param>
+public sealed record ExampleModel(Guid Id, string Name);

@@ -1,4 +1,3 @@
-C:\Dev\Lucent\Lucent.Onboard\bin\Debug\net8.0\config\appsettings.json
 C:\Dev\Lucent\Lucent.Onboard\bin\Debug\net8.0\Lucent.Onboard.exe
 C:\Dev\Lucent\Lucent.Onboard\bin\Debug\net8.0\Lucent.Onboard.deps.json
 C:\Dev\Lucent\Lucent.Onboard\bin\Debug\net8.0\Lucent.Onboard.runtimeconfig.json

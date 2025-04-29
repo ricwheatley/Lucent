@@ -6,6 +6,7 @@ using Polly;
 using Polly.Contrib.WaitAndRetry;
 using Polly.Registry;
 using Polly.Timeout;
+using Lucent.Core;
 
 namespace Lucent.Resilience;
 
@@ -20,7 +21,7 @@ public static class RetryPolicies
     public const string StandardHttpPolicy = "standard-http";
     public static IAsyncPolicy<HttpResponseMessage> CreateHttpRetry(ILogger logger)
     {
-        var delay = Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromSeconds(2), retryCount: 3, fastFirst: true);
+        var delay = Backoff.DecorrelatedJitterBackoffV2(LucentDefaults.HttpBaseDelay, retryCount: LucentDefaults.HttpRetryCount, fastFirst: true);
 
         return Policy<HttpResponseMessage>
             .Handle<HttpRequestException>()
@@ -37,7 +38,7 @@ public static class RetryPolicies
     {
         return Policy
             .Handle<Exception>(IsTransientSql)
-            .WaitAndRetryAsync(Backoff.DecorrelatedJitterBackoffV2(TimeSpan.FromMilliseconds(250), 5),
+            .WaitAndRetryAsync(Backoff.DecorrelatedJitterBackoffV2(LucentDefaults.SqlBaseDelay, LucentDefaults.SqlRetryCount),
                 (ex, ts, attempt, ctx) =>
                     logger.LogWarning(ex, "SQL retry {Attempt}/5 after {Delay}", attempt, ts));
     }

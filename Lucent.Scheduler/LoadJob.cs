@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Lucent.Scheduler / LoadJob.cs  – JSON-free, schedule-driven
 using System.Data;
-using Microsoft.Data.SqlClient;
 using Lucent.Core;
-using Lucent.Loader;
+using Lucent.Core.Loaders;
+using Lucent.Core.Scheduling;
+using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Quartz;
-using Lucent.Core.Scheduling;
 
 namespace Lucent.Scheduler;
 
@@ -31,7 +30,7 @@ public sealed class LoadJob : IJob
 
     public async Task Execute(IJobExecutionContext ctx)
     {
-        /* ────────────────────────── 0. correlation + trigger ───────────────────────── */
+        /* ───── 0. correlation & trigger info ─────────────────────────── */
         var corrId = ctx.MergedJobDataMap.TryGetValue("CorrelationId", out var idObj)
                    ? idObj!.ToString()
                    : Guid.NewGuid().ToString("N")[..8];
@@ -39,11 +38,8 @@ public sealed class LoadJob : IJob
         var triggeredBy = ctx.MergedJobDataMap.TryGetValue("TriggeredBy", out var byObj)
                         ? byObj!.ToString()
                         : "Schedule";
-       
-        var schedules = (await _store.LoadAsync(ctx.CancellationToken))
-                .ToDictionary(t => t.TenantId);
 
-        /* mark “Running” as soon as the job starts */
+        /* ───── 1. hydrate run-status registry (if present) ───────────── */
         if (ctx.Scheduler.Context.Get("RunRegistry") is RunRegistry reg)
             reg.Set(corrId!, RunStatus.Running);
 
@@ -51,46 +47,38 @@ public sealed class LoadJob : IJob
         {
             _log.LogInformation("▶ LoadJob start. TriggeredBy={By}", triggeredBy);
 
-            /* 1 – read schedule parameters */
-            var sched = _cfg.GetRequiredSection("Schedule");
-            var tenants = sched.GetSection("Tenants").Get<string[]>()
-                           ?? throw new InvalidOperationException("Schedule:Tenants?");
-            var endpoints = _cfg.GetSection("Lucent:Endpoints").Get<string[]>()
-                           ?? throw new InvalidOperationException("Lucent:Endpoints?");
+            /* ───── 2. fetch schedule rows from DB / cache  ───────────── */
+            var schedules = (await _store.LoadAsync(ctx.CancellationToken))
+                            .ToDictionary(t => t.TenantId);
 
-            /* 2 – open SQL once per job */
+            /* global default endpoint list comes from secrets / env-vars */
+            var defaultEndpoints = _cfg.GetSection("Lucent:Endpoints")
+                                       .Get<string[]>()
+                                   ?? Array.Empty<string>();
+
+            /* ───── 3. open SQL once per job ──────────────────────────── */
             await using var conn =
                 new SqlConnection(_cfg.GetConnectionString("Sql")!);
             await conn.OpenAsync(ctx.CancellationToken);
 
-            /* 3 – loop tenants & endpoints */
-            foreach (var tenant in tenants)
+            /* 4 – loop tenants & endpoints ---------------------------------- */
+            foreach (var ts in schedules.Values)
             {
-                _log.LogInformation("Load for tenant {Tenant}", tenant);
+                _log.LogInformation("Tenant {Tenant}", ts.TenantId);
 
-                var activeEp = schedules.TryGetValue(Guid.Parse(tenant), out var ts)
-                             ? ts.EnabledEndpoints
-                             : endpoints.ToHashSet(StringComparer.OrdinalIgnoreCase);
+                // if the user unticks everything we still grab Organisation
+                HashSet<string> activeEp =
+                    ts.EnabledEndpoints?.Count > 0
+                        ? ts.EnabledEndpoints
+                        : new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "Organisation" };
 
-                foreach (var ep in activeEp)
-                {
-                    _log.LogInformation("{Ep}: starting", ep);
+                await _loader.RunAsync(ctx.CancellationToken);
 
-                    await _loader.LoadDataAsync(Guid.Parse(tenant),
-                                                ep,
-                                                DateTime.UtcNow,
-                                                conn,
-                                                ctx.CancellationToken);
-
-                    _log.LogInformation("{Ep}: done", ep);
-                }
             }
 
-            _log.LogInformation("✔ LoadJob finished. TriggeredBy={By}", triggeredBy);
         }
-
-        /* mark final status */
-        if (ctx.Scheduler.Context.Get("RunRegistry") is RunRegistry reg2)
+            /* ───── 5. final status ──────────────────────────────────────── */
+            if (ctx.Scheduler.Context.Get("RunRegistry") is RunRegistry reg2)
             reg2.Set(corrId!, RunStatus.Succeeded);
     }
 }

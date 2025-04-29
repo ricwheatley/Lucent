@@ -921,7 +921,7 @@
         },
         "runtime": {
           "Lucent.Auth.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -939,7 +939,7 @@
         },
         "runtime": {
           "Lucent.Client.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -955,13 +955,14 @@
         },
         "runtime": {
           "Lucent.Core.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
       },
       "Lucent.Resilience/1.0.0": {
         "dependencies": {
+          "Lucent.Core": "1.0.0",
           "Microsoft.Data.SqlClient": "6.0.2",
           "Microsoft.Extensions.Http.Polly": "9.0.0",
           "Polly": "8.5.2",
@@ -969,7 +970,7 @@
         },
         "runtime": {
           "Lucent.Resilience.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

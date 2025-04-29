@@ -1,8 +1,10 @@
+C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\FluentAssertions.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\CoverletSourceRootsMapping_Lucent.Tests
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\testhost.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Runner.deps.json
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Runner.runtimeconfig.json
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Runner.staticwebassets.runtime.json
+C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Runner.staticwebassets.endpoints.json
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Runner.exe
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Scheduler.deps.json
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Scheduler.runtimeconfig.json
@@ -21,7 +23,6 @@ C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Lucent.Tests.pdb
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Azure.Core.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Azure.Identity.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Castle.Core.dll
-C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\FluentAssertions.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Microsoft.Bcl.Cryptography.dll
 C:\Dev\Lucent\Lucent.Tests\bin\Debug\net8.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
