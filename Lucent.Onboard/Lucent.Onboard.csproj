@@ -17,23 +17,7 @@
     <PackageReference Include="RestSharp"  />
 
   </ItemGroup>
-	<ItemGroup>
-		<!-- Disable the SDK’s default copy -->
-		<None Update="appsettings.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
-		<None Update="appsettings.Development.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
 
-		<!-- Our explicit, namespaced copy -->
-		<None Include="appsettings.json"
-			  Link="config/Onboard/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-		<None Include="appsettings.Development.json"
-			  Link="config/Onboard/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lucent.Core\Lucent.Core.csproj" />
     <ProjectReference Include="..\Lucent.Resilience\Lucent.Resilience.csproj" />

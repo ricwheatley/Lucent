@@ -14,21 +14,5 @@
 
   </ItemGroup>
 
-	<ItemGroup>
-		<!-- Disable the SDK’s default copy -->
-		<None Update="appsettings.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
-		<None Update="appsettings.Development.json"
-			  CopyToOutputDirectory="Never"
-			  CopyToPublishDirectory="Never" />
 
-		<!-- Our explicit, namespaced copy -->
-		<None Include="appsettings.json"
-			  Link="config/Api/appsettings.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-		<None Include="appsettings.Development.json"
-			  Link="config/Api/appsettings.Development.json"
-			  CopyToPublishDirectory="PreserveNewest" />
-	</ItemGroup>
 </Project>
