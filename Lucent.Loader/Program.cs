@@ -1,11 +1,12 @@
-﻿// Lucent.Loader / Program.cs  – FULL FILE (patched with resilience layer)
+﻿// Lucent.Loader / Program.cs
 using System.Data;
 using System.Globalization;
 using System.Text.Json;
 using Lucent.Auth;
 using Lucent.Client;
 using Lucent.Core;
-using Lucent.Resilience;                  
+using Lucent.Loader;
+using Lucent.Resilience;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,100 +14,92 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using RestSharp;
 
-
-
-/* -----------------------------------------------------------------
-   0. Build host so we can DI LucentAuth + XeroApiClient + logging
------------------------------------------------------------------- */
+/* ─────────────────────────────────────────────────────────────
+   0. Build host
+   ──────────────────────────────────────────────────────────── */
 var builder = Host.CreateApplicationBuilder(args);
-var cfgPath = ConfigPathHelper.GetSharedConfigPath();
 
-builder.Configuration.AddJsonFile(cfgPath, optional: false, reloadOnChange: true);
-builder.Services.AddLogging(c => c.AddConsole());
-builder.Services.AddSingleton<ILucentAuth, LucentAuth>();
-builder.Services.AddSingleton<ILucentClient, XeroApiClient>();
+builder.Configuration
+       .AddJsonFile("config/appsettings.Development.json", optional: true, reloadOnChange: true)
+       .AddUserSecrets<Program>(optional: true)
+       .AddEnvironmentVariables();
 
-builder.Logging.ClearProviders();
-builder.Logging.AddSimpleConsole(o =>
+builder.Services.AddLogging(c => c.AddSimpleConsole(o =>
 {
     o.SingleLine = true;
     o.TimestampFormat = "HH:mm:ss ";
-    o.IncludeScopes = true;           // ★ shows “=> CorrelationId: ab12cd34”
-});
+    o.IncludeScopes = true;
+}));
 
-// ──────────────────────────────────────────────────────────────────
-// NEW  - resilience wiring (HTTP + SQL retries + 30 s timeout)
-// ──────────────────────────────────────────────────────────────────
+builder.Services.AddScoped<ILucentAuth, LucentAuth>();
+builder.Services.AddScoped<ILucentClient, XeroApiClient>();
+builder.Services.AddHostedService<LucentWorker>();          // ← run nightly loads
+
+/* ─── resilience (HTTP + SQL retries) ─────────────────────── */
 builder.Services.AddResilientHttpClient<ILucentClient, XeroApiClient>("xero");
 
 builder.Services.AddSingleton<SqlRetryProvider>(sp =>
 {
-    var cs = sp.GetRequiredService<IConfiguration>()
-               .GetConnectionString("Sql")
-               ?? throw new InvalidOperationException("Connection string 'Sql' missing");
-    return new SqlRetryProvider(
-        cs,
-        sp.GetRequiredService<ILogger<SqlRetryProvider>>());
+    var cs = sp.GetRequiredService<IConfiguration>().GetConnectionString("Sql")
+             ?? throw new InvalidOperationException("Connection string 'Sql' missing.");
+    return new SqlRetryProvider(cs, sp.GetRequiredService<ILogger<SqlRetryProvider>>());
 });
-// ──────────────────────────────────────────────────────────────────
+/* ───────────────────────────────────────────────────────────── */
 
 var host = builder.Build();
 var sp = host.Services;
 var cfg = sp.GetRequiredService<IConfiguration>();
 var log = sp.GetRequiredService<ILoggerFactory>().CreateLogger("Loader");
 var auth = sp.GetRequiredService<ILucentAuth>();
+var client = sp.GetRequiredService<ILucentClient>();
 
-/* -----------------------------------------------------------------
-   1. Ultra-simple arg reader
------------------------------------------------------------------- */
-string? GetArg(string name)
+/* ─────────────────────────────────────────────────────────────
+   1. CLI helper
+   ──────────────────────────────────────────────────────────── */
+string? Arg(string flag)
 {
-    int i = Array.FindIndex(args, a => a.Equals(name, StringComparison.OrdinalIgnoreCase));
+    int i = Array.FindIndex(args, a => a.Equals(flag, StringComparison.OrdinalIgnoreCase));
     return i >= 0 && i + 1 < args.Length ? args[i + 1] : null;
 }
 
-/* -----------------------------------------------------------------
-   2. Decide whether we’re doing normal endpoint loads or a report
------------------------------------------------------------------- */
-string? report = GetArg("--report");
-string tenantId = GetArg("--tenant") ?? cfg["Lucent:TenantId"]
-                   ?? throw new InvalidOperationException("TenantId missing (arg or config)");
+/* ─────────────────────────────────────────────────────────────
+   2. Mode: background load vs one-off report
+   ──────────────────────────────────────────────────────────── */
+string? report = Arg("--report");
+string? tenantId = Arg("--tenant") ?? cfg["Lucent:TenantId"];
 
 if (report is null)
 {
-    // start existing BackgroundService logic
+    // normal pipeline – LucentWorker does the work
     await host.RunAsync();
     return;
 }
 
-/* -----------------------------------------------------------------
+/* ───── resolve TenantId for ad-hoc report ────────────────── */
+if (!Guid.TryParse(tenantId, out var tid))
+{
+    log.LogInformation("TenantId missing/invalid – discovering via /connections…");
+    tid = await client.DiscoverFirstTenantIdAsync(CancellationToken.None);
+    await EnsureTenantScheduledAsync(tid, log, cfg, CancellationToken.None);
+}
+tenantId = tid.ToString();
+
+/* ─────────────────────────────────────────────────────────────
    3. Dispatch report types
------------------------------------------------------------------- */
+   ──────────────────────────────────────────────────────────── */
 switch (report)
 {
     case "TrialBalance":
     case "BalanceSheet":
-        await RunReportAsync(
-            reportName: report,
-            tenantId: tenantId,
-            asAt: ParseDate("--asAt"),
-            from: null,
-            to: null,
-            cfg: cfg,
-            auth: auth,
-            log: log);
+        await RunReportAsync(report, tenantId,
+                             asAt: Parse("--asAt"), from: null, to: null);
         break;
 
     case "ProfitAndLoss":
-        await RunReportAsync(
-            reportName: report,
-            tenantId: tenantId,
-            asAt: null,
-            from: ParseDate("--from"),
-            to: ParseDate("--to"),
-            cfg: cfg,
-            auth: auth,
-            log: log);
+        await RunReportAsync(report, tenantId,
+                             asAt: null,
+                             from: Parse("--from"),
+                             to: Parse("--to"));
         break;
 
     default:
@@ -114,44 +107,59 @@ switch (report)
         break;
 }
 
-/* -----------------------------------------------------------------
-   Utility : parse YYYY-MM-DD or throw
------------------------------------------------------------------- */
-DateTime ParseDate(string flag)
+/* ─────────────────────────────────────────────────────────────
+   Helpers
+   ──────────────────────────────────────────────────────────── */
+DateTime? Parse(string flag)
 {
-    var txt = GetArg(flag)
-              ?? throw new ArgumentException($"{flag} YYYY-MM-DD is required");
-    if (!DateTime.TryParseExact(txt, "yyyy-MM-dd", CultureInfo.InvariantCulture,
-                                DateTimeStyles.None, out var d))
-        throw new FormatException($"{flag} value '{txt}' is not a valid date");
-    return d;
+    var txt = Arg(flag);
+    return txt == null
+         ? null
+         : DateTime.ParseExact(txt, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 }
 
-/* -----------------------------------------------------------------
-   4. Real implementation – fetch & stage one report
------------------------------------------------------------------- */
-static async Task RunReportAsync(
+async Task EnsureTenantScheduledAsync(Guid tenantId, ILogger logger, IConfiguration cfg, CancellationToken ct)
+{
+    var connStr = cfg.GetConnectionString("Sql")
+               ?? throw new InvalidOperationException("Connection string 'Sql' missing.");
+    await using var conn = new SqlConnection(connStr);
+    await conn.OpenAsync(ct);
+
+    const string sql = @"
+        IF NOT EXISTS (SELECT 1 FROM dbo.TenantSchedule WHERE TenantId = @tid)
+        BEGIN
+            INSERT INTO dbo.TenantSchedule
+                (TenantId, TenantName, RunTime, StartDate, EndDate, EnabledEndpoints)
+            VALUES
+                (@tid, 'New tenant', '01:00', '2000-01-01', '2999-12-31', '[]');
+        END";
+    await new SqlCommand(sql, conn)
+    { Parameters = { new("@tid", tenantId) } }
+    .ExecuteNonQueryAsync(ct);
+
+    logger.LogInformation("Tenant {Tenant} ensured in dbo.TenantSchedule", tenantId);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. Fetch & stage one report
+   ──────────────────────────────────────────────────────────── */
+async Task RunReportAsync(
     string reportName,
     string tenantId,
     DateTime? asAt,
     DateTime? from,
-    DateTime? to,
-    IConfiguration cfg,
-    ILucentAuth auth,
-    ILogger log)
+    DateTime? to)
 {
-    /* 4A – build request ---------------------------------------- */
     var req = new RestRequest($"https://api.xero.com/api.xro/2.0/Reports/{reportName}");
 
     if (asAt != null) req.AddQueryParameter("date", asAt.Value.ToString("yyyy-MM-dd"));
     if (from != null) req.AddQueryParameter("fromDate", from.Value.ToString("yyyy-MM-dd"));
     if (to != null) req.AddQueryParameter("toDate", to.Value.ToString("yyyy-MM-dd"));
 
-    req.AddHeader("Authorization", $"Bearer {await auth.GetAccessTokenAsync(default)}");
+    req.AddHeader("Authorization", $"Bearer {await auth.GetAccessTokenAsync(CancellationToken.None)}");
     req.AddHeader("Xero-tenant-id", tenantId);
     req.AddHeader("Accept", "application/json");
 
-    /* 4B – execute ---------------------------------------------- */
     var resp = await new RestClient().ExecuteGetAsync(req);
     if (!resp.IsSuccessful)
     {
@@ -160,10 +168,9 @@ static async Task RunReportAsync(
         return;
     }
 
-    /* 4C – stage into landing.Reports ---------------------------- */
     var parmsJson = JsonSerializer.Serialize(new { asAt, from, to });
     var connStr = cfg.GetConnectionString("Sql")
-                    ?? throw new InvalidOperationException("Connection string missing");
+                   ?? throw new InvalidOperationException("Connection string missing.");
 
     await using var conn = new SqlConnection(connStr);
     await conn.OpenAsync();
@@ -178,5 +185,5 @@ static async Task RunReportAsync(
     cmd.Parameters.Add("@raw", SqlDbType.NVarChar).Value = resp.Content!;
 
     await cmd.ExecuteNonQueryAsync();
-    log.LogInformation("{Report} saved.  Params={@P}", reportName, parmsJson);
+    log.LogInformation("{Report} saved. Params={@P}", reportName, parmsJson);
 }
