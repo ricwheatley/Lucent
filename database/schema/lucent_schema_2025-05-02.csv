@@ -1,0 +1,1477 @@
+"table_schema","table_name","column_name","ordinal_position","is_nullable","data_type","character_maximum_length","numeric_precision","numeric_scale","datetime_precision"
+"landing","accounts","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","accounts","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","accounts","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","accounts","account_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","accounts","code",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","status",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","type",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","tax_type",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","description",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","class",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","enable_payments_to_account",12,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","accounts","show_in_expense_claims",13,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","accounts","reporting_code",14,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","reporting_code_name",15,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","updated_date_utc",16,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","accounts","currency_code",17,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","bank_account_number",18,"YES","text",NULL,NULL,NULL,NULL
+"landing","accounts","bank_account_type",19,"YES","text",NULL,NULL,NULL,NULL
+"landing","attachments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","attachments","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","attachments","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","attachments","parent_type",4,"NO","text",NULL,NULL,NULL,NULL
+"landing","attachments","parent_id",5,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","attachments","attachment_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","attachments","file_name",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","attachments","url",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","attachments","mime_type",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","attachments","content_length",10,"YES","integer",NULL,32,0,NULL
+"landing","bank_transaction_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","bank_transaction_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","unit_amount",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","tax_type",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","tax_amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","line_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","account_code",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","quantity",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transaction_lines","account_id",10,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transactions","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transactions","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transactions","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","bank_transactions","bank_transaction_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transactions","type",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transactions","contact_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transactions","reference",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transactions","is_reconciled",8,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","bank_transactions","currency_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transactions","date",10,"YES","date",NULL,NULL,NULL,0
+"landing","bank_transactions","status",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transactions","sub_total",12,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transactions","total_tax",13,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transactions","total",14,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transactions","updated_date_utc",15,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","bank_transfers","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","bank_transfers","bank_transfer_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","date",5,"YES","date",NULL,NULL,NULL,0
+"landing","bank_transfers","amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","bank_transfers","from_bank_account_id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","from_bank_account_name",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transfers","to_bank_account_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","to_bank_account_name",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transfers","from_bank_transaction_id",11,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","to_bank_transaction_id",12,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","bank_transfers","from_is_reconciled",13,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","bank_transfers","to_is_reconciled",14,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","bank_transfers","reference",15,"YES","text",NULL,NULL,NULL,NULL
+"landing","bank_transfers","has_attachments",16,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","batch_payment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payment_lines","batch_payment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payment_lines","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payment_lines","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payment_lines","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","batch_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payments","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payments","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","batch_payments","batch_payment_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","batch_payments","reference",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","batch_payments","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","batch_payments","type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","batch_payments","status",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","batch_payments","total_amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","batch_payments","is_reconciled",10,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","batch_payments","updated_date_utc",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","batch_payments","account_id",12,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","branding_themes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","branding_themes","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","branding_themes","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","branding_themes","branding_theme_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","branding_themes","name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","branding_themes","sort_order",6,"YES","integer",NULL,32,0,NULL
+"landing","branding_themes","created_date_utc",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","budget_balances","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budget_balances","budget_line_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budget_balances","period",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","budget_balances","amount",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","budget_balances","notes",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","budget_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budget_lines","budget_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budget_lines","account_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","budget_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","budgets","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budgets","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","budgets","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","budgets","budget_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","budgets","status",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","budgets","description",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","budgets","type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","budgets","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","contact_addresses","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_addresses","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_addresses","address_type",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","address_line1",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","address_line2",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","address_line3",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","address_line4",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","city",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","region",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","postal_code",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_addresses","country",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_groups","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_groups","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_groups","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","contact_groups","contact_group_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","contact_groups","name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_groups","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_persons","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_persons","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_persons","first_name",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_persons","last_name",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_persons","email_address",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_phones","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_phones","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contact_phones","phone_type",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_phones","phone_number",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_phones","phone_area_code",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","contact_phones","phone_country_code",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contacts","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","contacts","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","contacts","contact_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","contacts","contact_status",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","first_name",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","last_name",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","email_address",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","is_supplier",10,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","contacts","is_customer",11,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","contacts","default_currency",12,"YES","text",NULL,NULL,NULL,NULL
+"landing","contacts","updated_date_utc",13,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","credit_note_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_allocations","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","credit_note_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_note_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","credit_note_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_payments","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_payments","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","credit_note_payments","date",4,"YES","date",NULL,NULL,NULL,0
+"landing","credit_note_payments","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_note_payments","reference",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_notes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_notes","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","credit_notes","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","credit_notes","credit_note_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","credit_notes","type",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_notes","contact_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","credit_notes","status",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_notes","date",8,"YES","date",NULL,NULL,NULL,0
+"landing","credit_notes","total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","credit_notes","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","credit_notes","currency_code",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","credit_notes","reference",12,"YES","text",NULL,NULL,NULL,NULL
+"landing","currencies","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","currencies","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","currencies","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","currencies","code",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","currencies","description",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","employees","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","employees","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","employees","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","employees","employee_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","employees","status",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","employees","first_name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","employees","last_name",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","employees","external_link",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","employees","updated_date_utc",9,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","invoice_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_allocations","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_allocations","credit_note_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","invoice_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_lines","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoice_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoice_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoice_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","invoice_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_payments","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_payments","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_payments","date",4,"YES","date",NULL,NULL,NULL,0
+"landing","invoice_payments","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoice_payments","reference",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoice_reminders","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_reminders","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoice_reminders","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","invoice_reminders","enabled",4,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","invoice_reminders","reminder_day",5,"YES","integer",NULL,32,0,NULL
+"landing","invoice_reminders","message",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoices","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoices","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","invoices","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","invoices","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","invoices","contact_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","invoices","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoices","type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoices","date",8,"YES","date",NULL,NULL,NULL,0
+"landing","invoices","due_date",9,"YES","date",NULL,NULL,NULL,0
+"landing","invoices","currency_code",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoices","reference",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","invoices","total",12,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","total_tax",13,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","sub_total",14,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","amount_due",15,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","amount_paid",16,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","amount_credited",17,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","invoices","updated_date_utc",18,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","items","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","items","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","items","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","items","item_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","items","code",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","items","name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","items","description",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","items","purchase_description",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","items","is_sold",9,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","items","is_purchased",10,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","items","sales_details",11,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","items","purchase_details",12,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","items","updated_date_utc",13,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","journal_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","journal_lines","journal_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","journal_lines","account_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","journal_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","journal_lines","description",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","journal_lines","net_amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","journal_lines","gross_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","journal_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","journal_lines","tracking",9,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","journals","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","journals","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","journals","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","journals","journal_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","journals","journal_date",5,"YES","date",NULL,NULL,NULL,0
+"landing","journals","journal_number",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","journals","reference",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","journals","narration",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","journals","source_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","journals","source_type",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","journals","updated_date_utc",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","linked_transactions","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","linked_transactions","linked_transaction_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","source_transaction_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","source_line_item_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","contact_id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","target_transaction_id",8,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","target_line_item_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","linked_transactions","status",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","linked_transactions","type",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","linked_transactions","line_item_description",12,"YES","text",NULL,NULL,NULL,NULL
+"landing","linked_transactions","updated_date_utc",13,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","manual_journal_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","manual_journal_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","account_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","manual_journal_lines","tracking",9,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","manual_journals","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journals","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journals","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","manual_journals","manual_journal_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","manual_journals","narration",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","manual_journals","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","manual_journals","journal_date",7,"YES","date",NULL,NULL,NULL,0
+"landing","manual_journals","show_on_cash_basis_reports",8,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","manual_journals","updated_date_utc",9,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","organisation","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","organisation","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","organisation","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","organisation","organisation_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","organisation","name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","legal_name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","organisation_type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","base_currency",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","country_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","is_demo_company",10,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","organisation","organisation_status",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","organisation","updated_date_utc",12,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","overpayment_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_allocations","overpayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayment_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","overpayment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","overpayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","tax_type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","line_amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayment_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","overpayments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayments","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","overpayments","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","overpayments","overpayment_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","overpayments","type",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayments","contact_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","overpayments","date",7,"YES","date",NULL,NULL,NULL,0
+"landing","overpayments","currency_code",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayments","total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","overpayments","status",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","overpayments","updated_date_utc",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","payment_services","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","payment_services","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","payment_services","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","payment_services","payment_service_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payment_services","payment_service_name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","payment_services","payment_service_url",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","payment_services","payment_service_type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","payment_services","pay_now_text",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","payments","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","payments","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","payments","payment_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","invoice_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","credit_note_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","prepayment_id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","overpayment_id",8,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","account_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","payments","date",10,"YES","date",NULL,NULL,NULL,0
+"landing","payments","amount",11,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","payments","currency_rate",12,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","payments","reference",13,"YES","text",NULL,NULL,NULL,NULL
+"landing","payments","status",14,"YES","text",NULL,NULL,NULL,NULL
+"landing","payments","updated_date_utc",15,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","prepayment_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_allocations","prepayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayment_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","prepayment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","prepayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","tax_type",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","line_amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayment_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","prepayments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayments","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","prepayments","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","prepayments","prepayment_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","prepayments","type",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayments","contact_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","prepayments","date",7,"YES","date",NULL,NULL,NULL,0
+"landing","prepayments","currency_code",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayments","total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","prepayments","status",10,"YES","text",NULL,NULL,NULL,NULL
+"landing","prepayments","updated_date_utc",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","purchase_order_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","purchase_order_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","purchase_order_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","purchase_orders","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_orders","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_orders","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","purchase_orders","purchase_order_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_orders","contact_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","purchase_orders","date",6,"YES","date",NULL,NULL,NULL,0
+"landing","purchase_orders","delivery_date",7,"YES","date",NULL,NULL,NULL,0
+"landing","purchase_orders","reference",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","purchase_orders","status",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","purchase_orders","total",10,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","purchase_orders","updated_date_utc",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","quote_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","quote_lines","quote_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","quote_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","quote_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","quote_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","quote_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","quote_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","quote_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","quote_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","quote_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","quotes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","quotes","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","quotes","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","quotes","quote_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","quotes","contact_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","quotes","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","quotes","title",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","quotes","summary",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","quotes","quote_number",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","quotes","expiry_date",10,"YES","date",NULL,NULL,NULL,0
+"landing","quotes","total",11,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","quotes","updated_date_utc",12,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","quotes","date",13,"YES","date",NULL,NULL,NULL,0
+"landing","quotes","reference",14,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","repeating_invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoice_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","repeating_invoices","repeating_invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","contact_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","reference",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","start_date",8,"YES","date",NULL,NULL,NULL,0
+"landing","repeating_invoices","next_scheduled_date",9,"YES","date",NULL,NULL,NULL,0
+"landing","repeating_invoices","end_date",10,"YES","date",NULL,NULL,NULL,0
+"landing","repeating_invoices","schedule",11,"YES","text",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","total",12,"YES","numeric",NULL,NULL,NULL,NULL
+"landing","repeating_invoices","updated_date_utc",13,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_balance_sheet","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_balance_sheet","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_balance_sheet","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_balance_sheet","fetched_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_balance_sheet","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"landing","report_profit_and_loss","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_profit_and_loss","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_profit_and_loss","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_profit_and_loss","fetched_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_profit_and_loss","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"landing","report_trial_balance","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_trial_balance","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","report_trial_balance","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_trial_balance","fetched_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","report_trial_balance","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"landing","tax_rates","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tax_rates","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tax_rates","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","tax_rates","tax_type",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","tax_rates","name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","tax_rates","tax_components",6,"YES","jsonb",NULL,NULL,NULL,NULL
+"landing","tax_rates","status",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","tax_rates","report_tax_type",8,"YES","text",NULL,NULL,NULL,NULL
+"landing","tax_rates","can_apply_to_assets",9,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","tax_rates","can_apply_to_equity",10,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","tax_rates","can_apply_to_expenses",11,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","tax_rates","can_apply_to_liabilities",12,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","tax_rates","can_apply_to_revenue",13,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","tracking_categories","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_categories","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_categories","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","tracking_categories","tracking_category_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_categories","name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","tracking_categories","status",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","tracking_categories","option_status",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","tracking_categories","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"landing","tracking_options","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_options","tracking_category_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_options","tracking_option_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","tracking_options","name",4,"YES","text",NULL,NULL,NULL,NULL
+"landing","tracking_options","status",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","users","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","users","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"landing","users","loaded_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"landing","users","user_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"landing","users","first_name",5,"YES","text",NULL,NULL,NULL,NULL
+"landing","users","last_name",6,"YES","text",NULL,NULL,NULL,NULL
+"landing","users","email_address",7,"YES","text",NULL,NULL,NULL,NULL
+"landing","users","is_subscriber",8,"YES","boolean",NULL,NULL,NULL,NULL
+"landing","users","organisation_role",9,"YES","text",NULL,NULL,NULL,NULL
+"landing","users","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","accounts","Account Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","accounts","Account Code",2,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Account Name",3,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Account Type",4,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Tax Type",5,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Description",6,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Class",7,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Enable Payments",8,"YES","boolean",NULL,NULL,NULL,NULL
+"model","accounts","Show In Expense Claims",9,"YES","boolean",NULL,NULL,NULL,NULL
+"model","accounts","Reporting Code",10,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Reporting Code Name",11,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Currency",12,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Bank Account Number",13,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Bank Account Type",14,"YES","text",NULL,NULL,NULL,NULL
+"model","accounts","Last Updated",15,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","bank_transactions","Transaction Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","bank_transactions","Transaction Date",2,"YES","date",NULL,NULL,NULL,0
+"model","bank_transactions","Reference",3,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Status",4,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Transaction Type",5,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Currency",6,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Subtotal",7,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Total Tax",8,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Total Amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Is Reconciled",10,"YES","boolean",NULL,NULL,NULL,NULL
+"model","bank_transactions","Last Updated",11,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","bank_transactions","Line Id",12,"YES","uuid",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Description",13,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Quantity",14,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Unit Amount",15,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Tax Type",16,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Tax Amount",17,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Total",18,"YES","numeric",NULL,NULL,NULL,NULL
+"model","bank_transactions","Line Account Code",19,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Contact Id",20,"YES","uuid",NULL,NULL,NULL,NULL
+"model","bank_transactions","Contact Name",21,"YES","text",NULL,NULL,NULL,NULL
+"model","bank_transactions","Contact Email",22,"YES","text",NULL,NULL,NULL,NULL
+"model","budgets","Budget Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","budgets","Status",2,"YES","text",NULL,NULL,NULL,NULL
+"model","budgets","Description",3,"YES","text",NULL,NULL,NULL,NULL
+"model","budgets","Type",4,"YES","text",NULL,NULL,NULL,NULL
+"model","budgets","Budget Updated",5,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","budgets","Line Id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"model","budgets","Line Account Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","budgets","Line Account Code",8,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","Contact Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","contacts","Contact Name",2,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","Email Address",3,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","First Name",4,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","Last Name",5,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","Currency",6,"YES","text",NULL,NULL,NULL,NULL
+"model","contacts","Last Updated",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","credit_notes","Credit Note Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","credit_notes","Credit Note Date",2,"YES","date",NULL,NULL,NULL,0
+"model","credit_notes","Reference",3,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Status",4,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Type",5,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Currency",6,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Credit Note Total",7,"YES","numeric",NULL,NULL,NULL,NULL
+"model","credit_notes","Credit Note Updated",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","credit_notes","Line Id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Description",10,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Quantity",11,"YES","numeric",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Unit Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Tax Type",13,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Tax Amount",14,"YES","numeric",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Total",15,"YES","numeric",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Account Code",16,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Line Tracking",17,"YES","jsonb",NULL,NULL,NULL,NULL
+"model","credit_notes","Customer Id",18,"YES","uuid",NULL,NULL,NULL,NULL
+"model","credit_notes","Customer Name",19,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Customer Email",20,"YES","text",NULL,NULL,NULL,NULL
+"model","credit_notes","Is Customer",21,"YES","boolean",NULL,NULL,NULL,NULL
+"model","credit_notes","Customer Currency",22,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","Customer Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","customers","Customer Name",2,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","Email Address",3,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","First Name",4,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","Last Name",5,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","Currency",6,"YES","text",NULL,NULL,NULL,NULL
+"model","customers","Last Updated",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","invoices","Invoice Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","invoices","Invoice Date",2,"YES","date",NULL,NULL,NULL,0
+"model","invoices","Due Date",3,"YES","date",NULL,NULL,NULL,0
+"model","invoices","Reference",4,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Status",5,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Type",6,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Currency",7,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Invoice Total",8,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Total Tax",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Subtotal",10,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Amount Paid",11,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Amount Due",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Amount Credited",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Invoice Updated",14,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","invoices","Line Id",15,"YES","uuid",NULL,NULL,NULL,NULL
+"model","invoices","Line Description",16,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Line Quantity",17,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Line Unit Amount",18,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Line Tax Type",19,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Line Tax Amount",20,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Line Total",21,"YES","numeric",NULL,NULL,NULL,NULL
+"model","invoices","Line Account Code",22,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Line Tracking",23,"YES","jsonb",NULL,NULL,NULL,NULL
+"model","invoices","Customer Id",24,"YES","uuid",NULL,NULL,NULL,NULL
+"model","invoices","Customer Name",25,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Customer Email",26,"YES","text",NULL,NULL,NULL,NULL
+"model","invoices","Is Customer",27,"YES","boolean",NULL,NULL,NULL,NULL
+"model","invoices","Customer Currency",28,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Journal Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","journals","Journal Date",2,"YES","date",NULL,NULL,NULL,0
+"model","journals","Journal Number",3,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Reference",4,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Narration",5,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Source Type",6,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Source Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","journals","Journal Updated",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","journals","Line Id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"model","journals","Line Account Code",10,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Line Account Id",11,"YES","uuid",NULL,NULL,NULL,NULL
+"model","journals","Line Description",12,"YES","text",NULL,NULL,NULL,NULL
+"model","journals","Line Net Amount",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","journals","Line Gross Amount",14,"YES","numeric",NULL,NULL,NULL,NULL
+"model","journals","Line Tax Amount",15,"YES","numeric",NULL,NULL,NULL,NULL
+"model","journals","Line Tracking",16,"YES","jsonb",NULL,NULL,NULL,NULL
+"model","manual_journals","Manual Journal Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","manual_journals","Journal Date",2,"YES","date",NULL,NULL,NULL,0
+"model","manual_journals","Narration",3,"YES","text",NULL,NULL,NULL,NULL
+"model","manual_journals","Status",4,"YES","text",NULL,NULL,NULL,NULL
+"model","manual_journals","Cash Basis",5,"YES","boolean",NULL,NULL,NULL,NULL
+"model","manual_journals","Journal Updated",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","manual_journals","Line Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Description",8,"YES","text",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Account Code",9,"YES","text",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Account Id",10,"YES","uuid",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Tax Type",11,"YES","text",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Tax Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Amount",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","manual_journals","Line Tracking",14,"YES","jsonb",NULL,NULL,NULL,NULL
+"model","organisation","Organisation Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","organisation","Organisation Name",2,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Legal Name",3,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Organisation Type",4,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Base Currency",5,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Country Code",6,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Is Demo Company",7,"YES","boolean",NULL,NULL,NULL,NULL
+"model","organisation","Organisation Status",8,"YES","text",NULL,NULL,NULL,NULL
+"model","organisation","Organisation Updated",9,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","overpayments","Overpayment Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","overpayments","Overpayment Date",2,"YES","date",NULL,NULL,NULL,0
+"model","overpayments","Amount",3,"YES","numeric",NULL,NULL,NULL,NULL
+"model","overpayments","Currency",4,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Status",5,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Overpayment Updated",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","overpayments","Line Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","overpayments","Line Description",8,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Line Quantity",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","overpayments","Line Unit Amount",10,"YES","numeric",NULL,NULL,NULL,NULL
+"model","overpayments","Line Tax Type",11,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Line Tax Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","overpayments","Line Total",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","overpayments","Line Account Code",14,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Customer Id",15,"YES","uuid",NULL,NULL,NULL,NULL
+"model","overpayments","Customer Name",16,"YES","text",NULL,NULL,NULL,NULL
+"model","overpayments","Customer Email",17,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Payment Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","payments","Payment Date",2,"YES","date",NULL,NULL,NULL,0
+"model","payments","Amount",3,"YES","numeric",NULL,NULL,NULL,NULL
+"model","payments","Currency Rate",4,"YES","numeric",NULL,NULL,NULL,NULL
+"model","payments","Reference",5,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Status",6,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Payment Updated",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","payments","Invoice Id",8,"YES","uuid",NULL,NULL,NULL,NULL
+"model","payments","Invoice Reference",9,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Invoice Currency",10,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Customer Id",11,"YES","uuid",NULL,NULL,NULL,NULL
+"model","payments","Customer Name",12,"YES","text",NULL,NULL,NULL,NULL
+"model","payments","Customer Email",13,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Prepayment Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","prepayments","Prepayment Date",2,"YES","date",NULL,NULL,NULL,0
+"model","prepayments","Amount",3,"YES","numeric",NULL,NULL,NULL,NULL
+"model","prepayments","Currency",4,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Status",5,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Prepayment Updated",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","prepayments","Line Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","prepayments","Line Description",8,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Line Quantity",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","prepayments","Line Unit Amount",10,"YES","numeric",NULL,NULL,NULL,NULL
+"model","prepayments","Line Tax Type",11,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Line Tax Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","prepayments","Line Total",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","prepayments","Line Account Code",14,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Customer Id",15,"YES","uuid",NULL,NULL,NULL,NULL
+"model","prepayments","Customer Name",16,"YES","text",NULL,NULL,NULL,NULL
+"model","prepayments","Customer Email",17,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Purchase Order Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","purchase_orders","Purchase Order Date",2,"YES","date",NULL,NULL,NULL,0
+"model","purchase_orders","Reference",3,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Status",4,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Total Amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"model","purchase_orders","Purchase Order Updated",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","purchase_orders","Line Id",7,"YES","uuid",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Description",8,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Quantity",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Unit Amount",10,"YES","numeric",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Tax Type",11,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Tax Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Total",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","purchase_orders","Line Account Code",14,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Supplier Id",15,"YES","uuid",NULL,NULL,NULL,NULL
+"model","purchase_orders","Supplier Name",16,"YES","text",NULL,NULL,NULL,NULL
+"model","purchase_orders","Supplier Email",17,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Quote Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","quotes","Quote Date",2,"YES","date",NULL,NULL,NULL,0
+"model","quotes","Reference",3,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Status",4,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Title",5,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Summary",6,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Quote Number",7,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Expiry Date",8,"YES","date",NULL,NULL,NULL,0
+"model","quotes","Total Amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"model","quotes","Quote Updated",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","quotes","Line Id",11,"YES","uuid",NULL,NULL,NULL,NULL
+"model","quotes","Line Description",12,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Line Quantity",13,"YES","numeric",NULL,NULL,NULL,NULL
+"model","quotes","Line Unit Amount",14,"YES","numeric",NULL,NULL,NULL,NULL
+"model","quotes","Line Tax Type",15,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Line Tax Amount",16,"YES","numeric",NULL,NULL,NULL,NULL
+"model","quotes","Line Total",17,"YES","numeric",NULL,NULL,NULL,NULL
+"model","quotes","Line Account Code",18,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Customer Id",19,"YES","uuid",NULL,NULL,NULL,NULL
+"model","quotes","Customer Name",20,"YES","text",NULL,NULL,NULL,NULL
+"model","quotes","Customer Email",21,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Repeating Invoice Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Start Date",2,"YES","date",NULL,NULL,NULL,0
+"model","repeating_invoices","Next Scheduled Date",3,"YES","date",NULL,NULL,NULL,0
+"model","repeating_invoices","End Date",4,"YES","date",NULL,NULL,NULL,0
+"model","repeating_invoices","Schedule",5,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Status",6,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Total Amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Repeating Invoice Updated",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","repeating_invoices","Line Id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Description",10,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Quantity",11,"YES","numeric",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Unit Amount",12,"YES","numeric",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Tax Type",13,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Tax Amount",14,"YES","numeric",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Total",15,"YES","numeric",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Line Account Code",16,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Customer Id",17,"YES","uuid",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Customer Name",18,"YES","text",NULL,NULL,NULL,NULL
+"model","repeating_invoices","Customer Email",19,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","Supplier Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","suppliers","Supplier Name",2,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","Email Address",3,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","First Name",4,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","Last Name",5,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","Currency",6,"YES","text",NULL,NULL,NULL,NULL
+"model","suppliers","Last Updated",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","tracking_categories","Tracking Category Id",1,"YES","uuid",NULL,NULL,NULL,NULL
+"model","tracking_categories","Category Name",2,"YES","text",NULL,NULL,NULL,NULL
+"model","tracking_categories","Category Status",3,"YES","text",NULL,NULL,NULL,NULL
+"model","tracking_categories","Option Status Summary",4,"YES","text",NULL,NULL,NULL,NULL
+"model","tracking_categories","Last Updated",5,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"model","tracking_categories","Option Id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"model","tracking_categories","Option Name",7,"YES","text",NULL,NULL,NULL,NULL
+"model","tracking_categories","Option Status",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","account_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","accounts","code",2,"NO","text",NULL,NULL,NULL,NULL
+"ods","accounts","name",3,"NO","text",NULL,NULL,NULL,NULL
+"ods","accounts","type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","tax_type",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","description",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","class",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","enable_payments_to_account",8,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","accounts","show_in_expense_claims",9,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","accounts","reporting_code",10,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","reporting_code_name",11,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","updated_date_utc",12,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","accounts","currency_code",13,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","bank_account_number",14,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","bank_account_type",15,"YES","text",NULL,NULL,NULL,NULL
+"ods","accounts","source_run_id",16,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","accounts","loaded_at",17,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","attachments","attachment_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","attachments","parent_type",2,"NO","text",NULL,NULL,NULL,NULL
+"ods","attachments","parent_id",3,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","attachments","file_name",4,"NO","text",NULL,NULL,NULL,NULL
+"ods","attachments","url",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","attachments","mime_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","attachments","content_length",7,"YES","integer",NULL,32,0,NULL
+"ods","attachments","source_run_id",8,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","attachments","loaded_at",9,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","bank_transaction_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","bank_transaction_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","unit_amount",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","tax_type",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","tax_amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","line_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","account_code",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","quantity",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transaction_lines","account_id",10,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transactions","bank_transaction_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transactions","contact_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transactions","type",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transactions","reference",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transactions","is_reconciled",5,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","bank_transactions","currency_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transactions","date",7,"YES","date",NULL,NULL,NULL,0
+"ods","bank_transactions","status",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transactions","sub_total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transactions","total_tax",10,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transactions","total",11,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transactions","updated_date_utc",12,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","bank_transactions","source_run_id",13,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transactions","loaded_at",14,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","bank_transfers","bank_transfer_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","date",2,"YES","date",NULL,NULL,NULL,0
+"ods","bank_transfers","amount",3,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","bank_transfers","from_bank_account_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","from_bank_account_name",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transfers","to_bank_account_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","to_bank_account_name",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transfers","from_bank_transaction_id",8,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","to_bank_transaction_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","from_is_reconciled",10,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","bank_transfers","to_is_reconciled",11,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","bank_transfers","reference",12,"YES","text",NULL,NULL,NULL,NULL
+"ods","bank_transfers","has_attachments",13,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","bank_transfers","source_run_id",14,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","bank_transfers","loaded_at",15,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","batch_payment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payment_lines","batch_payment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payment_lines","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payment_lines","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payment_lines","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","batch_payments","batch_payment_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payments","reference",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","batch_payments","date",3,"YES","date",NULL,NULL,NULL,0
+"ods","batch_payments","type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","batch_payments","status",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","batch_payments","total_amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","batch_payments","is_reconciled",7,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","batch_payments","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","batch_payments","account_id",9,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payments","source_run_id",10,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","batch_payments","loaded_at",11,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","branding_themes","branding_theme_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","branding_themes","name",2,"NO","text",NULL,NULL,NULL,NULL
+"ods","branding_themes","sort_order",3,"YES","integer",NULL,32,0,NULL
+"ods","branding_themes","created_date_utc",4,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","branding_themes","source_run_id",5,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","branding_themes","loaded_at",6,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","budget_balances","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budget_balances","budget_line_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budget_balances","period",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","budget_balances","amount",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","budget_balances","notes",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","budget_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budget_lines","budget_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budget_lines","account_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","budget_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","budgets","budget_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budgets","status",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","budgets","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","budgets","type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","budgets","updated_date_utc",5,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","budgets","source_run_id",6,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","budgets","loaded_at",7,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","contact_addresses","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_addresses","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_addresses","address_type",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","address_line1",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","address_line2",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","address_line3",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","address_line4",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","city",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","region",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","postal_code",10,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_addresses","country",11,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_groups","contact_group_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_groups","name",2,"NO","text",NULL,NULL,NULL,NULL
+"ods","contact_groups","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_groups","source_run_id",4,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_groups","loaded_at",5,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","contact_persons","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_persons","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_persons","first_name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_persons","last_name",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_persons","email_address",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_phones","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_phones","contact_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contact_phones","phone_type",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_phones","phone_number",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_phones","phone_area_code",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","contact_phones","phone_country_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","contact_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contacts","contact_status",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","first_name",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","last_name",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","email_address",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","is_supplier",7,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","contacts","is_customer",8,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","contacts","default_currency",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","contacts","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","contacts","source_run_id",11,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","contacts","loaded_at",12,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","credit_note_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_allocations","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"ods","credit_note_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_note_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","credit_note_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_payments","credit_note_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_payments","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","credit_note_payments","date",4,"YES","date",NULL,NULL,NULL,0
+"ods","credit_note_payments","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_note_payments","reference",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_notes","credit_note_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_notes","type",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_notes","contact_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","credit_notes","status",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_notes","date",5,"YES","date",NULL,NULL,NULL,0
+"ods","credit_notes","total",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","credit_notes","updated_date_utc",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","credit_notes","currency_code",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_notes","reference",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","credit_notes","source_run_id",10,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","credit_notes","loaded_at",11,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","currencies","code",1,"NO","text",NULL,NULL,NULL,NULL
+"ods","currencies","description",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","currencies","source_run_id",3,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","currencies","loaded_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","employees","employee_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","employees","status",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","employees","first_name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","employees","last_name",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","employees","external_link",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","employees","updated_date_utc",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","employees","source_run_id",7,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","employees","loaded_at",8,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","invoice_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_allocations","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_allocations","credit_note_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"ods","invoice_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_lines","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoice_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoice_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoice_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","invoice_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_payments","invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_payments","payment_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_payments","date",4,"YES","date",NULL,NULL,NULL,0
+"ods","invoice_payments","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoice_payments","reference",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoice_reminders","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_reminders","enabled",2,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","invoice_reminders","reminder_day",3,"YES","integer",NULL,32,0,NULL
+"ods","invoice_reminders","message",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoice_reminders","source_run_id",5,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoice_reminders","loaded_at",6,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","invoices","invoice_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoices","contact_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","invoices","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoices","type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoices","date",5,"YES","date",NULL,NULL,NULL,0
+"ods","invoices","due_date",6,"YES","date",NULL,NULL,NULL,0
+"ods","invoices","currency_code",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoices","reference",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","invoices","total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","total_tax",10,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","sub_total",11,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","amount_due",12,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","amount_paid",13,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","amount_credited",14,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","invoices","updated_date_utc",15,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","invoices","source_run_id",16,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","invoices","loaded_at",17,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","items","item_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","items","code",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","items","name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","items","description",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","items","purchase_description",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","items","is_sold",6,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","items","is_purchased",7,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","items","sales_details",8,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","items","purchase_details",9,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","items","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","items","source_run_id",11,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","items","loaded_at",12,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","journal_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","journal_lines","journal_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","journal_lines","account_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","journal_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","journal_lines","description",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","journal_lines","net_amount",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","journal_lines","gross_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","journal_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","journal_lines","tracking",9,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","journals","journal_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","journals","journal_date",2,"YES","date",NULL,NULL,NULL,0
+"ods","journals","journal_number",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","journals","reference",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","journals","narration",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","journals","source_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","journals","source_type",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","journals","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","journals","source_run_id",9,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","journals","loaded_at",10,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","linked_transactions","linked_transaction_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","source_transaction_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","source_line_item_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","contact_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","target_transaction_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","target_line_item_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","status",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","linked_transactions","type",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","linked_transactions","line_item_description",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","linked_transactions","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","linked_transactions","source_run_id",11,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","linked_transactions","loaded_at",12,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","manual_journal_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","manual_journal_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","account_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","manual_journal_lines","tracking",9,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","manual_journals","manual_journal_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","manual_journals","narration",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","manual_journals","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","manual_journals","journal_date",4,"YES","date",NULL,NULL,NULL,0
+"ods","manual_journals","show_on_cash_basis_reports",5,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","manual_journals","updated_date_utc",6,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","manual_journals","source_run_id",7,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","manual_journals","loaded_at",8,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","organisation","organisation_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","organisation","name",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","legal_name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","organisation_type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","base_currency",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","country_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","is_demo_company",7,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","organisation","organisation_status",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","organisation","updated_date_utc",9,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","organisation","source_run_id",10,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","organisation","loaded_at",11,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","overpayment_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_allocations","overpayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayment_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"ods","overpayment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","overpayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","tax_type",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","line_amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayment_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","overpayments","overpayment_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayments","type",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayments","contact_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","overpayments","date",4,"YES","date",NULL,NULL,NULL,0
+"ods","overpayments","currency_code",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayments","total",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","overpayments","status",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","overpayments","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","overpayments","source_run_id",9,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","overpayments","loaded_at",10,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","payment_services","payment_service_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","payment_services","payment_service_name",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","payment_services","payment_service_url",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","payment_services","payment_service_type",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","payment_services","pay_now_text",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","payment_services","source_run_id",6,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","payment_services","loaded_at",7,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","payments","payment_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","payments","invoice_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","payments","credit_note_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","payments","prepayment_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","payments","overpayment_id",5,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","payments","account_id",6,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","payments","date",7,"YES","date",NULL,NULL,NULL,0
+"ods","payments","amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","payments","currency_rate",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","payments","reference",10,"YES","text",NULL,NULL,NULL,NULL
+"ods","payments","status",11,"YES","text",NULL,NULL,NULL,NULL
+"ods","payments","updated_date_utc",12,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","payments","source_run_id",13,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","payments","loaded_at",14,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","prepayment_allocations","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_allocations","prepayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_allocations","allocation_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_allocations","invoice_id",4,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_allocations","amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayment_allocations","date",6,"YES","date",NULL,NULL,NULL,0
+"ods","prepayment_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","prepayment_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","tax_type",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","tax_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","line_amount",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayment_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","prepayments","prepayment_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayments","type",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayments","contact_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","prepayments","date",4,"YES","date",NULL,NULL,NULL,0
+"ods","prepayments","currency_code",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayments","total",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","prepayments","status",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","prepayments","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","prepayments","source_run_id",9,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","prepayments","loaded_at",10,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","purchase_order_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","purchase_order_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","purchase_order_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","purchase_orders","purchase_order_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","purchase_orders","contact_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","purchase_orders","date",3,"YES","date",NULL,NULL,NULL,0
+"ods","purchase_orders","delivery_date",4,"YES","date",NULL,NULL,NULL,0
+"ods","purchase_orders","reference",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","purchase_orders","status",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","purchase_orders","total",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","purchase_orders","updated_date_utc",8,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","purchase_orders","source_run_id",9,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","purchase_orders","loaded_at",10,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","quote_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","quote_lines","quote_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","quote_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","quote_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","quote_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","quote_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","quote_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","quote_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","quote_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","quote_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","quotes","quote_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","quotes","contact_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","quotes","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","quotes","title",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","quotes","summary",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","quotes","quote_number",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","quotes","expiry_date",7,"YES","date",NULL,NULL,NULL,0
+"ods","quotes","total",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","quotes","updated_date_utc",9,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","quotes","source_run_id",10,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","quotes","loaded_at",11,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","quotes","date",12,"YES","date",NULL,NULL,NULL,0
+"ods","quotes","reference",13,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","repeating_invoice_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","description",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","quantity",4,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","unit_amount",5,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","tax_type",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","tax_amount",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","line_amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","account_code",9,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoice_lines","tracking",10,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","repeating_invoice_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","contact_id",2,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","reference",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","start_date",5,"YES","date",NULL,NULL,NULL,0
+"ods","repeating_invoices","next_scheduled_date",6,"YES","date",NULL,NULL,NULL,0
+"ods","repeating_invoices","end_date",7,"YES","date",NULL,NULL,NULL,0
+"ods","repeating_invoices","schedule",8,"YES","text",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","total",9,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","updated_date_utc",10,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","repeating_invoices","source_run_id",11,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","repeating_invoices","loaded_at",12,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_balance_sheet","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet","fetched_at",2,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_balance_sheet","source_run_id",3,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet","loaded_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_balance_sheet","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_balance_sheet_lines","report_section",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","line_type",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","account_name",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","report_balance_sheet_lines","display_order",9,"YES","integer",NULL,32,0,NULL
+"ods","report_balance_sheet_lines","as_at_date",10,"YES","date",NULL,NULL,NULL,0
+"ods","report_balance_sheet_lines","period_from",11,"YES","date",NULL,NULL,NULL,0
+"ods","report_balance_sheet_lines","period_to",12,"YES","date",NULL,NULL,NULL,0
+"ods","report_profit_and_loss","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss","fetched_at",2,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_profit_and_loss","source_run_id",3,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss","loaded_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_profit_and_loss","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_profit_and_loss_lines","report_section",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","line_type",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","account_code",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","account_name",7,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","amount",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","report_profit_and_loss_lines","display_order",9,"YES","integer",NULL,32,0,NULL
+"ods","report_profit_and_loss_lines","as_at_date",10,"YES","date",NULL,NULL,NULL,0
+"ods","report_profit_and_loss_lines","period_from",11,"YES","date",NULL,NULL,NULL,0
+"ods","report_profit_and_loss_lines","period_to",12,"YES","date",NULL,NULL,NULL,0
+"ods","report_trial_balance","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_trial_balance","fetched_at",2,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_trial_balance","source_run_id",3,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_trial_balance","loaded_at",4,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_trial_balance","report_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","source_run_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","report_trial_balance_lines","account_code",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","account_name",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","debit",6,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","credit",7,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","balance",8,"YES","numeric",NULL,NULL,NULL,NULL
+"ods","report_trial_balance_lines","display_order",9,"YES","integer",NULL,32,0,NULL
+"ods","report_trial_balance_lines","as_at_date",10,"YES","date",NULL,NULL,NULL,0
+"ods","report_trial_balance_lines","period_from",11,"YES","date",NULL,NULL,NULL,0
+"ods","report_trial_balance_lines","period_to",12,"YES","date",NULL,NULL,NULL,0
+"ods","tax_rates","tax_type",1,"NO","text",NULL,NULL,NULL,NULL
+"ods","tax_rates","name",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","tax_rates","tax_components",3,"YES","jsonb",NULL,NULL,NULL,NULL
+"ods","tax_rates","status",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","tax_rates","report_tax_type",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","tax_rates","can_apply_to_assets",6,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","tax_rates","can_apply_to_equity",7,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","tax_rates","can_apply_to_expenses",8,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","tax_rates","can_apply_to_liabilities",9,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","tax_rates","can_apply_to_revenue",10,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","tax_rates","source_run_id",11,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","tax_rates","loaded_at",12,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","tracking_categories","tracking_category_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","tracking_categories","name",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","tracking_categories","status",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","tracking_categories","option_status",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","tracking_categories","updated_date_utc",5,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","tracking_categories","source_run_id",6,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","tracking_categories","loaded_at",7,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"ods","tracking_options","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","tracking_options","tracking_category_id",2,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","tracking_options","tracking_option_id",3,"YES","uuid",NULL,NULL,NULL,NULL
+"ods","tracking_options","name",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","tracking_options","status",5,"YES","text",NULL,NULL,NULL,NULL
+"ods","users","user_id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","users","first_name",2,"YES","text",NULL,NULL,NULL,NULL
+"ods","users","last_name",3,"YES","text",NULL,NULL,NULL,NULL
+"ods","users","email_address",4,"YES","text",NULL,NULL,NULL,NULL
+"ods","users","is_subscriber",5,"YES","boolean",NULL,NULL,NULL,NULL
+"ods","users","organisation_role",6,"YES","text",NULL,NULL,NULL,NULL
+"ods","users","updated_date_utc",7,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"ods","users","source_run_id",8,"NO","uuid",NULL,NULL,NULL,NULL
+"ods","users","loaded_at",9,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","accounts","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","accounts","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","accounts","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","accounts","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","accounts","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","attachments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","attachments","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","attachments","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","attachments","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","attachments","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","bank_transactions","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","bank_transactions","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","bank_transactions","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","bank_transactions","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","bank_transactions","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","bank_transfers","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","bank_transfers","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","bank_transfers","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","bank_transfers","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","bank_transfers","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","batch_payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","batch_payments","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","batch_payments","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","batch_payments","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","batch_payments","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","branding_themes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","branding_themes","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","branding_themes","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","branding_themes","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","branding_themes","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","budgets","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","budgets","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","budgets","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","budgets","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","budgets","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","contact_groups","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","contact_groups","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","contact_groups","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","contact_groups","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","contact_groups","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","contacts","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","contacts","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","contacts","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","contacts","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","contacts","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","credit_notes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","credit_notes","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","credit_notes","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","credit_notes","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","credit_notes","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","currencies","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","currencies","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","currencies","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","currencies","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","currencies","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","employees","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","employees","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","employees","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","employees","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","employees","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","invoice_reminders","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","invoice_reminders","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","invoice_reminders","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","invoice_reminders","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","invoice_reminders","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","invoices","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","invoices","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","invoices","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","invoices","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","invoices","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","items","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","items","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","items","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","items","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","items","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","journals","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","journals","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","journals","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","journals","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","journals","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","linked_transactions","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","linked_transactions","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","linked_transactions","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","linked_transactions","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","linked_transactions","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","load_runs","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","load_runs","endpoint",2,"NO","text",NULL,NULL,NULL,NULL
+"raw","load_runs","started_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","load_runs","finished_at",4,"YES","timestamp without time zone",NULL,NULL,NULL,6
+"raw","load_runs","status",5,"NO","text",NULL,NULL,NULL,NULL
+"raw","load_runs","error_message",6,"YES","text",NULL,NULL,NULL,NULL
+"raw","manual_journals","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","manual_journals","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","manual_journals","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","manual_journals","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","manual_journals","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","organisation","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","organisation","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","organisation","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","organisation","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","organisation","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","overpayments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","overpayments","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","overpayments","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","overpayments","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","overpayments","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","payment_services","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","payment_services","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","payment_services","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","payment_services","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","payment_services","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","payments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","payments","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","payments","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","payments","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","payments","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","prepayments","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","prepayments","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","prepayments","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","prepayments","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","prepayments","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","purchase_orders","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","purchase_orders","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","purchase_orders","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","purchase_orders","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","purchase_orders","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","quotes","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","quotes","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","quotes","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","quotes","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","quotes","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","repeating_invoices","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","repeating_invoices","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","repeating_invoices","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","repeating_invoices","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","repeating_invoices","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","report_balance_sheet","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","report_balance_sheet","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","report_balance_sheet","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","report_balance_sheet","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","report_balance_sheet","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","report_profit_and_loss","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","report_profit_and_loss","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","report_profit_and_loss","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","report_profit_and_loss","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","report_profit_and_loss","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","report_trial_balance","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","report_trial_balance","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","report_trial_balance","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","report_trial_balance","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","report_trial_balance","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","tax_rates","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","tax_rates","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","tax_rates","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","tax_rates","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","tax_rates","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","tracking_categories","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","tracking_categories","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","tracking_categories","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","tracking_categories","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","tracking_categories","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL
+"raw","users","id",1,"NO","uuid",NULL,NULL,NULL,NULL
+"raw","users","page_number",2,"YES","integer",NULL,32,0,NULL
+"raw","users","fetched_at",3,"NO","timestamp without time zone",NULL,NULL,NULL,6
+"raw","users","processed",4,"NO","boolean",NULL,NULL,NULL,NULL
+"raw","users","payload_json",5,"NO","jsonb",NULL,NULL,NULL,NULL

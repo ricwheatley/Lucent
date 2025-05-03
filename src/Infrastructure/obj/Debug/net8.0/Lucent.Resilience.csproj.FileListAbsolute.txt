@@ -1,0 +1,6 @@
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.csproj.AssemblyReference.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.AssemblyInfoInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.AssemblyInfo.cs
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.csproj.CoreCompileInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Resilience.sourcelink.json

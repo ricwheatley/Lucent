@@ -1,0 +1,16 @@
+C:\Dev\Lucent\src\Infrastructure\bin\Debug\net8.0\Lucent.Infrastructure.deps.json
+C:\Dev\Lucent\src\Infrastructure\bin\Debug\net8.0\Lucent.Infrastructure.dll
+C:\Dev\Lucent\src\Infrastructure\bin\Debug\net8.0\Lucent.Infrastructure.pdb
+C:\Dev\Lucent\src\Infrastructure\bin\Debug\net8.0\Lucent.Core.dll
+C:\Dev\Lucent\src\Infrastructure\bin\Debug\net8.0\Lucent.Core.pdb
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.csproj.AssemblyReference.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.AssemblyInfoInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.AssemblyInfo.cs
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.sourcelink.json
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.I.F3D68823.Up2Date
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.dll
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\refint\Lucent.Infrastructure.dll
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Infrastructure.pdb
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\ref\Lucent.Infrastructure.dll

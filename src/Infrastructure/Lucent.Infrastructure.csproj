@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+
+<ItemGroup>
+	<PackageReference Include="RestSharp" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+	<PackageReference Include="Microsoft.Extensions.Logging.Console" />
+	<PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+	<PackageReference Include="Microsoft.Extensions.Hosting" />
+	<PackageReference Include="Microsoft.Extensions.Http" />
+	<PackageReference Include="Microsoft.Data.SqlClient" />
+	<PackageReference Include="Microsoft.Extensions.Http.Polly" />
+	<PackageReference Include="Polly" />
+	<PackageReference Include="Polly.Contrib.WaitAndRetry" />
+
+</ItemGroup>
+
+<ItemGroup>
+	<ProjectReference Include="..\Core\Lucent.Core.csproj" />
+</ItemGroup>
+
+</Project>

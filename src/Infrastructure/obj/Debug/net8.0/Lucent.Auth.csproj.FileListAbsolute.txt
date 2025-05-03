@@ -1,0 +1,6 @@
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.csproj.AssemblyReference.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.AssemblyInfoInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.AssemblyInfo.cs
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.csproj.CoreCompileInputs.cache
+C:\Dev\Lucent\src\Infrastructure\obj\Debug\net8.0\Lucent.Auth.sourcelink.json

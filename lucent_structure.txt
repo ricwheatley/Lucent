@@ -1,0 +1,209 @@
+Folder PATH listing for volume OS
+Volume serial number is BAD6-3C4B
+C:.
+¦   .gitignore
+¦   Directory.Packages.props
+¦   Lucent.sln
+¦   lucent_structure.txt
+¦   
++---.github
+¦   +---workflows
+¦           ci-cd-pipeline.yml
+¦           
++---config
+¦   ¦   appsettings.Development.json
+¦   ¦   appsettings.json
+¦   ¦   
+¦   +---environment
++---database
+¦   +---migrations
+¦   +---schema
+¦   +---seed
++---docs
+¦   +---ADRs
+¦   ¦       ADR-001 - Deployment Architecture Decision.md
+¦   ¦       
+¦   +---architecture
+¦   ¦       lucent_structure pre-reorg.txt
+¦   ¦       
+¦   +---project
+¦           Lucent - Recovery and Road-to-Production Project Plan.docx
+¦           Lucent Forensic Audit Apr 2025.docx
+¦           Lucent_Forensic_Audit_Apr2025.pdf
+¦           
++---src
+¦   +---Api
+¦   ¦       launchSettings.json
+¦   ¦       Lucent.Api.csproj
+¦   ¦       Lucent.Api.http
+¦   ¦       Program.cs
+¦   ¦       RunRegistryAccessor.cs
+¦   ¦       RunRequest.cs
+¦   ¦       
+¦   +---Core
+¦   ¦       ExampleModel.cs
+¦   ¦       ExampleService.cs
+¦   ¦       IExampleRepository.cs
+¦   ¦       ILucentLoader.cs
+¦   ¦       ITenantScheduleStore.cs
+¦   ¦       Lucent.Core.csproj
+¦   ¦       LucentDefaults.cs
+¦   ¦       NoOpLucentLoader.cs
+¦   ¦       ReportPeriodGenerator.cs
+¦   ¦       RunRegistry.cs
+¦   ¦       RunStatus.cs
+¦   ¦       SqlTenantScheduleStore.cs
+¦   ¦       TenantSchedule.cs
+¦   ¦       
+¦   +---Infrastructure
+¦   ¦       Lucent.Auth.csproj
+¦   ¦       Lucent.Client.csproj
+¦   ¦       Lucent.Resilience.csproj
+¦   ¦       LucentAuth.cs
+¦   ¦       ResilientHttpClientFactory.cs
+¦   ¦       RetryPolicies.cs
+¦   ¦       SqlRetryProvider.cs
+¦   ¦       TokenCacheOptions.cs
+¦   ¦       XeroApiClient.cs
+¦   ¦       
+¦   +---Loader
+¦   ¦       launchSettings.json
+¦   ¦       Lucent.Loader.csproj
+¦   ¦       LucentWorker.cs
+¦   ¦       Program.cs
+¦   ¦       
+¦   +---Onboard
+¦   ¦       Lucent.Onboard.csproj
+¦   ¦       Program.cs
+¦   ¦       
+¦   +---Runner
+¦   ¦   ¦   Lucent.Runner.csproj
+¦   ¦   ¦   Lucent.Runner.csproj.user
+¦   ¦   ¦   Program.cs
+¦   ¦   ¦   
+¦   ¦   +---Pages
+¦   ¦   ¦   ¦   Error.cshtml
+¦   ¦   ¦   ¦   Error.cshtml.cs
+¦   ¦   ¦   ¦   Index.cshtml
+¦   ¦   ¦   ¦   Index.cshtml.cs
+¦   ¦   ¦   ¦   Privacy.cshtml
+¦   ¦   ¦   ¦   Privacy.cshtml.cs
+¦   ¦   ¦   ¦   _ViewImports.cshtml
+¦   ¦   ¦   ¦   _ViewStart.cshtml
+¦   ¦   ¦   ¦   
+¦   ¦   ¦   +---Shared
+¦   ¦   ¦           _Layout.cshtml
+¦   ¦   ¦           _Layout.cshtml.css
+¦   ¦   ¦           _ValidationScriptsPartial.cshtml
+¦   ¦   ¦           
+¦   ¦   +---Properties
+¦   ¦   ¦       launchSettings.json
+¦   ¦   ¦       
+¦   ¦   +---wwwroot
+¦   ¦       ¦   favicon.ico
+¦   ¦       ¦   
+¦   ¦       +---css
+¦   ¦       ¦       site.css
+¦   ¦       ¦       styles.css
+¦   ¦       ¦       
+¦   ¦       +---js
+¦   ¦       ¦       site.js
+¦   ¦       ¦       
+¦   ¦       +---lib
+¦   ¦           +---bootstrap
+¦   ¦           ¦   ¦   LICENSE
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---dist
+¦   ¦           ¦       +---css
+¦   ¦           ¦       ¦       bootstrap-grid.css
+¦   ¦           ¦       ¦       bootstrap-grid.css.map
+¦   ¦           ¦       ¦       bootstrap-grid.min.css
+¦   ¦           ¦       ¦       bootstrap-grid.min.css.map
+¦   ¦           ¦       ¦       bootstrap-grid.rtl.css
+¦   ¦           ¦       ¦       bootstrap-grid.rtl.css.map
+¦   ¦           ¦       ¦       bootstrap-grid.rtl.min.css
+¦   ¦           ¦       ¦       bootstrap-grid.rtl.min.css.map
+¦   ¦           ¦       ¦       bootstrap-reboot.css
+¦   ¦           ¦       ¦       bootstrap-reboot.css.map
+¦   ¦           ¦       ¦       bootstrap-reboot.min.css
+¦   ¦           ¦       ¦       bootstrap-reboot.min.css.map
+¦   ¦           ¦       ¦       bootstrap-reboot.rtl.css
+¦   ¦           ¦       ¦       bootstrap-reboot.rtl.css.map
+¦   ¦           ¦       ¦       bootstrap-reboot.rtl.min.css
+¦   ¦           ¦       ¦       bootstrap-reboot.rtl.min.css.map
+¦   ¦           ¦       ¦       bootstrap-utilities.css
+¦   ¦           ¦       ¦       bootstrap-utilities.css.map
+¦   ¦           ¦       ¦       bootstrap-utilities.min.css
+¦   ¦           ¦       ¦       bootstrap-utilities.min.css.map
+¦   ¦           ¦       ¦       bootstrap-utilities.rtl.css
+¦   ¦           ¦       ¦       bootstrap-utilities.rtl.css.map
+¦   ¦           ¦       ¦       bootstrap-utilities.rtl.min.css
+¦   ¦           ¦       ¦       bootstrap-utilities.rtl.min.css.map
+¦   ¦           ¦       ¦       bootstrap.css
+¦   ¦           ¦       ¦       bootstrap.css.map
+¦   ¦           ¦       ¦       bootstrap.min.css
+¦   ¦           ¦       ¦       bootstrap.min.css.map
+¦   ¦           ¦       ¦       bootstrap.rtl.css
+¦   ¦           ¦       ¦       bootstrap.rtl.css.map
+¦   ¦           ¦       ¦       bootstrap.rtl.min.css
+¦   ¦           ¦       ¦       bootstrap.rtl.min.css.map
+¦   ¦           ¦       ¦       
+¦   ¦           ¦       +---js
+¦   ¦           ¦               bootstrap.bundle.js
+¦   ¦           ¦               bootstrap.bundle.js.map
+¦   ¦           ¦               bootstrap.bundle.min.js
+¦   ¦           ¦               bootstrap.bundle.min.js.map
+¦   ¦           ¦               bootstrap.esm.js
+¦   ¦           ¦               bootstrap.esm.js.map
+¦   ¦           ¦               bootstrap.esm.min.js
+¦   ¦           ¦               bootstrap.esm.min.js.map
+¦   ¦           ¦               bootstrap.js
+¦   ¦           ¦               bootstrap.js.map
+¦   ¦           ¦               bootstrap.min.js
+¦   ¦           ¦               bootstrap.min.js.map
+¦   ¦           ¦               
+¦   ¦           +---jquery
+¦   ¦           ¦   ¦   LICENSE.txt
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---dist
+¦   ¦           ¦           jquery.js
+¦   ¦           ¦           jquery.min.js
+¦   ¦           ¦           jquery.min.map
+¦   ¦           ¦           
+¦   ¦           +---jquery-validation
+¦   ¦           ¦   ¦   LICENSE.md
+¦   ¦           ¦   ¦   
+¦   ¦           ¦   +---dist
+¦   ¦           ¦           additional-methods.js
+¦   ¦           ¦           additional-methods.min.js
+¦   ¦           ¦           jquery.validate.js
+¦   ¦           ¦           jquery.validate.min.js
+¦   ¦           ¦           
+¦   ¦           +---jquery-validation-unobtrusive
+¦   ¦                   jquery.validate.unobtrusive.js
+¦   ¦                   jquery.validate.unobtrusive.min.js
+¦   ¦                   LICENSE.txt
+¦   ¦                   
+¦   +---Scheduler
+¦           IRunNow.cs
+¦           launchSettings.json
+¦           LoadJob.cs
+¦           Lucent.Scheduler.csproj
+¦           Program.cs
+¦           RunNow.cs
+¦           SchedulerServiceCollectionExtensions.cs
+¦           
++---tests
+    +---Integration
+    +---Unit
+        ¦   Lucent.UnitTests.csproj
+        ¦   
+        +---Core
+        ¦       ExampleServiceTests.cs
+        ¦       
+        +---Infrastructure
+        ¦       TokenCacheEarlyExpiryTests.cs
+        ¦       
+        +---Loader
+                LoaderDiTests.cs
+                

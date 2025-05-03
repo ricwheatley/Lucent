@@ -1,0 +1,2748 @@
+Folder PATH listing for volume OS
+Volume serial number is BAD6-3C4B
+C:.
+¦   .gitignore
+¦   Directory.Packages.props
+¦   Lucent - Recovery and Road-to-Production Project Plan.docx
+¦   Lucent Forensic Audit Apr 2025.docx
+¦   Lucent.sln
+¦   Lucent_Forensic_Audit_Apr2025.pdf
+¦   lucent_structure.txt
+¦   
++---.github
+¦   +---workflows
+¦           ci-cd-pipeline.yml
+¦           
++---.vs
+¦   +---Lucent
+¦   ¦   +---CopilotIndices
+¦   ¦   ¦   +---17.13.444.19527
+¦   ¦   ¦           CodeChunks.db
+¦   ¦   ¦           SemanticSymbols.db
+¦   ¦   ¦           
+¦   ¦   +---DesignTimeBuild
+¦   ¦   ¦       .dtbcache.v2
+¦   ¦   ¦       
+¦   ¦   +---FileContentIndex
+¦   ¦   ¦       1795e9fb-280a-40b8-834d-678e392a973f.vsidx
+¦   ¦   ¦       6b19bfbc-16be-4411-b16e-3afa1157e416.vsidx
+¦   ¦   ¦       dd9b0483-cf40-46d5-9f19-bfff56d95059.vsidx
+¦   ¦   ¦       f4b26825-a075-4000-a642-b9703272f77b.vsidx
+¦   ¦   ¦       f6732bac-c38a-4443-847b-9d3f5c34845e.vsidx
+¦   ¦   ¦       
+¦   ¦   +---v17
+¦   ¦           .futdcache.v2
+¦   ¦           .suo
+¦   ¦           DocumentLayout.backup.json
+¦   ¦           DocumentLayout.json
+¦   ¦           HierarchyCache.v1.txt
+¦   ¦           
+¦   +---ProjectEvaluation
+¦           lucent.metadata.v9.bin
+¦           lucent.projects.v9.bin
+¦           lucent.strings.v9.bin
+¦           
++---config
+¦       appsettings.Development.json
+¦       appsettings.json
+¦       
++---Lucent.Api
+¦   ¦   Lucent.Api.csproj
+¦   ¦   Lucent.Api.http
+¦   ¦   Program.cs
+¦   ¦   RunRegistryAccessor.cs
+¦   ¦   RunRequest.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Lucent.Api.deps.json
+¦   ¦   ¦       ¦   Lucent.Api.dll
+¦   ¦   ¦       ¦   Lucent.Api.exe
+¦   ¦   ¦       ¦   Lucent.Api.pdb
+¦   ¦   ¦       ¦   Lucent.Api.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Api.staticwebassets.endpoints.json
+¦   ¦   ¦       ¦   Lucent.Auth.dll
+¦   ¦   ¦       ¦   Lucent.Auth.pdb
+¦   ¦   ¦       ¦   Lucent.Client.dll
+¦   ¦   ¦       ¦   Lucent.Client.pdb
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.deps.json
+¦   ¦   ¦       ¦   Lucent.Loader.dll
+¦   ¦   ¦       ¦   Lucent.Loader.exe
+¦   ¦   ¦       ¦   Lucent.Loader.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Resilience.dll
+¦   ¦   ¦       ¦   Lucent.Resilience.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.deps.json
+¦   ¦   ¦       ¦   Lucent.Scheduler.dll
+¦   ¦   ¦       ¦   Lucent.Scheduler.exe
+¦   ¦   ¦       ¦   Lucent.Scheduler.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦   ¦       ¦   Microsoft.AspNetCore.OpenApi.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.OpenApi.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦   ¦       ¦   Polly.Core.dll
+¦   ¦   ¦       ¦   Polly.dll
+¦   ¦   ¦       ¦   Polly.Extensions.Http.dll
+¦   ¦   ¦       ¦   Quartz.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   RestSharp.dll
+¦   ¦   ¦       ¦   Swashbuckle.AspNetCore.Swagger.dll
+¦   ¦   ¦       ¦   Swashbuckle.AspNetCore.SwaggerGen.dll
+¦   ¦   ¦       ¦   Swashbuckle.AspNetCore.SwaggerUI.dll
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Lucent.Api.deps.json
+¦   ¦           ¦   Lucent.Api.dll
+¦   ¦           ¦   Lucent.Api.exe
+¦   ¦           ¦   Lucent.Api.pdb
+¦   ¦           ¦   Lucent.Api.runtimeconfig.json
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Client.dll
+¦   ¦           ¦   Lucent.Client.pdb
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Lucent.Loader.deps.json
+¦   ¦           ¦   Lucent.Loader.dll
+¦   ¦           ¦   Lucent.Loader.exe
+¦   ¦           ¦   Lucent.Loader.pdb
+¦   ¦           ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦           ¦   Lucent.Resilience.dll
+¦   ¦           ¦   Lucent.Resilience.pdb
+¦   ¦           ¦   Lucent.Scheduler.deps.json
+¦   ¦           ¦   Lucent.Scheduler.dll
+¦   ¦           ¦   Lucent.Scheduler.exe
+¦   ¦           ¦   Lucent.Scheduler.pdb
+¦   ¦           ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦           ¦   Microsoft.AspNetCore.OpenApi.dll
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦           ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.OpenApi.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦           ¦   Polly.Core.dll
+¦   ¦           ¦   Polly.dll
+¦   ¦           ¦   Polly.Extensions.Http.dll
+¦   ¦           ¦   Quartz.dll
+¦   ¦           ¦   Quartz.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Quartz.Extensions.Hosting.dll
+¦   ¦           ¦   RestSharp.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.Swagger.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerGen.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerUI.dll
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦           ¦   System.Diagnostics.EventLog.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.IO.Pipelines.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Text.Encodings.Web.dll
+¦   ¦           ¦   System.Text.Json.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---browser
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---obj
+¦   ¦   ¦   Lucent.Api.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Api.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Api.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   apphost.exe
+¦   ¦   ¦       ¦   Lucent.Api.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Api.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Api.assets.cache
+¦   ¦   ¦       ¦   Lucent.Api.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Api.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Api.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Api.csproj.Up2Date
+¦   ¦   ¦       ¦   Lucent.Api.dll
+¦   ¦   ¦       ¦   Lucent.Api.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Api.genruntimeconfig.cache
+¦   ¦   ¦       ¦   Lucent.Api.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Api.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦   ¦       ¦   Lucent.Api.MvcApplicationPartsAssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Api.pdb
+¦   ¦   ¦       ¦   Lucent.Api.sourcelink.json
+¦   ¦   ¦       ¦   staticwebassets.build.endpoints.json
+¦   ¦   ¦       ¦   staticwebassets.build.json
+¦   ¦   ¦       ¦   staticwebassets.removed.txt
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Api.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦       ¦       Lucent.Api.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---staticwebassets
+¦   ¦   ¦               msbuild.build.Lucent.Api.props
+¦   ¦   ¦               msbuild.buildMultiTargeting.Lucent.Api.props
+¦   ¦   ¦               msbuild.buildTransitive.Lucent.Api.props
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   Lucent.Api.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Api.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Api.assets.cache
+¦   ¦           ¦   Lucent.Api.csproj.AssemblyReference.cache
+¦   ¦           ¦   Lucent.Api.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Api.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Api.csproj.Up2Date
+¦   ¦           ¦   Lucent.Api.dll
+¦   ¦           ¦   Lucent.Api.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Api.genruntimeconfig.cache
+¦   ¦           ¦   Lucent.Api.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Api.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦           ¦   Lucent.Api.MvcApplicationPartsAssemblyInfo.cs
+¦   ¦           ¦   Lucent.Api.pdb
+¦   ¦           ¦   Lucent.Api.sourcelink.json
+¦   ¦           ¦   staticwebassets.build.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Api.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦           ¦       Lucent.Api.dll
+¦   ¦           ¦       
+¦   ¦           +---staticwebassets
+¦   ¦                   msbuild.build.Lucent.Api.props
+¦   ¦                   msbuild.buildMultiTargeting.Lucent.Api.props
+¦   ¦                   msbuild.buildTransitive.Lucent.Api.props
+¦   ¦                   
+¦   +---Properties
+¦           launchSettings.json
+¦           
++---Lucent.Auth
+¦   ¦   Lucent.Auth.csproj
+¦   ¦   LucentAuth.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦           Lucent.Auth.deps.json
+¦   ¦   ¦           Lucent.Auth.dll
+¦   ¦   ¦           Lucent.Auth.pdb
+¦   ¦   ¦           Lucent.Core.dll
+¦   ¦   ¦           Lucent.Core.pdb
+¦   ¦   ¦           
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Auth.deps.json
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   Lucent.Auth.deps.json
+¦   ¦                   
+¦   +---obj
+¦   ¦   ¦   Lucent.Auth.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Auth.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Auth.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   Lucent.A.CF14487A.Up2Date
+¦   ¦   ¦       ¦   Lucent.Auth.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Auth.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Auth.assets.cache
+¦   ¦   ¦       ¦   Lucent.Auth.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Auth.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Auth.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Auth.dll
+¦   ¦   ¦       ¦   Lucent.Auth.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Auth.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Auth.pdb
+¦   ¦   ¦       ¦   Lucent.Auth.sourcelink.json
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Auth.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦               Lucent.Auth.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   Lucent.A.CF14487A.Up2Date
+¦   ¦           ¦   Lucent.Auth.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Auth.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Auth.assets.cache
+¦   ¦           ¦   Lucent.Auth.csproj.AssemblyReference.cache
+¦   ¦           ¦   Lucent.Auth.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Auth.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Auth.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Auth.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Auth.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   Lucent.Auth.dll
+¦   ¦                   
+¦   +---TokenCache
+¦           TokenCacheOptions.cs
+¦           
++---Lucent.Client
+¦   ¦   Lucent.Client.csproj
+¦   ¦   XeroApiClient.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦           Lucent.Auth.dll
+¦   ¦   ¦           Lucent.Auth.pdb
+¦   ¦   ¦           Lucent.Client.deps.json
+¦   ¦   ¦           Lucent.Client.dll
+¦   ¦   ¦           Lucent.Client.pdb
+¦   ¦   ¦           Lucent.Core.dll
+¦   ¦   ¦           Lucent.Core.pdb
+¦   ¦   ¦           
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Client.deps.json
+¦   ¦           ¦   Lucent.Client.dll
+¦   ¦           ¦   Lucent.Client.pdb
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   Lucent.Client.deps.json
+¦   ¦                   
+¦   +---obj
+¦       ¦   Lucent.Client.csproj.nuget.dgspec.json
+¦       ¦   Lucent.Client.csproj.nuget.g.props
+¦       ¦   Lucent.Client.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦       ¦   +---net8.0
+¦       ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦       ¦       ¦   Lucent.C.3DDADE42.Up2Date
+¦       ¦       ¦   Lucent.Client.AssemblyInfo.cs
+¦       ¦       ¦   Lucent.Client.AssemblyInfoInputs.cache
+¦       ¦       ¦   Lucent.Client.assets.cache
+¦       ¦       ¦   Lucent.Client.csproj.AssemblyReference.cache
+¦       ¦       ¦   Lucent.Client.csproj.CoreCompileInputs.cache
+¦       ¦       ¦   Lucent.Client.csproj.FileListAbsolute.txt
+¦       ¦       ¦   Lucent.Client.dll
+¦       ¦       ¦   Lucent.Client.GeneratedMSBuildEditorConfig.editorconfig
+¦       ¦       ¦   Lucent.Client.GlobalUsings.g.cs
+¦       ¦       ¦   Lucent.Client.pdb
+¦       ¦       ¦   Lucent.Client.sourcelink.json
+¦       ¦       ¦   
+¦       ¦       +---ref
+¦       ¦       ¦       Lucent.Client.dll
+¦       ¦       ¦       
+¦       ¦       +---refint
+¦       ¦               Lucent.Client.dll
+¦       ¦               
+¦       +---Release
+¦           +---net8.0
+¦               ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦               ¦   Lucent.C.3DDADE42.Up2Date
+¦               ¦   Lucent.Client.AssemblyInfo.cs
+¦               ¦   Lucent.Client.AssemblyInfoInputs.cache
+¦               ¦   Lucent.Client.assets.cache
+¦               ¦   Lucent.Client.csproj.AssemblyReference.cache
+¦               ¦   Lucent.Client.csproj.CoreCompileInputs.cache
+¦               ¦   Lucent.Client.csproj.FileListAbsolute.txt
+¦               ¦   Lucent.Client.dll
+¦               ¦   Lucent.Client.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   Lucent.Client.GlobalUsings.g.cs
+¦               ¦   Lucent.Client.pdb
+¦               ¦   Lucent.Client.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       Lucent.Client.dll
+¦               ¦       
+¦               +---refint
+¦                       Lucent.Client.dll
+¦                       
++---Lucent.Core
+¦   ¦   Lucent.Core.csproj
+¦   ¦   LucentDefaults.cs
+¦   ¦   ReportPeriodGenerator.cs
+¦   ¦   RunRegistry.cs
+¦   ¦   RunStatus.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦           Lucent.Core.deps.json
+¦   ¦   ¦           Lucent.Core.dll
+¦   ¦   ¦           Lucent.Core.pdb
+¦   ¦   ¦           
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Core.deps.json
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   Lucent.Core.deps.json
+¦   ¦                   
+¦   +---Loaders
+¦   ¦       ILucentLoader.cs
+¦   ¦       NoOpLucentLoader.cs
+¦   ¦       
+¦   +---Models
+¦   ¦       ExampleModel.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   Lucent.Core.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Core.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Core.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   Lucent.Core.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Core.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Core.assets.cache
+¦   ¦   ¦       ¦   Lucent.Core.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Core.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Core.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Core.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Core.sourcelink.json
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Core.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦               Lucent.Core.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   Lucent.Core.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Core.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Core.assets.cache
+¦   ¦           ¦   Lucent.Core.csproj.AssemblyReference.cache
+¦   ¦           ¦   Lucent.Core.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Core.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Core.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Lucent.Core.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Core.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   Lucent.Core.dll
+¦   ¦                   
+¦   +---Repositories
+¦   ¦       IExampleRepository.cs
+¦   ¦       
+¦   +---Scheduling
+¦   ¦       ITenantScheduleStore.cs
+¦   ¦       SqlTenantScheduleStore.cs
+¦   ¦       TenantSchedule.cs
+¦   ¦       
+¦   +---Services
+¦           ExampleService.cs
+¦           
++---Lucent.Loader
+¦   ¦   Lucent.Loader.csproj
+¦   ¦   LucentWorker.cs
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Lucent.Auth.dll
+¦   ¦   ¦       ¦   Lucent.Auth.pdb
+¦   ¦   ¦       ¦   Lucent.Client.dll
+¦   ¦   ¦       ¦   Lucent.Client.pdb
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.deps.json
+¦   ¦   ¦       ¦   Lucent.Loader.dll
+¦   ¦   ¦       ¦   Lucent.Loader.exe
+¦   ¦   ¦       ¦   Lucent.Loader.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Resilience.dll
+¦   ¦   ¦       ¦   Lucent.Resilience.pdb
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦   ¦       ¦   Polly.Core.dll
+¦   ¦   ¦       ¦   Polly.dll
+¦   ¦   ¦       ¦   Polly.Extensions.Http.dll
+¦   ¦   ¦       ¦   RestSharp.dll
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Client.dll
+¦   ¦           ¦   Lucent.Client.pdb
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Lucent.Loader.deps.json
+¦   ¦           ¦   Lucent.Loader.dll
+¦   ¦           ¦   Lucent.Loader.exe
+¦   ¦           ¦   Lucent.Loader.pdb
+¦   ¦           ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦           ¦   Lucent.Resilience.dll
+¦   ¦           ¦   Lucent.Resilience.pdb
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦           ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦           ¦   Polly.Core.dll
+¦   ¦           ¦   Polly.dll
+¦   ¦           ¦   Polly.Extensions.Http.dll
+¦   ¦           ¦   RestSharp.dll
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦           ¦   System.Diagnostics.EventLog.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.IO.Pipelines.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Text.Encodings.Web.dll
+¦   ¦           ¦   System.Text.Json.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---publish
+¦   ¦           ¦       Lucent.Loader.deps.json
+¦   ¦           ¦       Lucent.Loader.runtimeconfig.json
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---browser
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---obj
+¦   ¦   ¦   Lucent.Loader.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Loader.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Loader.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   apphost.exe
+¦   ¦   ¦       ¦   Lucent.L.24ED66C8.Up2Date
+¦   ¦   ¦       ¦   Lucent.Loader.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Loader.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Loader.assets.cache
+¦   ¦   ¦       ¦   Lucent.Loader.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Loader.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Loader.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Loader.dll
+¦   ¦   ¦       ¦   Lucent.Loader.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Loader.genruntimeconfig.cache
+¦   ¦   ¦       ¦   Lucent.Loader.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Loader.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.sourcelink.json
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Loader.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦               Lucent.Loader.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   Lucent.L.24ED66C8.Up2Date
+¦   ¦           ¦   Lucent.Loader.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Loader.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Loader.assets.cache
+¦   ¦           ¦   Lucent.Loader.csproj.AssemblyReference.cache
+¦   ¦           ¦   Lucent.Loader.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Loader.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Loader.dll
+¦   ¦           ¦   Lucent.Loader.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Loader.genruntimeconfig.cache
+¦   ¦           ¦   Lucent.Loader.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Loader.pdb
+¦   ¦           ¦   Lucent.Loader.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Loader.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   Lucent.Loader.dll
+¦   ¦                   
+¦   +---Properties
+¦           launchSettings.json
+¦           
++---Lucent.Onboard
+¦   ¦   Lucent.Onboard.csproj
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Onboard.deps.json
+¦   ¦   ¦       ¦   Lucent.Onboard.dll
+¦   ¦   ¦       ¦   Lucent.Onboard.exe
+¦   ¦   ¦       ¦   Lucent.Onboard.pdb
+¦   ¦   ¦       ¦   Lucent.Onboard.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Resilience.dll
+¦   ¦   ¦       ¦   Lucent.Resilience.pdb
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦   ¦       ¦   Polly.Core.dll
+¦   ¦   ¦       ¦   Polly.dll
+¦   ¦   ¦       ¦   Polly.Extensions.Http.dll
+¦   ¦   ¦       ¦   RestSharp.dll
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Lucent.Onboard.deps.json
+¦   ¦           ¦   Lucent.Onboard.dll
+¦   ¦           ¦   Lucent.Onboard.exe
+¦   ¦           ¦   Lucent.Onboard.pdb
+¦   ¦           ¦   Lucent.Onboard.runtimeconfig.json
+¦   ¦           ¦   Lucent.Resilience.dll
+¦   ¦           ¦   Lucent.Resilience.pdb
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦           ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦           ¦   Polly.Core.dll
+¦   ¦           ¦   Polly.dll
+¦   ¦           ¦   Polly.Extensions.Http.dll
+¦   ¦           ¦   RestSharp.dll
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦           ¦   System.Diagnostics.EventLog.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.IO.Pipelines.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Text.Encodings.Web.dll
+¦   ¦           ¦   System.Text.Json.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---publish
+¦   ¦           ¦       Lucent.Onboard.deps.json
+¦   ¦           ¦       Lucent.Onboard.runtimeconfig.json
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---browser
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---obj
+¦       ¦   Lucent.Onboard.csproj.nuget.dgspec.json
+¦       ¦   Lucent.Onboard.csproj.nuget.g.props
+¦       ¦   Lucent.Onboard.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦       ¦   +---net8.0
+¦       ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦       ¦       ¦   apphost.exe
+¦       ¦       ¦   Lucent.O.62A368C9.Up2Date
+¦       ¦       ¦   Lucent.Onboard.AssemblyInfo.cs
+¦       ¦       ¦   Lucent.Onboard.AssemblyInfoInputs.cache
+¦       ¦       ¦   Lucent.Onboard.assets.cache
+¦       ¦       ¦   Lucent.Onboard.csproj.AssemblyReference.cache
+¦       ¦       ¦   Lucent.Onboard.csproj.CoreCompileInputs.cache
+¦       ¦       ¦   Lucent.Onboard.csproj.FileListAbsolute.txt
+¦       ¦       ¦   Lucent.Onboard.dll
+¦       ¦       ¦   Lucent.Onboard.GeneratedMSBuildEditorConfig.editorconfig
+¦       ¦       ¦   Lucent.Onboard.genruntimeconfig.cache
+¦       ¦       ¦   Lucent.Onboard.GlobalUsings.g.cs
+¦       ¦       ¦   Lucent.Onboard.pdb
+¦       ¦       ¦   Lucent.Onboard.sourcelink.json
+¦       ¦       ¦   
+¦       ¦       +---ref
+¦       ¦       ¦       Lucent.Onboard.dll
+¦       ¦       ¦       
+¦       ¦       +---refint
+¦       ¦               Lucent.Onboard.dll
+¦       ¦               
+¦       +---Release
+¦           +---net8.0
+¦               ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦               ¦   apphost.exe
+¦               ¦   Lucent.O.62A368C9.Up2Date
+¦               ¦   Lucent.Onboard.AssemblyInfo.cs
+¦               ¦   Lucent.Onboard.AssemblyInfoInputs.cache
+¦               ¦   Lucent.Onboard.assets.cache
+¦               ¦   Lucent.Onboard.csproj.AssemblyReference.cache
+¦               ¦   Lucent.Onboard.csproj.CoreCompileInputs.cache
+¦               ¦   Lucent.Onboard.csproj.FileListAbsolute.txt
+¦               ¦   Lucent.Onboard.dll
+¦               ¦   Lucent.Onboard.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   Lucent.Onboard.genruntimeconfig.cache
+¦               ¦   Lucent.Onboard.GlobalUsings.g.cs
+¦               ¦   Lucent.Onboard.pdb
+¦               ¦   Lucent.Onboard.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       Lucent.Onboard.dll
+¦               ¦       
+¦               +---refint
+¦                       Lucent.Onboard.dll
+¦                       
++---Lucent.Resilience
+¦   ¦   Lucent.Resilience.csproj
+¦   ¦   ResilientHttpClientFactory.cs
+¦   ¦   RetryPolicies.cs
+¦   ¦   SqlRetryProvider.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦           Lucent.Core.dll
+¦   ¦   ¦           Lucent.Core.pdb
+¦   ¦   ¦           Lucent.Resilience.deps.json
+¦   ¦   ¦           Lucent.Resilience.dll
+¦   ¦   ¦           Lucent.Resilience.pdb
+¦   ¦   ¦           
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Resilience.deps.json
+¦   ¦           ¦   Lucent.Resilience.dll
+¦   ¦           ¦   Lucent.Resilience.pdb
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   Lucent.Resilience.deps.json
+¦   ¦                   
+¦   +---obj
+¦       ¦   Lucent.Resilience.csproj.nuget.dgspec.json
+¦       ¦   Lucent.Resilience.csproj.nuget.g.props
+¦       ¦   Lucent.Resilience.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦       ¦   +---net8.0
+¦       ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦       ¦       ¦   Lucent.R.D6B18C97.Up2Date
+¦       ¦       ¦   Lucent.Resilience.AssemblyInfo.cs
+¦       ¦       ¦   Lucent.Resilience.AssemblyInfoInputs.cache
+¦       ¦       ¦   Lucent.Resilience.assets.cache
+¦       ¦       ¦   Lucent.Resilience.csproj.AssemblyReference.cache
+¦       ¦       ¦   Lucent.Resilience.csproj.CoreCompileInputs.cache
+¦       ¦       ¦   Lucent.Resilience.csproj.FileListAbsolute.txt
+¦       ¦       ¦   Lucent.Resilience.dll
+¦       ¦       ¦   Lucent.Resilience.GeneratedMSBuildEditorConfig.editorconfig
+¦       ¦       ¦   Lucent.Resilience.GlobalUsings.g.cs
+¦       ¦       ¦   Lucent.Resilience.pdb
+¦       ¦       ¦   Lucent.Resilience.sourcelink.json
+¦       ¦       ¦   
+¦       ¦       +---ref
+¦       ¦       ¦       Lucent.Resilience.dll
+¦       ¦       ¦       
+¦       ¦       +---refint
+¦       ¦               Lucent.Resilience.dll
+¦       ¦               
+¦       +---Release
+¦           +---net8.0
+¦               ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦               ¦   Lucent.Resilience.AssemblyInfo.cs
+¦               ¦   Lucent.Resilience.AssemblyInfoInputs.cache
+¦               ¦   Lucent.Resilience.assets.cache
+¦               ¦   Lucent.Resilience.csproj.AssemblyReference.cache
+¦               ¦   Lucent.Resilience.csproj.CoreCompileInputs.cache
+¦               ¦   Lucent.Resilience.csproj.FileListAbsolute.txt
+¦               ¦   Lucent.Resilience.dll
+¦               ¦   Lucent.Resilience.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   Lucent.Resilience.GlobalUsings.g.cs
+¦               ¦   Lucent.Resilience.pdb
+¦               ¦   Lucent.Resilience.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       Lucent.Resilience.dll
+¦               ¦       
+¦               +---refint
+¦                       Lucent.Resilience.dll
+¦                       
++---Lucent.Runner
+¦   ¦   Lucent.Runner.csproj
+¦   ¦   Lucent.Runner.csproj.user
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦           Lucent.Runner.deps.json
+¦   ¦   ¦           Lucent.Runner.dll
+¦   ¦   ¦           Lucent.Runner.exe
+¦   ¦   ¦           Lucent.Runner.pdb
+¦   ¦   ¦           Lucent.Runner.runtimeconfig.json
+¦   ¦   ¦           Lucent.Runner.staticwebassets.endpoints.json
+¦   ¦   ¦           Lucent.Runner.staticwebassets.runtime.json
+¦   ¦   ¦           
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Runner.deps.json
+¦   ¦           ¦   Lucent.Runner.dll
+¦   ¦           ¦   Lucent.Runner.exe
+¦   ¦           ¦   Lucent.Runner.pdb
+¦   ¦           ¦   Lucent.Runner.runtimeconfig.json
+¦   ¦           ¦   Lucent.Runner.staticwebassets.runtime.json
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   Lucent.Runner.deps.json
+¦   ¦                   Lucent.Runner.runtimeconfig.json
+¦   ¦                   
+¦   +---obj
+¦   ¦   ¦   Lucent.Runner.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Runner.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Runner.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   ApiEndpoints.json
+¦   ¦   ¦       ¦   apphost.exe
+¦   ¦   ¦       ¦   Lucent.Runner.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Runner.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Runner.assets.cache
+¦   ¦   ¦       ¦   Lucent.Runner.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Runner.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Runner.dll
+¦   ¦   ¦       ¦   Lucent.Runner.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Runner.genruntimeconfig.cache
+¦   ¦   ¦       ¦   Lucent.Runner.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Runner.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦   ¦       ¦   Lucent.Runner.pdb
+¦   ¦   ¦       ¦   Lucent.Runner.RazorAssemblyInfo.cache
+¦   ¦   ¦       ¦   Lucent.Runner.RazorAssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Runner.sourcelink.json
+¦   ¦   ¦       ¦   staticwebassets.build.endpoints.json
+¦   ¦   ¦       ¦   staticwebassets.build.json
+¦   ¦   ¦       ¦   staticwebassets.development.json
+¦   ¦   ¦       ¦   staticwebassets.pack.json
+¦   ¦   ¦       ¦   staticwebassets.removed.txt
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Runner.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦       ¦       Lucent.Runner.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---scopedcss
+¦   ¦   ¦       ¦   +---bundle
+¦   ¦   ¦       ¦   ¦       Lucent.Runner.styles.css
+¦   ¦   ¦       ¦   ¦       
+¦   ¦   ¦       ¦   +---Pages
+¦   ¦   ¦       ¦   ¦   +---Shared
+¦   ¦   ¦       ¦   ¦           _Layout.cshtml.rz.scp.css
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---projectbundle
+¦   ¦   ¦       ¦           Lucent.Runner.bundle.scp.css
+¦   ¦   ¦       ¦           
+¦   ¦   ¦       +---staticwebassets
+¦   ¦   ¦               msbuild.build.Lucent.Runner.props
+¦   ¦   ¦               msbuild.buildMultiTargeting.Lucent.Runner.props
+¦   ¦   ¦               msbuild.buildTransitive.Lucent.Runner.props
+¦   ¦   ¦               msbuild.Lucent.Runner.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+¦   ¦   ¦               msbuild.Lucent.Runner.Microsoft.AspNetCore.StaticWebAssets.props
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   Lucent.Runner.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Runner.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Runner.assets.cache
+¦   ¦           ¦   Lucent.Runner.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Runner.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Runner.dll
+¦   ¦           ¦   Lucent.Runner.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Runner.genruntimeconfig.cache
+¦   ¦           ¦   Lucent.Runner.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Runner.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦           ¦   Lucent.Runner.pdb
+¦   ¦           ¦   Lucent.Runner.RazorAssemblyInfo.cache
+¦   ¦           ¦   Lucent.Runner.RazorAssemblyInfo.cs
+¦   ¦           ¦   Lucent.Runner.sourcelink.json
+¦   ¦           ¦   staticwebassets.build.json
+¦   ¦           ¦   staticwebassets.development.json
+¦   ¦           ¦   staticwebassets.pack.json
+¦   ¦           ¦   staticwebassets.publish.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Runner.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦           ¦       Lucent.Runner.dll
+¦   ¦           ¦       
+¦   ¦           +---scopedcss
+¦   ¦           ¦   +---bundle
+¦   ¦           ¦   ¦       Lucent.Runner.styles.css
+¦   ¦           ¦   ¦       
+¦   ¦           ¦   +---Pages
+¦   ¦           ¦   ¦   +---Shared
+¦   ¦           ¦   ¦           _Layout.cshtml.rz.scp.css
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---projectbundle
+¦   ¦           ¦           Lucent.Runner.bundle.scp.css
+¦   ¦           ¦           
+¦   ¦           +---staticwebassets
+¦   ¦                   msbuild.build.Lucent.Runner.props
+¦   ¦                   msbuild.buildMultiTargeting.Lucent.Runner.props
+¦   ¦                   msbuild.buildTransitive.Lucent.Runner.props
+¦   ¦                   msbuild.Lucent.Runner.Microsoft.AspNetCore.StaticWebAssets.props
+¦   ¦                   
+¦   +---Pages
+¦   ¦   ¦   Error.cshtml
+¦   ¦   ¦   Error.cshtml.cs
+¦   ¦   ¦   Index.cshtml
+¦   ¦   ¦   Index.cshtml.cs
+¦   ¦   ¦   Privacy.cshtml
+¦   ¦   ¦   Privacy.cshtml.cs
+¦   ¦   ¦   _ViewImports.cshtml
+¦   ¦   ¦   _ViewStart.cshtml
+¦   ¦   ¦   
+¦   ¦   +---Shared
+¦   ¦           _Layout.cshtml
+¦   ¦           _Layout.cshtml.css
+¦   ¦           _ValidationScriptsPartial.cshtml
+¦   ¦           
+¦   +---Properties
+¦   ¦       launchSettings.json
+¦   ¦       
+¦   +---wwwroot
+¦       ¦   favicon.ico
+¦       ¦   
+¦       +---css
+¦       ¦       site.css
+¦       ¦       styles.css
+¦       ¦       
+¦       +---js
+¦       ¦       site.js
+¦       ¦       
+¦       +---lib
+¦           +---bootstrap
+¦           ¦   ¦   LICENSE
+¦           ¦   ¦   
+¦           ¦   +---dist
+¦           ¦       +---css
+¦           ¦       ¦       bootstrap-grid.css
+¦           ¦       ¦       bootstrap-grid.css.map
+¦           ¦       ¦       bootstrap-grid.min.css
+¦           ¦       ¦       bootstrap-grid.min.css.map
+¦           ¦       ¦       bootstrap-grid.rtl.css
+¦           ¦       ¦       bootstrap-grid.rtl.css.map
+¦           ¦       ¦       bootstrap-grid.rtl.min.css
+¦           ¦       ¦       bootstrap-grid.rtl.min.css.map
+¦           ¦       ¦       bootstrap-reboot.css
+¦           ¦       ¦       bootstrap-reboot.css.map
+¦           ¦       ¦       bootstrap-reboot.min.css
+¦           ¦       ¦       bootstrap-reboot.min.css.map
+¦           ¦       ¦       bootstrap-reboot.rtl.css
+¦           ¦       ¦       bootstrap-reboot.rtl.css.map
+¦           ¦       ¦       bootstrap-reboot.rtl.min.css
+¦           ¦       ¦       bootstrap-reboot.rtl.min.css.map
+¦           ¦       ¦       bootstrap-utilities.css
+¦           ¦       ¦       bootstrap-utilities.css.map
+¦           ¦       ¦       bootstrap-utilities.min.css
+¦           ¦       ¦       bootstrap-utilities.min.css.map
+¦           ¦       ¦       bootstrap-utilities.rtl.css
+¦           ¦       ¦       bootstrap-utilities.rtl.css.map
+¦           ¦       ¦       bootstrap-utilities.rtl.min.css
+¦           ¦       ¦       bootstrap-utilities.rtl.min.css.map
+¦           ¦       ¦       bootstrap.css
+¦           ¦       ¦       bootstrap.css.map
+¦           ¦       ¦       bootstrap.min.css
+¦           ¦       ¦       bootstrap.min.css.map
+¦           ¦       ¦       bootstrap.rtl.css
+¦           ¦       ¦       bootstrap.rtl.css.map
+¦           ¦       ¦       bootstrap.rtl.min.css
+¦           ¦       ¦       bootstrap.rtl.min.css.map
+¦           ¦       ¦       
+¦           ¦       +---js
+¦           ¦               bootstrap.bundle.js
+¦           ¦               bootstrap.bundle.js.map
+¦           ¦               bootstrap.bundle.min.js
+¦           ¦               bootstrap.bundle.min.js.map
+¦           ¦               bootstrap.esm.js
+¦           ¦               bootstrap.esm.js.map
+¦           ¦               bootstrap.esm.min.js
+¦           ¦               bootstrap.esm.min.js.map
+¦           ¦               bootstrap.js
+¦           ¦               bootstrap.js.map
+¦           ¦               bootstrap.min.js
+¦           ¦               bootstrap.min.js.map
+¦           ¦               
+¦           +---jquery
+¦           ¦   ¦   LICENSE.txt
+¦           ¦   ¦   
+¦           ¦   +---dist
+¦           ¦           jquery.js
+¦           ¦           jquery.min.js
+¦           ¦           jquery.min.map
+¦           ¦           
+¦           +---jquery-validation
+¦           ¦   ¦   LICENSE.md
+¦           ¦   ¦   
+¦           ¦   +---dist
+¦           ¦           additional-methods.js
+¦           ¦           additional-methods.min.js
+¦           ¦           jquery.validate.js
+¦           ¦           jquery.validate.min.js
+¦           ¦           
+¦           +---jquery-validation-unobtrusive
+¦                   jquery.validate.unobtrusive.js
+¦                   jquery.validate.unobtrusive.min.js
+¦                   LICENSE.txt
+¦                   
++---Lucent.Scheduler
+¦   ¦   IRunNow.cs
+¦   ¦   LoadJob.cs
+¦   ¦   Lucent.Scheduler.csproj
+¦   ¦   Program.cs
+¦   ¦   RunNow.cs
+¦   ¦   SchedulerServiceCollectionExtensions.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Lucent.Auth.dll
+¦   ¦   ¦       ¦   Lucent.Auth.pdb
+¦   ¦   ¦       ¦   Lucent.Client.dll
+¦   ¦   ¦       ¦   Lucent.Client.pdb
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.deps.json
+¦   ¦   ¦       ¦   Lucent.Loader.dll
+¦   ¦   ¦       ¦   Lucent.Loader.exe
+¦   ¦   ¦       ¦   Lucent.Loader.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Resilience.dll
+¦   ¦   ¦       ¦   Lucent.Resilience.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.deps.json
+¦   ¦   ¦       ¦   Lucent.Scheduler.dll
+¦   ¦   ¦       ¦   Lucent.Scheduler.exe
+¦   ¦   ¦       ¦   Lucent.Scheduler.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦   ¦       ¦   Polly.Core.dll
+¦   ¦   ¦       ¦   Polly.dll
+¦   ¦   ¦       ¦   Polly.Extensions.Http.dll
+¦   ¦   ¦       ¦   Quartz.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   RestSharp.dll
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Lucent.Auth.dll
+¦   ¦           ¦   Lucent.Auth.pdb
+¦   ¦           ¦   Lucent.Client.dll
+¦   ¦           ¦   Lucent.Client.pdb
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Lucent.Loader.deps.json
+¦   ¦           ¦   Lucent.Loader.dll
+¦   ¦           ¦   Lucent.Loader.exe
+¦   ¦           ¦   Lucent.Loader.pdb
+¦   ¦           ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦           ¦   Lucent.Resilience.dll
+¦   ¦           ¦   Lucent.Resilience.pdb
+¦   ¦           ¦   Lucent.Scheduler.deps.json
+¦   ¦           ¦   Lucent.Scheduler.dll
+¦   ¦           ¦   Lucent.Scheduler.exe
+¦   ¦           ¦   Lucent.Scheduler.pdb
+¦   ¦           ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦           ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.dll
+¦   ¦           ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦           ¦   Polly.Core.dll
+¦   ¦           ¦   Polly.dll
+¦   ¦           ¦   Polly.Extensions.Http.dll
+¦   ¦           ¦   Quartz.dll
+¦   ¦           ¦   Quartz.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Quartz.Extensions.Hosting.dll
+¦   ¦           ¦   RestSharp.dll
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦           ¦   System.Diagnostics.EventLog.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.IO.Pipelines.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Text.Encodings.Web.dll
+¦   ¦           ¦   System.Text.Json.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---browser
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---obj
+¦   ¦   ¦   Lucent.Scheduler.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Scheduler.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Scheduler.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   apphost.exe
+¦   ¦   ¦       ¦   Lucent.S.C9B39C26.Up2Date
+¦   ¦   ¦       ¦   Lucent.Scheduler.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Scheduler.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Scheduler.assets.cache
+¦   ¦   ¦       ¦   Lucent.Scheduler.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Scheduler.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Scheduler.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Scheduler.dll
+¦   ¦   ¦       ¦   Lucent.Scheduler.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Scheduler.genruntimeconfig.cache
+¦   ¦   ¦       ¦   Lucent.Scheduler.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Scheduler.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.sourcelink.json
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Scheduler.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦               Lucent.Scheduler.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   Lucent.S.C9B39C26.Up2Date
+¦   ¦           ¦   Lucent.Scheduler.AssemblyInfo.cs
+¦   ¦           ¦   Lucent.Scheduler.AssemblyInfoInputs.cache
+¦   ¦           ¦   Lucent.Scheduler.assets.cache
+¦   ¦           ¦   Lucent.Scheduler.csproj.AssemblyReference.cache
+¦   ¦           ¦   Lucent.Scheduler.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   Lucent.Scheduler.csproj.FileListAbsolute.txt
+¦   ¦           ¦   Lucent.Scheduler.dll
+¦   ¦           ¦   Lucent.Scheduler.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   Lucent.Scheduler.genruntimeconfig.cache
+¦   ¦           ¦   Lucent.Scheduler.GlobalUsings.g.cs
+¦   ¦           ¦   Lucent.Scheduler.pdb
+¦   ¦           ¦   Lucent.Scheduler.sourcelink.json
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       Lucent.Scheduler.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   Lucent.Scheduler.dll
+¦   ¦                   
+¦   +---Properties
+¦           launchSettings.json
+¦           
++---Lucent.Tests
+¦   ¦   Lucent.Tests.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Castle.Core.dll
+¦   ¦   ¦       ¦   CoverletSourceRootsMapping_Lucent.Tests
+¦   ¦   ¦       ¦   FluentAssertions.dll
+¦   ¦   ¦       ¦   Lucent.Auth.dll
+¦   ¦   ¦       ¦   Lucent.Auth.pdb
+¦   ¦   ¦       ¦   Lucent.Client.dll
+¦   ¦   ¦       ¦   Lucent.Client.pdb
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.deps.json
+¦   ¦   ¦       ¦   Lucent.Loader.dll
+¦   ¦   ¦       ¦   Lucent.Loader.exe
+¦   ¦   ¦       ¦   Lucent.Loader.pdb
+¦   ¦   ¦       ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Resilience.dll
+¦   ¦   ¦       ¦   Lucent.Resilience.pdb
+¦   ¦   ¦       ¦   Lucent.Runner.deps.json
+¦   ¦   ¦       ¦   Lucent.Runner.dll
+¦   ¦   ¦       ¦   Lucent.Runner.exe
+¦   ¦   ¦       ¦   Lucent.Runner.pdb
+¦   ¦   ¦       ¦   Lucent.Runner.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Runner.staticwebassets.endpoints.json
+¦   ¦   ¦       ¦   Lucent.Runner.staticwebassets.runtime.json
+¦   ¦   ¦       ¦   Lucent.Scheduler.deps.json
+¦   ¦   ¦       ¦   Lucent.Scheduler.dll
+¦   ¦   ¦       ¦   Lucent.Scheduler.exe
+¦   ¦   ¦       ¦   Lucent.Scheduler.pdb
+¦   ¦   ¦       ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦   ¦       ¦   Lucent.Tests.deps.json
+¦   ¦   ¦       ¦   Lucent.Tests.dll
+¦   ¦   ¦       ¦   Lucent.Tests.pdb
+¦   ¦   ¦       ¦   Lucent.Tests.runtimeconfig.json
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Http.Polly.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Microsoft.TestPlatform.CommunicationUtilities.dll
+¦   ¦   ¦       ¦   Microsoft.TestPlatform.CoreUtilities.dll
+¦   ¦   ¦       ¦   Microsoft.TestPlatform.CrossPlatEngine.dll
+¦   ¦   ¦       ¦   Microsoft.TestPlatform.PlatformAbstractions.dll
+¦   ¦   ¦       ¦   Microsoft.TestPlatform.Utilities.dll
+¦   ¦   ¦       ¦   Microsoft.VisualStudio.CodeCoverage.Shim.dll
+¦   ¦   ¦       ¦   Microsoft.VisualStudio.TestPlatform.Common.dll
+¦   ¦   ¦       ¦   Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
+¦   ¦   ¦       ¦   Moq.dll
+¦   ¦   ¦       ¦   Newtonsoft.Json.dll
+¦   ¦   ¦       ¦   Polly.Contrib.WaitAndRetry.dll
+¦   ¦   ¦       ¦   Polly.Core.dll
+¦   ¦   ¦       ¦   Polly.dll
+¦   ¦   ¦       ¦   Polly.Extensions.Http.dll
+¦   ¦   ¦       ¦   Quartz.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Quartz.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   RestSharp.dll
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   testhost.dll
+¦   ¦   ¦       ¦   testhost.exe
+¦   ¦   ¦       ¦   xunit.abstractions.dll
+¦   ¦   ¦       ¦   xunit.assert.dll
+¦   ¦   ¦       ¦   xunit.core.dll
+¦   ¦   ¦       ¦   xunit.execution.dotnet.dll
+¦   ¦   ¦       ¦   xunit.runner.reporters.netcoreapp10.dll
+¦   ¦   ¦       ¦   xunit.runner.utility.netcoreapp10.dll
+¦   ¦   ¦       ¦   xunit.runner.visualstudio.testadapter.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦       ¦       Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦       ¦       Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               Microsoft.TestPlatform.CommunicationUtilities.resources.dll
+¦   ¦   ¦               Microsoft.TestPlatform.CoreUtilities.resources.dll
+¦   ¦   ¦               Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+¦   ¦   ¦               Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+¦   ¦   ¦               Microsoft.VisualStudio.TestPlatform.ObjectModel.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Lucent.Loader.deps.json
+¦   ¦           ¦   Lucent.Loader.runtimeconfig.json
+¦   ¦           ¦   Lucent.Runner.deps.json
+¦   ¦           ¦   Lucent.Runner.runtimeconfig.json
+¦   ¦           ¦   Lucent.Runner.staticwebassets.runtime.json
+¦   ¦           ¦   Lucent.Scheduler.deps.json
+¦   ¦           ¦   Lucent.Scheduler.runtimeconfig.json
+¦   ¦           ¦   Lucent.Tests.deps.json
+¦   ¦           ¦   Lucent.Tests.runtimeconfig.json
+¦   ¦           ¦   
+¦   ¦           +---publish
+¦   ¦                   coverlet.collector.deps.json
+¦   ¦                   
+¦   +---Infrastructure
+¦   ¦       LoaderDiTests.cs
+¦   ¦       TokenCacheEarlyExpiryTests.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   Lucent.Tests.csproj.nuget.dgspec.json
+¦   ¦   ¦   Lucent.Tests.csproj.nuget.g.props
+¦   ¦   ¦   Lucent.Tests.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦   ¦   ¦       ¦   Lucent.T.5A820F5B.Up2Date
+¦   ¦   ¦       ¦   Lucent.Tests.AssemblyInfo.cs
+¦   ¦   ¦       ¦   Lucent.Tests.AssemblyInfoInputs.cache
+¦   ¦   ¦       ¦   Lucent.Tests.assets.cache
+¦   ¦   ¦       ¦   Lucent.Tests.csproj.AssemblyReference.cache
+¦   ¦   ¦       ¦   Lucent.Tests.csproj.CoreCompileInputs.cache
+¦   ¦   ¦       ¦   Lucent.Tests.csproj.FileListAbsolute.txt
+¦   ¦   ¦       ¦   Lucent.Tests.dll
+¦   ¦   ¦       ¦   Lucent.Tests.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦   ¦       ¦   Lucent.Tests.genruntimeconfig.cache
+¦   ¦   ¦       ¦   Lucent.Tests.GlobalUsings.g.cs
+¦   ¦   ¦       ¦   Lucent.Tests.pdb
+¦   ¦   ¦       ¦   Lucent.Tests.sourcelink.json
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---ref
+¦   ¦   ¦       ¦       Lucent.Tests.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---refint
+¦   ¦   ¦               Lucent.Tests.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦               Lucent.Tests.deps.json
+¦   ¦               Lucent.Tests.sourcelink.json
+¦   ¦               
+¦   +---UnitTests
+¦       +---Core
+¦               ExampleServiceTests.cs
+¦               
++---Playground
+¦   ¦   Playground.csproj
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦   ¦   +---net8.0
+¦   ¦   ¦       ¦   Azure.Core.dll
+¦   ¦   ¦       ¦   Azure.Identity.dll
+¦   ¦   ¦       ¦   Lucent.Core.dll
+¦   ¦   ¦       ¦   Lucent.Core.pdb
+¦   ¦   ¦       ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦   ¦       ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦   ¦       ¦   Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Options.dll
+¦   ¦   ¦       ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.dll
+¦   ¦   ¦       ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦   ¦       ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦   ¦       ¦   Microsoft.SqlServer.Server.dll
+¦   ¦   ¦       ¦   Playground.deps.json
+¦   ¦   ¦       ¦   Playground.dll
+¦   ¦   ¦       ¦   Playground.exe
+¦   ¦   ¦       ¦   Playground.pdb
+¦   ¦   ¦       ¦   Playground.runtimeconfig.json
+¦   ¦   ¦       ¦   System.ClientModel.dll
+¦   ¦   ¦       ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦   ¦       ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦   ¦       ¦   System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦   ¦       ¦   System.IO.Pipelines.dll
+¦   ¦   ¦       ¦   System.Memory.Data.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦   ¦       ¦   System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   System.Text.Json.dll
+¦   ¦   ¦       ¦   
+¦   ¦   ¦       +---cs
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---de
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---es
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---fr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---it
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ja
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ko
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pl
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---pt-BR
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---ru
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---runtimes
+¦   ¦   ¦       ¦   +---browser
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---unix
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win
+¦   ¦   ¦       ¦   ¦   +---lib
+¦   ¦   ¦       ¦   ¦       +---net8.0
+¦   ¦   ¦       ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦   ¦       ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦   ¦       ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦   ¦       ¦   ¦               
+¦   ¦   ¦       ¦   +---win-arm64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x64
+¦   ¦   ¦       ¦   ¦   +---native
+¦   ¦   ¦       ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦   ¦           
+¦   ¦   ¦       ¦   +---win-x86
+¦   ¦   ¦       ¦       +---native
+¦   ¦   ¦       ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦   ¦       ¦               
+¦   ¦   ¦       +---tr
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hans
+¦   ¦   ¦       ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦       ¦       
+¦   ¦   ¦       +---zh-Hant
+¦   ¦   ¦               Microsoft.Data.SqlClient.resources.dll
+¦   ¦   ¦               
+¦   ¦   +---Release
+¦   ¦       +---net8.0
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Lucent.Core.dll
+¦   ¦           ¦   Lucent.Core.pdb
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Bcl.Cryptography.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Binder.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.CommandLine.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.EnvironmentVariables.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.FileExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Json.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.UserSecrets.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Diagnostics.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.FileProviders.Physical.dll
+¦   ¦           ¦   Microsoft.Extensions.FileSystemGlobbing.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Hosting.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Configuration.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Console.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Debug.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventLog.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.EventSource.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.ConfigurationExtensions.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Playground.deps.json
+¦   ¦           ¦   Playground.dll
+¦   ¦           ¦   Playground.exe
+¦   ¦           ¦   Playground.pdb
+¦   ¦           ¦   Playground.runtimeconfig.json
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Diagnostics.DiagnosticSource.dll
+¦   ¦           ¦   System.Diagnostics.EventLog.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.IO.Pipelines.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Text.Encodings.Web.dll
+¦   ¦           ¦   System.Text.Json.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---browser
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               System.Text.Encodings.Web.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net8.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.dll
+¦   ¦           ¦   ¦               System.Diagnostics.EventLog.Messages.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.Pkcs.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.Data.SqlClient.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.Data.SqlClient.resources.dll
+¦   ¦                   
+¦   +---obj
+¦       ¦   Playground.csproj.nuget.dgspec.json
+¦       ¦   Playground.csproj.nuget.g.props
+¦       ¦   Playground.csproj.nuget.g.targets
+¦       ¦   project.assets.json
+¦       ¦   project.nuget.cache
+¦       ¦   
+¦       +---Debug
+¦       ¦   +---net8.0
+¦       ¦       ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦       ¦       ¦   apphost.exe
+¦       ¦       ¦   Playground.AssemblyInfo.cs
+¦       ¦       ¦   Playground.AssemblyInfoInputs.cache
+¦       ¦       ¦   Playground.assets.cache
+¦       ¦       ¦   Playground.csproj.AssemblyReference.cache
+¦       ¦       ¦   Playground.csproj.CoreCompileInputs.cache
+¦       ¦       ¦   Playground.csproj.FileListAbsolute.txt
+¦       ¦       ¦   Playground.csproj.Up2Date
+¦       ¦       ¦   Playground.dll
+¦       ¦       ¦   Playground.GeneratedMSBuildEditorConfig.editorconfig
+¦       ¦       ¦   Playground.genruntimeconfig.cache
+¦       ¦       ¦   Playground.GlobalUsings.g.cs
+¦       ¦       ¦   Playground.pdb
+¦       ¦       ¦   Playground.sourcelink.json
+¦       ¦       ¦   
+¦       ¦       +---ref
+¦       ¦       ¦       Playground.dll
+¦       ¦       ¦       
+¦       ¦       +---refint
+¦       ¦               Playground.dll
+¦       ¦               
+¦       +---Release
+¦           +---net8.0
+¦               ¦   .NETCoreApp,Version=v8.0.AssemblyAttributes.cs
+¦               ¦   apphost.exe
+¦               ¦   Playground.AssemblyInfo.cs
+¦               ¦   Playground.AssemblyInfoInputs.cache
+¦               ¦   Playground.assets.cache
+¦               ¦   Playground.csproj.AssemblyReference.cache
+¦               ¦   Playground.csproj.CoreCompileInputs.cache
+¦               ¦   Playground.csproj.FileListAbsolute.txt
+¦               ¦   Playground.csproj.Up2Date
+¦               ¦   Playground.dll
+¦               ¦   Playground.GeneratedMSBuildEditorConfig.editorconfig
+¦               ¦   Playground.genruntimeconfig.cache
+¦               ¦   Playground.GlobalUsings.g.cs
+¦               ¦   Playground.pdb
+¦               ¦   Playground.sourcelink.json
+¦               ¦   
+¦               +---ref
+¦               ¦       Playground.dll
+¦               ¦       
+¦               +---refint
+¦                       Playground.dll
+¦                       
++---src
